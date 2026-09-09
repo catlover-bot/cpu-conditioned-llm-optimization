@@ -1,0 +1,16 @@
+{
+  "sizes": [128, 256],
+  "input_seed": 17,
+  "trials_per_condition": 5,
+  "order_seed": 2026003,
+  "target": {
+    "destination": "local_same_host",
+    "compiler_mode": "preserve_source_run",
+    "measurement_cpu": null
+  },
+  "cpu_context": {
+    "source": "source_run_observation"
+  },
+  "near_tie_fraction": 0.03,
+  "size_rationale": "Two preregistered development sizes; this task was seen during development and is not held out."
+}

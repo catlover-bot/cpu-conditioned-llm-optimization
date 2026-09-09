@@ -26,8 +26,51 @@ def main(argv=None):
     diagnose.add_argument("--cpu", type=int)
     verify = commands.add_parser("check-artifacts", help="verify a saved run's SHA-256 manifest")
     verify.add_argument("run", type=Path)
+    pilot = commands.add_parser("pilot", help="manual blind candidate-selection pilot; no LLM API calls")
+    pilot_commands = pilot.add_subparsers(dest="pilot_command", required=True)
+    prepare = pilot_commands.add_parser("prepare", help="freeze a protocol and export 20 blind requests")
+    prepare.add_argument("--source-run", type=Path, required=True)
+    prepare.add_argument("--output", type=Path, default=Path("runs/goal003"))
+    prepare.add_argument("--config", type=Path)
+    prepare.add_argument("--cohort", choices=("real", "synthetic"), default="real")
+    collect = pilot_commands.add_parser("import", help="store one raw response as a new immutable attempt")
+    collect.add_argument("pilot", type=Path)
+    collect.add_argument("--request-key", required=True)
+    collect.add_argument("--response", type=Path, required=True)
+    collect.add_argument("--metadata", type=Path, required=True)
+    for name, help_text in (("freeze", "close response collection before independent measurement"),
+                            ("score", "run a fresh shared diagnostic and score frozen answers"),
+                            ("status", "count real/synthetic, invalid, and missing responses"),
+                            ("check", "audit protocol, attempts, freeze, measurement, and policy reports"),
+                            ("synthetic", "fill only a synthetic cohort with plumbing fixtures")):
+        pilot_commands.add_parser(name, help=help_text).add_argument("pilot", type=Path)
     args = parser.parse_args(argv)
     try:
+        if args.command == "pilot":
+            from .selection import (prepare_pilot, read_json, import_answer, freeze_answers,
+                                    score_pilot, pilot_status, check_pilot, synthetic_answers)
+            if args.pilot_command == "prepare":
+                config = read_json(args.config) if args.config else None
+                directory, status = prepare_pilot(args.output, args.source_run, config=config, cohort=args.cohort)
+                result = {"pilot_directory": str(directory), **status}
+            elif args.pilot_command == "import":
+                imported = import_answer(args.pilot, args.request_key, args.response, args.metadata)
+                result = {"attempt": {key: imported["attempt"][key] for key in
+                                      ("request_key", "attempt_id", "status", "invalid_reason", "primary_attempt")},
+                          "pilot": imported["pilot"]}
+            else:
+                action = {"freeze": freeze_answers, "score": score_pilot, "status": pilot_status,
+                          "check": check_pilot, "synthetic": synthetic_answers}[args.pilot_command]
+                result = action(args.pilot)
+                if args.pilot_command == "freeze":
+                    result = {"freeze_path": str(args.pilot / "freeze.json"), **{key: result[key] for key in
+                              ("cohort", "protocol_sha256", "frozen_utc", "counts")}}
+                elif args.pilot_command == "score":
+                    result = {"pilot": result["pilot"], "score_path": str(args.pilot / "score.json"),
+                              "measurement_directory": result["score"]["measurement_directory"],
+                              "reports": result["score"]["reports"], "independent_measurement_runs": 1}
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+            return 1 if result.get("passed") is False else 0
         if args.command == "doctor":
             report = doctor()
             print(json.dumps(report, indent=2, ensure_ascii=False))

@@ -147,3 +147,31 @@ cat "$run_dir/report.md"
 none/specは共通payloadを共有し、追加CPU説明だけを変えます。`--spec-file configs/example-cpu-spec.txt` で明示できます。
 この選択課題は将来の自由なCコード最適化を置き換えず、LLMへ送信もしません。
 詳しい解釈と再現性の範囲は [診断実験の説明](docs/controlled-diagnostics.md) を参照してください。
+
+## Goal 003: ブラインドな候補選択pilot
+
+固定した5候補から選ぶ20件の課題をnone/specで書き出し、手動の生回答を取り込み、
+回答を固定した後の新しいconfirmationで採点できます。有料APIは呼びません。
+実装担当者・この会話の履歴を引き継ぐエージェントは評価回答を作りません。
+
+```bash
+python -m cpucond pilot prepare \
+  --source-run runs/goal002/20260909T165623.261899Z-ee785286 \
+  --config configs/selection-pilot.json --output runs/goal003
+pilot_dir=$(find runs/goal003/real -mindepth 1 -maxdepth 1 -type d | sort | tail -n 1)
+python -m cpucond pilot status "$pilot_dir"
+python -m cpucond pilot check "$pilot_dir"
+```
+
+出力直後は `software_ready=true` / `awaiting_real_responses` です。
+最初の2プロンプトは `requests/n128-t01-none/prompt.txt` と `requests/n128-t01-spec/prompt.txt`。
+各promptだけを、測定結果を見ていない別々の新規セッションへ渡し、ツールを使わず回答を取得します。
+元レポート・この会話・他の回答は渡さないでください。
+
+回答形式、保存先、metadata雛形、各import引数は固定protocol内にあります。
+原回答は上書きせず、主採点には最初のattemptを使います。無効・未回答も母数に残します。
+20回答は同じ新規測定表を共有し、独立した性能測定20回とは数えません。
+syntheticの確認用コホートは別ディレクトリに保存し、実LLM結果と集計を分けます。
+
+具体的な [回答保存・import・freeze・採点手順](docs/selection-pilot.md) とsynthetic実行手順を参照してください。
+このpilotは既知の診断課題であり、CPU間適応や自由なCコード最適化の有効性はまだ評価していません。

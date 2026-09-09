@@ -99,3 +99,51 @@ python -m cpucond smoke --output runs/goal001 --spec-file configs/example-cpu-sp
 任意の外部候補コードを安全に実行する隔離環境は提供していません。CLIが評価する対象は同梱の手書きfixtureです。
 
 研究の比較計画と未実装部分は [研究設計](docs/research-design.md)、旧資産の根拠と未確認部分は [旧資産監査](docs/legacy-audit.md) を参照してください。
+
+## Goal 002: 既知の変換の診断
+
+Goal 001の基盤はコミット `e0e131cf0d9988d3e60acc5377ed9a94c850ebe2` に保存しました。
+再レビューでは、検証ゲート、CPU提示とビルドの独立性、タイマー範囲、実行・分析する関数の対応、結果利用に修正が必要な問題はありませんでした。
+
+同じ `gemm_smoke` に、独立した出力列の展開率1・2・4・8・16を変える決定的ジェネレータを追加しました。
+参照実装、identity、誤りcontrolを含めて8候補です。系列の共通基準は `unroll_1`、時間の比較基準は `reference` です。
+系列内では展開率だけを変え、各出力のk方向の積和順序・端数処理を維持します。展開率1への共通構造変更と、展開率を増やす変更を記録で区別します。
+
+```bash
+python -m cpucond diagnose --output runs/goal002 --config configs/controlled-diagnostics.json
+run_dir=$(find runs/goal002 -mindepth 1 -maxdepth 1 -type d | sort | tail -n 1)
+python -m cpucond check-artifacts "$run_dir"
+cat "$run_dir/report.md"
+```
+
+実行前に候補manifestと品質基準を固定します。境界11サイズ × 3 seedsと計測用2条件の計35条件で、全要素をビット比較します。
+計測はサイズ128・256、seed17で、各フェーズ・候補・条件につき2ウォームアップペアと8本計測ペアです。
+候補順は保存したseedで入れ替え、同じホストで直列に実行します。explorationとconfirmationは同じコード・条件で別プロセスを起動し、生データも集計も分けます。
+各実行前にバイナリのハッシュを照合し、後から差し替わったコードを計測しません。
+
+主な追加成果物は以下です。
+
+| 保存先（run内） | 内容 |
+| --- | --- |
+| `candidate-manifest.json`, `config.json` | 固定候補、生成元・ソースハッシュ、共通基準、検証・計測条件、品質基準 |
+| `measurement-freeze.json` | 両フェーズで使うバイナリ・検証記録とmanifestのハッシュ |
+| `candidates/<id>/analysis.json` | 実行ファイルからの対象関数抽出範囲、方法、外部依存、利用不能理由 |
+| `candidates/<id>/kernel.bytes`, `kernel.disasm`, `program.disasm` | 対象範囲の生バイト、対象関数・実行ファイル全体の逆アセンブル |
+| `candidates/<id>/kernel.opt.yaml`, `optimization.json` | Clangの最適化レポート原本とPassed／Missed／Analysisの証拠付き索引 |
+| `phases/exploration/`, `phases/confirmation/` | 候補順、ペア順、各計測値、中央値・IQR・ペア速度比 |
+| `process-ledger.json`, `operations.json` | 失敗・検証・ウォームアップ・再測定を含む呼出し数と所要時間 |
+| `report.json`, `report.csv`, `report.md` | 候補ごとの検証・実行コード比較・両フェーズの計測・品質警告 |
+| `prompts/common_payload.json`, `none.txt`, `spec.txt`, `cpu_spec.txt` | オフラインの選択課題。全ファイルは `prompts/` 内に保存 |
+
+分析には追加でLLVMの `llvm-readobj` が必要です。Clangの最適化レポートは実際のカーネルオブジェクトのコンパイル時に取得します。
+コード比較は実際に計測するELF x86-64実行ファイル中の `kernel` 範囲だけを対象とします。
+一致・相違・比較不能を区別し、未対応形式や抽出失敗は理由付きの `analysis_unavailable` にします。
+即値・メモリオフセット・分岐を削除して一致させません。関数外の依存全体の一致や、意図した展開の残存は証明していません。
+
+品質基準は計測前の設定ファイルにあります。時間が短い、IQRが大きい、フェーズ間の順位が変わる、僅差である場合を警告します。
+警告のないことも、統計的有意性や真の最適候補を証明しません。高速化やコード差の有無は実験基盤の合格条件ではありません。
+
+オフライン課題の選択肢は生成した5候補だけで、control名・検証結果・性能値・順位を含めません。
+none/specは共通payloadを共有し、追加CPU説明だけを変えます。`--spec-file configs/example-cpu-spec.txt` で明示できます。
+この選択課題は将来の自由なCコード最適化を置き換えず、LLMへ送信もしません。
+詳しい解釈と再現性の範囲は [診断実験の説明](docs/controlled-diagnostics.md) を参照してください。

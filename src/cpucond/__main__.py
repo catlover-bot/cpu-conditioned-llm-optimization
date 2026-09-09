@@ -18,6 +18,12 @@ def main(argv=None):
     smoke.add_argument("--repeats", type=int, default=6)
     smoke.add_argument("--warmups", type=int, default=2)
     smoke.add_argument("--cpu", type=int)
+    diagnose = commands.add_parser("diagnose", help="compare deterministic C unroll factors with separate confirmation")
+    diagnose.add_argument("--output", type=Path, default=Path("runs/goal002"))
+    diagnose.add_argument("--config", type=Path, help="predeclared JSON diagnostic settings")
+    diagnose.add_argument("--spec-file", type=Path, help="explicit CPU description, used only in offline prompts")
+    diagnose.add_argument("--compiler", default="clang")
+    diagnose.add_argument("--cpu", type=int)
     verify = commands.add_parser("check-artifacts", help="verify a saved run's SHA-256 manifest")
     verify.add_argument("run", type=Path)
     args = parser.parse_args(argv)
@@ -30,6 +36,17 @@ def main(argv=None):
             errors = audit_artifacts(args.run)
             print(json.dumps({"passed": not errors, "errors": errors}, indent=2))
             return 1 if errors else 0
+        if args.command == "diagnose":
+            from .diagnostic_config import DiagnosticConfig, load_config
+            from .diagnostics import run_diagnostics
+            config = load_config(args.config) if args.config else DiagnosticConfig()
+            specification = args.spec_file.read_text(encoding="utf-8") if args.spec_file else None
+            run_dir, record = run_diagnostics(args.output, config=config, specification=specification,
+                                             compiler=args.compiler, cpu=args.cpu)
+            print(json.dumps({"run_directory": str(run_dir), "status": record["status"],
+                              "environment_role": record["environment_role"], "publishable_benchmark": False,
+                              "report": str(run_dir / "report.md"), "artifact_errors": record.get("artifact_errors", [])}, indent=2))
+            return 0 if record["status"] == "completed" else 1
         specification = args.spec_file.read_text(encoding="utf-8") if args.spec_file else None
         run_dir, record = run_smoke(args.output, specification=specification, compiler=args.compiler,
                                    input_kind=args.input_kind, repeats=args.repeats, warmups=args.warmups, cpu=args.cpu)

@@ -111,14 +111,15 @@ def summarize(values):
             "population_stdev_ns": statistics.pstdev(values)}
 
 
-def measure_pairs(run_dir, candidate, *, size, seed, repeats, warmups, timeout):
+def measure_pairs(run_dir, candidate, *, size, seed, repeats, warmups, timeout, run=None):
+    run = run or run_process
     samples = []
     passed = True
     for phase, count in (("warmup", warmups), ("measurement", repeats)):
         for repetition in range(count):
             order = ["reference", candidate] if repetition % 2 == 0 else [candidate, "reference"]
             for position, name in enumerate(order):
-                result = run_process([run_dir / "candidates" / name / "program", "measure", size, seed], timeout=timeout)
+                result = run([run_dir / "candidates" / name / "program", "measure", size, seed], timeout=timeout)
                 item = {"phase": phase, "pair_candidate": candidate, "repetition": repetition,
                         "position": position, "order": order, "implementation": name,
                         "size": size, "seed": seed, "process": result.to_dict(),
@@ -153,6 +154,9 @@ def audit_artifacts(run_dir):
     run_dir = Path(run_dir)
     try:
         record = json.loads((run_dir / "experiment.json").read_text(encoding="utf-8"))
+        if record.get("experiment_type") == "controlled_diagnostics":
+            from .diagnostics import audit_diagnostic
+            return audit_diagnostic(run_dir)
         return _audit_record(run_dir, record)
     except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
         return [f"invalid or incomplete experiment record: {exc}"]

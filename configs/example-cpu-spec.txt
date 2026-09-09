@@ -1,0 +1,3 @@
+Synthetic prompt fixture, not an observed machine:
+Example CPU has a 32 KiB L1 data cache and a 512 KiB L2 cache.
+This description tests explicit disclosure only and makes no claim about the executing host.

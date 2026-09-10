@@ -1,0 +1,24 @@
+{
+  "branch_before": "goal/003-local-llm",
+  "created_at_utc": "2026-09-10T15:17:03.021203+00:00",
+  "head_before": "92d1c953e8e5017c8ee966f627d761df2bddfb8e",
+  "notes": [
+    "Goal0041/0042/0043 standalone scripts are archived for exact reproducibility.",
+    "They are not claimed to be the final canonical cpucond CLI implementation.",
+    "No prior runs were modified."
+  ],
+  "protocol_sources": {
+    "goal0041_dataset_intake.py": {
+      "sha256": "a8250c7fa3daf0da8020d9680ec235903ff0f8580b330af1c54d4092736ca0a2",
+      "source_path": "/mnt/c/Users/m.hirotaka/Downloads/cpucond-dataset-intake-v1.py"
+    },
+    "goal0042_polybench_gated.py": {
+      "sha256": "139f31a5d1c14d38ed6124ccad8e515e48d98a630740ee29e6a5aa62ef5177a1",
+      "source_path": "/mnt/c/Users/m.hirotaka/Downloads/cpucond-polybench-gated-run-v1.py"
+    },
+    "goal0043_measurement.py": {
+      "sha256": "71bfa60bef8d4e94a1ddb81880c7ccf5eab3cd9e3d0f5a1477d42903dcbf7304",
+      "source_path": "/mnt/c/Users/m.hirotaka/Downloads/cpucond-polybench-measurement-v2.py"
+    }
+  }
+}

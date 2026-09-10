@@ -141,7 +141,7 @@ def _preflight(protocol):
             "host_identity_scope": "Matching observed guest attributes, not proof of physical machine identity."}
 
 
-def prepare_pilot(output, source_run, *, config=None, cohort="real"):
+def prepare_pilot(output, source_run, *, config=None, cohort="real", prompt_revision=None):
     from .selection_protocol import export_protocol
     if cohort not in ("real", "synthetic"):
         raise ValueError("cohort must be real or synthetic")
@@ -150,7 +150,8 @@ def prepare_pilot(output, source_run, *, config=None, cohort="real"):
     if directory.is_relative_to(source_run):
         raise ValueError("pilot output must not modify or be inside the source run")
     directory.mkdir(parents=True, exist_ok=False)
-    protocol = export_protocol(directory, source_run=source_run, config=config, cohort=cohort)
+    kwargs = {} if prompt_revision is None else {"prompt_revision": prompt_revision}
+    protocol = export_protocol(directory, source_run=source_run, config=config, cohort=cohort, **kwargs)
     observed = _preflight(protocol)
     _source_snapshot(directory)
     write_json(directory / "provenance.json", {"created_utc": now(), "git": git_state(Path(__file__).resolve().parent),

@@ -206,11 +206,14 @@ def build_local_config(*, endpoint, model, digest, ollama_version, model_show, s
 
 
 def validate_config(config):
-    if config.get("schema_version") != SCHEMA:
+    from .selection_task_v2 import LOCAL_SCHEMA, FORMAT
+    version = config.get("schema_version")
+    if version not in (SCHEMA, LOCAL_SCHEMA):
         raise ValueError("unsupported local LLM protocol")
+    expected_format = "json" if version == SCHEMA else FORMAT
     _endpoint(config["endpoint"])
     if (config.get("render_template") != CHAT_TEMPLATE or config.get("system") != SYSTEM or
-            config.get("raw") is not True or config.get("stream") is not False or config.get("format") != "json"):
+            config.get("raw") is not True or config.get("stream") is not False or config.get("format") != expected_format):
         raise ValueError("local generation must use fixed independent raw ChatML and JSON output mode")
     if config.get("context_special_token_reserve") != 32:
         raise ValueError("context special-token reserve changed")
@@ -256,8 +259,10 @@ def build_payload(config, request, prompt, *, preflight=False):
     options = {**config["options"], "seed": config["seeds"][request["trial"] - 1]}
     if preflight:
         options["num_predict"] = 1
+    from .selection_task_v2 import LOCAL_SCHEMA, response_schema
+    output_format = response_schema(request) if config["schema_version"] == LOCAL_SCHEMA else config["format"]
     return {"model": config["model"], "prompt": render_chat(config["system"], prompt),
-            "raw": True, "stream": False, "format": config["format"],
+            "raw": True, "stream": False, "format": output_format,
             "keep_alive": config["keep_alive"], "options": options}
 
 

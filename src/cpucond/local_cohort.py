@@ -26,6 +26,7 @@ def prepare_local_pilot(output, source_pilot, local_config, *, evidence_files=()
     if original["export_cohort"] != "real" or original.get("acquisition_backend") is not None:
         raise ValueError("local cohorts require an existing manual real task as their source")
     validate_local_config(local_config)
+    _check_task_output_pair(original, local_config)
     inputs = [Path(path).resolve() for path in evidence_files]
     if any(not path.is_file() or path.is_symlink() for path in inputs):
         raise ValueError("setup evidence must be explicitly named regular files")
@@ -34,7 +35,7 @@ def prepare_local_pilot(output, source_pilot, local_config, *, evidence_files=()
         raise ValueError("local cohort must not be written inside the source pilot")
     protocol = deepcopy(original)
     protocol.update(acquisition_backend=BACKEND, local_llm=deepcopy(local_config),
-                    protocol_revision="goal003.1-local-v1")
+                    protocol_revision=("goal0032-explicit-latency-v1" if original.get("prompt_revision") else "goal003.1-local-v1"))
     preflight = _preflight(protocol)
     directory.mkdir(parents=True, exist_ok=False)
     for folder in ("sources", "requests"):
@@ -93,6 +94,7 @@ def validate_local_protocol(directory, protocol):
     if protocol.get("acquisition_backend") != BACKEND or protocol["export_cohort"] != "real":
         raise ValueError("local backend must belong to a separate real cohort")
     validate_local_config(protocol["local_llm"])
+    _check_task_output_pair(protocol, protocol["local_llm"])
     lineage = protocol["source_pilot"]
     snapshot = child(directory, lineage["snapshot_path"])
     if digest(snapshot / "protocol.json") != lineage["protocol_sha256"]:
@@ -121,3 +123,11 @@ def validate_local_protocol(directory, protocol):
     if marker.exists():
         from .recovery import validate_recovery_lineage
         validate_recovery_lineage(directory)
+
+
+def _check_task_output_pair(protocol, config):
+    from .selection_task_v2 import PROMPT_REVISION, LOCAL_SCHEMA
+    revised_task = protocol.get("prompt_revision") == PROMPT_REVISION
+    revised_output = config.get("schema_version") == LOCAL_SCHEMA
+    if revised_task != revised_output:
+        raise ValueError("revised task and revised local decoding must be used together")

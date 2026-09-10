@@ -234,6 +234,10 @@ def _request_payload(base: dict, compiler: dict, request_id: str, size: int, see
 
 
 def _requests(protocol: dict):
+    from .selection_task_v2 import PROMPT_REVISION, clarify_payload
+    revision = protocol.get("prompt_revision")
+    if revision not in (None, PROMPT_REVISION):
+        raise ValueError("unsupported prompt revision")
     candidates = []
     canonical = {item.candidate_id: item for item in make_candidates()}
     for name in ("reference", *CANDIDATE_IDS):
@@ -248,6 +252,8 @@ def _requests(protocol: dict):
             request_id = f"n{size}-t{index + 1:02d}"
             order = initial_order[index:] + initial_order[:index]
             payload, mapping = _request_payload(base, protocol["compiler"], request_id, size, protocol["config"]["input_seed"], order, protocol["candidates"])
+            if revision == PROMPT_REVISION:
+                payload = clarify_payload(payload, mapping)
             common = canonical_json(payload)
             for condition in ("none", "spec"):
                 key = request_id + "-" + condition
@@ -295,7 +301,7 @@ def _metadata(request: dict, cohort: str) -> dict:
     }
 
 
-def export_protocol(directory: Path, *, source_run: Path, config: dict | None = None, cohort: str = "real") -> dict:
+def export_protocol(directory: Path, *, source_run: Path, config: dict | None = None, cohort: str = "real", prompt_revision: str | None = None) -> dict:
     """Export a frozen task set into a new or existing empty directory.
 
     The 20 unique request keys distinguish conditions, while each none/spec
@@ -341,6 +347,11 @@ def export_protocol(directory: Path, *, source_run: Path, config: dict | None = 
         "blinding": _blinding(),
         "policies": _policies(config), "candidates": {}, "reference": {}, "controls": {}, "shared_sources": {}, "requests": [],
     }
+    if prompt_revision is not None:
+        from .selection_task_v2 import PROMPT_REVISION
+        if prompt_revision != PROMPT_REVISION:
+            raise ValueError("unsupported prompt revision")
+        protocol["prompt_revision"] = prompt_revision
     source_contents = {}
     for candidate in make_candidates():
         text = (source_run / "candidates" / candidate.candidate_id / "kernel.c").read_text(encoding="utf-8")

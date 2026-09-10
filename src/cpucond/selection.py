@@ -1,4 +1,4 @@
-"""Append-only manual pilot lifecycle: export, collect, freeze, then measure.
+"""Append-only pilot lifecycle: export, collect, freeze, then measure.
 
 This module never queries an LLM. Real answers must come from independent,
 tool-free sessions; synthetic answers exercise software only.
@@ -18,6 +18,7 @@ from .diagnostic_config import load_config
 from .diagnostics import run_diagnostics
 from .experiment import audit_artifacts, git_state
 from .host import discover_compiler, observe_host
+from .execution_gate import gated
 
 
 def read_json(path):
@@ -75,7 +76,10 @@ def check_static(directory):
         raise ValueError("static manifest changed after export")
     manifest = read_json(directory / "static-manifest.json")
     expected = {"protocol.json", "provenance.json"}
-    for folder in ("sources", "requests", "runner_source"):
+    folders = ["sources", "requests", "runner_source"]
+    if pilot.get("acquisition_backend") == "ollama_local":
+        folders.append("local-evidence")
+    for folder in folders:
         expected.update(str(path.relative_to(directory)) for path in (directory / folder).rglob("*") if path.is_file())
     if set(manifest) != expected or not (directory / "runner_source/selection.py").is_file():
         raise ValueError("static manifest/source provenance is incomplete or contains unexpected files")
@@ -83,6 +87,8 @@ def check_static(directory):
         if digest(child(directory, path)) != expected:
             raise ValueError(f"sealed task artifact changed: {path}")
     protocol = read_json(directory / "protocol.json")
+    if protocol.get("acquisition_backend") != pilot.get("acquisition_backend"):
+        raise ValueError("pilot and protocol acquisition backends differ")
     if protocol["export_cohort"] != pilot["cohort"]:
         raise ValueError("real and synthetic cohorts must remain separate")
     errors = validate_protocol(directory)
@@ -168,6 +174,10 @@ def _status_from(pilot, snapshot, *, scored=False):
     if pilot["cohort"] == "synthetic":
         return "software_ready"
     if snapshot["counts"]["received"] == 0:
+        if (pilot.get("acquisition_backend") == "ollama_local"
+                and (pilot.get("llm_api_called") or pilot.get("collection_state") == "frozen"
+                     or snapshot.get("local_acquisition") is not None)):
+            return "real_pilot_partial"
         return "awaiting_real_responses"
     if scored and snapshot["counts"]["valid"] == snapshot["counts"]["total"]:
         return "real_pilot_complete"
@@ -185,13 +195,16 @@ def pilot_status(directory):
         score = read_json(directory / "score.json")
         if score["status"] != "completed" or digest(directory / "score.json") != pilot.get("score_sha256"):
             raise ValueError("score is incomplete or changed; no completed pilot status is available")
-    return {"pilot_directory": str(directory.resolve()), "software_ready": True,
+    result = {"pilot_directory": str(directory.resolve()), "software_ready": True,
             "status": _status_from(pilot, snapshot, scored=scored), "cohort": pilot["cohort"],
             "collection_state": "frozen" if (directory / "freeze.json").exists() else "open",
             "scored": scored, "counts": snapshot["counts"],
             "real_response_count": snapshot["counts"]["received"] if pilot["cohort"] == "real" else 0,
             "synthetic_response_count": snapshot["counts"]["received"] if pilot["cohort"] == "synthetic" else 0,
             "environment_role": "development_smoke", "publishable_benchmark": False}
+    if pilot.get("acquisition_backend") is not None:
+        result["acquisition_backend"] = pilot["acquisition_backend"]
+    return result
 
 
 def import_answer(directory, request_key, response, metadata):
@@ -214,9 +227,15 @@ def freeze_answers(directory):
         check_static(directory)
         if (directory / "freeze.json").exists():
             raise ValueError("answers already frozen; create a separate pilot for new answers")
+        local_collection = None
+        if read_json(directory / "pilot.json").get("acquisition_backend") == "ollama_local":
+            from .local_llm import assert_collection_complete
+            local_collection = assert_collection_complete(directory)
         snapshot = collect_responses(directory)
-        if not snapshot["counts"]["received"]:
+        if not snapshot["counts"]["received"] and local_collection is None:
             raise ValueError("cannot freeze an empty response collection")
+        if local_collection is not None:
+            snapshot["local_acquisition"] = local_collection
         snapshot["frozen_utc"] = now()
         snapshot["primary_attempt_policy"] = "first_attempt_only"
         write_json(directory / "freeze.json", snapshot, exclusive=True)
@@ -238,9 +257,14 @@ def check_freeze(directory):
     reconstructed = collect_responses(directory)
     if any(frozen.get(key) != value for key, value in reconstructed.items()):
         raise ValueError("responses/attempts changed after freeze")
+    if pilot.get("acquisition_backend") == "ollama_local":
+        from .local_llm import assert_collection_complete
+        if frozen.get("local_acquisition") != assert_collection_complete(directory):
+            raise ValueError("local API acquisition artifacts changed after freeze")
     return frozen
 
 
+@gated("measurement")
 def score_pilot(directory):
     """Only create a fresh local diagnostic after freezing; no old-run argument."""
     from .selection_scoring import score_selection, write_selection_reports
@@ -251,6 +275,10 @@ def score_pilot(directory):
             raise ValueError("pilot already scored; refusing replacement or repeated selection of results")
         _assert_runner_snapshot(directory)
         protocol = read_json(directory / "protocol.json")
+        isolation = None
+        if protocol.get("acquisition_backend") == "ollama_local":
+            from .local_llm import assert_unloaded
+            isolation = assert_unloaded(directory)
         preflight = _preflight(protocol)
         attempt = directory / "scoring-attempts" / unique_id()
         attempt.mkdir(parents=True, exist_ok=False)
@@ -260,6 +288,8 @@ def score_pilot(directory):
                    "git": git_state(Path(__file__).resolve().parent),
                    "scored_phase": "confirmation", "unscored_phase": "exploration",
                    "scope": "One fresh shared measurement run; all response and offline policy scores share it."}
+        if isolation is not None:
+            binding["local_inference_isolation"] = isolation
         write_json(attempt / "attempt.json", binding, exclusive=True)
         try:
             write_json(attempt / "measurement-config.json", protocol["measurement_config"], exclusive=True)
@@ -331,6 +361,11 @@ def check_pilot(directory):
     try:
         status = pilot_status(directory)
         pilot = read_json(directory / "pilot.json")
+        if pilot.get("acquisition_backend") == "ollama_local":
+            from .local_llm import audit_local
+            local_audit = audit_local(directory)
+            if not local_audit.get("passed"):
+                raise ValueError("local acquisition audit failed: " + "; ".join(local_audit.get("errors", [])))
         if pilot["status"] != status["status"] or pilot["collection_state"] != status["collection_state"]:
             raise ValueError("pilot status differs from response/score evidence")
         if (directory / "freeze.json").exists():
@@ -354,6 +389,21 @@ def check_pilot(directory):
             errors.extend(audit_artifacts(measured_dir))
             record = read_json(measured_dir / "experiment.json")
             protocol = read_json(directory / "protocol.json")
+            if protocol.get("acquisition_backend") == "ollama_local":
+                isolation = score.get("local_inference_isolation", {})
+                if isolation.get("models") != [] or isolation.get("runner_processes") != []:
+                    raise ValueError("scoring lacks empty local model/runner evidence")
+                unload_path = child(directory, isolation["unload_evidence_path"])
+                if digest(unload_path) != isolation["unload_evidence_sha256"]:
+                    raise ValueError("scoring local unload evidence changed")
+                unloaded = read_json(unload_path)
+                checked_time = datetime.fromisoformat(isolation["checked_utc"])
+                if not (datetime.fromisoformat(frozen["frozen_utc"]) <= checked_time
+                        <= datetime.fromisoformat(score["started_utc"])):
+                    raise ValueError("local inference was not checked between response freeze and measurement")
+                if (unloaded.get("models") != [] or unloaded.get("runner_processes") != []
+                        or datetime.fromisoformat(unloaded["checked_utc"]) > checked_time):
+                    raise ValueError("saved unload evidence does not precede independent measurement")
             _measurement_identity(protocol, record, score)
             rebuilt = score_selection(protocol, frozen, record)
             with tempfile.TemporaryDirectory(prefix="cpucond-pilot-audit-") as temporary:

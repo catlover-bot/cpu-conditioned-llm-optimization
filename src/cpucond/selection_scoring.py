@@ -344,6 +344,14 @@ def score_selection(protocol, freeze, measurement_record):
                               "One host only; cross-CPU adaptation and free C code optimization are not evaluated."]}
     if freeze["cohort"] == "synthetic":
         report["limitations"].insert(0, "Synthetic software exercise only; no real LLM behavior or CPU understanding was measured.")
+    if protocol.get("acquisition_backend") == "ollama_local":
+        report["acquisition_backend"] = "ollama_local"
+        report["local_model_config"] = deepcopy(protocol["local_llm"])
+        report["limitations"] = [item for item in report["limitations"] if not item.startswith("Manual blinding")]
+        report["limitations"].append(
+            "Local payloads, server/model evidence and raw API responses are archived separately; "
+            "the model receives only the fixed system instruction and this request's prompt. "
+            "Prior developer exposure and external machine load remain limitations.")
     report["warnings"].extend({**warning, "request_key": row["request_key"]} for row in rows for warning in row["warnings"] if warning["code"].startswith(("blinding", "response_")))
     return report
 
@@ -380,7 +388,10 @@ def _cell(value):
 def render_markdown(report):
     counts = report["counts"]
     lines = ["# Blind candidate-selection pilot", "", f"コホート: **{report['cohort']}**。", "",
-             "合成回答の動作確認であり、実 LLM の結果ではありません。" if report["cohort"] == "synthetic" else "実回答の取得情報・盲検条件はメタデータに従います。手動申告を独立検証済みとは扱いません。",
+             ("合成回答の動作確認であり、実 LLM の結果ではありません。" if report["cohort"] == "synthetic"
+              else "Ollama ローカルモデルの実回答です。固定 payload、API 原本、モデル・サーバー証拠を別途保存しています。"
+              if report.get("acquisition_backend") == "ollama_local"
+              else "実回答の取得情報・盲検条件はメタデータに従います。手動申告を独立検証済みとは扱いません。"),
              "", f"計画 {counts['planned']}、取り込み {counts['actual']}、有効 {counts['valid']}、無効 {counts['invalid']}、未回答 {counts['missing']}。",
              "", f"実 LLM 回答 {report['real_response_count']}、synthetic 回答 {report['synthetic_response_count']}。", "",
              f"全採点で共有した計測 run: `{report['shared_measurement_run_id']}`。独立した計測 run は **1**。",

@@ -7,7 +7,7 @@ from .host import doctor
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="CPU-conditioned optimization development smoke; no LLM API calls")
+    parser = argparse.ArgumentParser(description="CPU-conditioned optimization development smoke and local selection pilot")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("doctor", help="observe the local development environment")
     smoke = commands.add_parser("smoke", help="verify and measure handwritten C fixtures")
@@ -26,13 +26,25 @@ def main(argv=None):
     diagnose.add_argument("--cpu", type=int)
     verify = commands.add_parser("check-artifacts", help="verify a saved run's SHA-256 manifest")
     verify.add_argument("run", type=Path)
-    pilot = commands.add_parser("pilot", help="manual blind candidate-selection pilot; no LLM API calls")
+    pilot = commands.add_parser("pilot", help="blind candidate-selection pilot with manual or local acquisition")
     pilot_commands = pilot.add_subparsers(dest="pilot_command", required=True)
     prepare = pilot_commands.add_parser("prepare", help="freeze a protocol and export 20 blind requests")
     prepare.add_argument("--source-run", type=Path, required=True)
     prepare.add_argument("--output", type=Path, default=Path("runs/goal003"))
     prepare.add_argument("--config", type=Path)
     prepare.add_argument("--cohort", choices=("real", "synthetic"), default="real")
+    local_prepare = pilot_commands.add_parser("prepare-local", help="seal a new real local cohort from a manual task")
+    local_prepare.add_argument("--source-pilot", type=Path, required=True)
+    local_prepare.add_argument("--local-config", type=Path, required=True)
+    local_prepare.add_argument("--output", type=Path, default=Path("runs/goal003.1"))
+    local_prepare.add_argument("--evidence", type=Path, action="append", default=[])
+    for name in ("local-preflight", "local-run", "local-unload", "local-check"):
+        local_action = pilot_commands.add_parser(name, help="Ollama local acquisition lifecycle")
+        local_action.add_argument("pilot", type=Path)
+        if name in ("local-preflight", "local-run"):
+            local_action.add_argument("--timeout", type=float, default=1800)
+        if name == "local-run":
+            local_action.add_argument("--limit", type=int)
     collect = pilot_commands.add_parser("import", help="store one raw response as a new immutable attempt")
     collect.add_argument("pilot", type=Path)
     collect.add_argument("--request-key", required=True)
@@ -53,6 +65,21 @@ def main(argv=None):
                 config = read_json(args.config) if args.config else None
                 directory, status = prepare_pilot(args.output, args.source_run, config=config, cohort=args.cohort)
                 result = {"pilot_directory": str(directory), **status}
+            elif args.pilot_command == "prepare-local":
+                from .local_cohort import prepare_local_pilot
+                directory, status = prepare_local_pilot(args.output, args.source_pilot, read_json(args.local_config),
+                                                        evidence_files=args.evidence)
+                result = {"pilot_directory": str(directory), **status}
+            elif args.pilot_command.startswith("local-"):
+                from .local_llm import preflight_local, run_local, unload_local, audit_local
+                if args.pilot_command == "local-preflight":
+                    result = preflight_local(args.pilot, timeout=args.timeout)
+                elif args.pilot_command == "local-run":
+                    result = run_local(args.pilot, limit=args.limit, timeout=args.timeout)
+                elif args.pilot_command == "local-unload":
+                    result = unload_local(args.pilot)
+                else:
+                    result = audit_local(args.pilot)
             elif args.pilot_command == "import":
                 imported = import_answer(args.pilot, args.request_key, args.response, args.metadata)
                 result = {"attempt": {key: imported["attempt"][key] for key in

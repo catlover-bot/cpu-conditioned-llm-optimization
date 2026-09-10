@@ -17,6 +17,7 @@ from .models import SCHEMA_VERSION, ExperimentRecord, ExecutionContract, PromptC
 from .process import run_process
 from .prompts import prompt_hash, render_prompt
 from .verification import OutputError, parse_measurement, validate_result
+from .execution_gate import gated
 
 FIXTURES = Path(__file__).parent / "fixtures"
 CANDIDATES = ("reference", "identity", "equivalent", "deliberately_wrong")
@@ -111,6 +112,7 @@ def summarize(values):
             "population_stdev_ns": statistics.pstdev(values)}
 
 
+@gated("measurement")
 def measure_pairs(run_dir, candidate, *, size, seed, repeats, warmups, timeout, run=None):
     run = run or run_process
     samples = []
@@ -233,6 +235,7 @@ def _audit_record(run_dir, record):
     return errors
 
 
+@gated("measurement")
 def run_smoke(output, **kwargs):
     """Preserve failure evidence if an unexpected error interrupts a created run."""
     state = {}

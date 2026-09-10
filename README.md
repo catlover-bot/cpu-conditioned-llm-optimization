@@ -1,6 +1,9 @@
 # cpu-conditioned-llm-optimization
 Studying and improving CPU-conditioned LLM optimization through controlled experiments and executable-code analysis.
 
+Goal 003.1のローカルOllama回答取得・再開・独立採点は
+[ローカルLLM pilot](docs/local-llm-pilot.md) を参照してください。
+
 Goal 001 は、CPU情報の提示条件、実際のビルド条件、実行環境の観測を分離した最小実験基盤です。
 小さな独自の `gemm_smoke` と手書きC候補を使い、正しさ検証、検証後の反復計測、実行コードと来歴の保存までを確認します。
 LLMへの送信・生成、CPU特化の有効性検証、正式なPolyBench評価は実施しません。

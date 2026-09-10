@@ -20,6 +20,7 @@ from .diagnostic_config import DiagnosticConfig
 from .diagnostic_prompts import write_diagnostic_prompts
 from .diagnostic_reporting import summarize_measurement, write_reports
 from .experiment import FIXTURES, cpu_affinity, digest, git_state, measure_pairs, write_json
+from .execution_gate import gated
 from .host import discover_compiler, observe_host
 from .models import ExecutionContract
 from .process import ProcessResult, run_process
@@ -143,6 +144,7 @@ def finalize(run_dir, record, ledger):
     write_json(run_dir / "experiment.json", record)
 
 
+@gated("measurement")
 def run_diagnostics(output, *, config=None, specification=None, compiler="clang", cpu=None):
     config = config or DiagnosticConfig()
     if not isinstance(config, DiagnosticConfig):

@@ -128,6 +128,21 @@ def parse_response(raw, request):
     return result
 
 
+def _parse_acquired(raw, request, metadata, pilot):
+    parsed = parse_response(raw, request)
+    if pilot.get("acquisition_backend") == "ollama_local":
+        usage = metadata.get("usage") or {}
+        reason = None
+        if usage.get("context_mismatch") is True:
+            reason = "context_mismatch"
+        elif usage.get("output_truncated") is True or usage.get("done_reason") == "length" or usage.get("done") is False:
+            reason = "output_truncated"
+        if reason is not None:
+            parsed.update(status="invalid", selected_option_id=None, selected_candidate_id=None,
+                          rationale_short=None, invalid_reason=reason)
+    return parsed
+
+
 def _validate_metadata(raw, pilot, request):
     metadata = _strict_json(raw)
     required = {"cohort", "acquisition_method", "model_identifier", "obtained_at", "prompt_hash", "missing_reasons", "blinding"}
@@ -213,7 +228,7 @@ def _load_attempts(root, pilot, request):
         raw = (folder / "response.raw").read_bytes()
         metadata_raw = (folder / "metadata.raw.json").read_bytes()
         metadata = _validate_metadata(metadata_raw, pilot, request)
-        parsed = parse_response(raw, request)
+        parsed = _parse_acquired(raw, request, metadata, pilot)
         expected = _attempt_record(root, folder, pilot, request, index, raw, metadata_raw, metadata, parsed, record["imported_utc"])
         if record != expected or record_bytes != _json_bytes(expected):
             raise ValueError("response attempt metadata or hashes were altered")
@@ -251,7 +266,7 @@ def import_response(pilot_dir, request_key, raw_path, metadata_path):
         raise ValueError("unknown request_key")
     raw, metadata_raw = Path(raw_path).read_bytes(), Path(metadata_path).read_bytes()
     metadata = _validate_metadata(metadata_raw, pilot, request)
-    parsed = parse_response(raw, request)
+    parsed = _parse_acquired(raw, request, metadata, pilot)
     existing = _load_attempts(root, pilot, request)
     if any(item["raw_response_sha256"] == _sha(raw) for item in existing):
         raise ValueError("duplicate raw response for this request; no attempt was written")

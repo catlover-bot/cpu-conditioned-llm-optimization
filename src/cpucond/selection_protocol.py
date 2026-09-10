@@ -403,6 +403,11 @@ def validate_protocol(directory: Path) -> list[str]:
         check(protocol["schema_version"] == SCHEMA_VERSION and protocol["experiment_type"] == "blind_candidate_selection_pilot", "unsupported selection protocol")
         check(protocol["environment_role"] == "development_smoke" and protocol["publishable_benchmark"] is False, "invalid pilot environment classification")
         check(protocol["export_cohort"] in ("real", "synthetic"), "invalid protocol cohort")
+        if protocol.get("acquisition_backend") is not None:
+            from .local_cohort import validate_local_protocol
+            validate_local_protocol(directory, protocol)
+        else:
+            check("local_llm" not in protocol, "local settings require a separately identified local cohort")
         config = _config(protocol["config"])
         check(config == protocol["config"] and protocol["target"] == config["target"], "target/configuration differs from its validated form")
         _compiler_disclosure(protocol["compiler"])

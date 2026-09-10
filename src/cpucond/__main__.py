@@ -38,6 +38,10 @@ def main(argv=None):
     local_prepare.add_argument("--local-config", type=Path, required=True)
     local_prepare.add_argument("--output", type=Path, default=Path("runs/goal003.1"))
     local_prepare.add_argument("--evidence", type=Path, action="append", default=[])
+    recovery = pilot_commands.add_parser("recover-local", help="reuse frozen local answers in a separate run, then independently rescore without generation")
+    recovery.add_argument("--source-pilot", type=Path, required=True)
+    recovery.add_argument("--output", type=Path, default=Path("runs/goal0031-recovery"))
+    recovery.add_argument("--prepare-only", action="store_true", help="copy and audit evidence without HTTP or measurements")
     for name in ("local-preflight", "local-run", "local-unload", "local-check"):
         local_action = pilot_commands.add_parser(name, help="Ollama local acquisition lifecycle")
         local_action.add_argument("pilot", type=Path)
@@ -70,6 +74,9 @@ def main(argv=None):
                 directory, status = prepare_local_pilot(args.output, args.source_pilot, read_json(args.local_config),
                                                         evidence_files=args.evidence)
                 result = {"pilot_directory": str(directory), **status}
+            elif args.pilot_command == "recover-local":
+                from .recovery import recover_local
+                result = recover_local(args.output, args.source_pilot, prepare_only=args.prepare_only)
             elif args.pilot_command.startswith("local-"):
                 from .local_llm import preflight_local, run_local, unload_local, audit_local
                 if args.pilot_command == "local-preflight":

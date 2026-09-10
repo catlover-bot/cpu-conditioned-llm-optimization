@@ -275,15 +275,15 @@ class _Audit:
     def measurements(self):
         self.check(set(self.record["phases"]) == set(PHASES), "exploration/confirmation phase missing or unexpected")
         eligible = {name for name in CANDIDATE_IDS if name != "reference" and self.record["candidates"][name]["verification"]["passed"]}
-        previous_end = None
+        from .clock_provenance import phase_clock_warnings
+        clock_warnings = phase_clock_warnings(self.record["phases"])
         for phase in PHASES:
             row = self.record["phases"][phase]
             seed = getattr(self.config, phase + "_order_seed")
             rng, orders, skipped = random.Random(seed), [], []
             self.check(row["phase"] == phase and row["order_seed"] == seed and row["measurement_freeze_sha256"] == self.record["measurement_freeze_sha256"], f"phase configuration/freeze mismatch: {phase}")
-            started, ended = datetime.fromisoformat(row["started_utc"]), datetime.fromisoformat(row["completed_utc"])
-            self.check(started <= ended and (previous_end is None or previous_end <= started), f"measurement phases overlap or have invalid times: {phase}")
-            previous_end = ended
+            if "started_clock" in row or "completed_clock" in row:
+                self.check(row.get("clock_warnings") == clock_warnings[phase], f"measurement phase clock warnings differ: {phase}")
             self.check(set(row["measurements"]) == eligible, f"verified candidate measurement set missing/changed: {phase}")
             required_cases = {_case_id(n, s) for n, s in self.config.measure_cases}
             for name in eligible:

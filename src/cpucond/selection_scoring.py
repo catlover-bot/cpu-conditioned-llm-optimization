@@ -14,6 +14,7 @@ from pathlib import Path
 import statistics
 
 from .diagnostic_reporting import build_report, summarize_measurement
+from .clock_provenance import check_order, phase_clock_warnings
 
 
 CANDIDATES = tuple(f"unroll_{factor}" for factor in (1, 2, 4, 8, 16))
@@ -72,8 +73,12 @@ def _validate(protocol, freeze, measurement):
     confirmation = measurement.get("phases", {}).get("confirmation")
     _require(isinstance(confirmation, dict) and confirmation.get("phase") == "confirmation",
              "new confirmation phase is missing")
-    _require(_utc(confirmation.get("started_utc"), "confirmation start") >= _utc(freeze.get("frozen_utc"), "response freeze"),
-             "confirmation was measured before responses were frozen")
+    # Retain legacy error semantics; mixed/malformed clock evidence is never a fallback.
+    started_utc = _utc(confirmation.get("started_utc"), "confirmation start")
+    frozen_utc = _utc(freeze.get("frozen_utc"), "response freeze")
+    if "frozen_clock" not in freeze and "started_clock" not in confirmation:
+        _require(started_utc >= frozen_utc, "confirmation was measured before responses were frozen")
+    check_order(freeze, "frozen", confirmation, "started", "response freeze to confirmation start")
     measured_candidates = measurement.get("candidates", {})
     _require(set(CANDIDATES) | {"reference", "identity", "deliberately_wrong"} <= set(measured_candidates),
              "measurement must retain all fixed candidates and controls")
@@ -282,6 +287,15 @@ def score_selection(protocol, freeze, measurement_record):
     """
     requests, frozen, confirmation, near_tie = _validate(protocol, freeze, measurement_record)
     table = _measurement_table(protocol, confirmation, measurement_record, near_tie)
+    clock_warnings = check_order(freeze, "frozen", confirmation, "started", "response freeze to confirmation start")
+    if any("started_clock" in phase or "completed_clock" in phase
+           for phase in measurement_record.get("phases", {}).values()):
+        clock_warnings += [warning for warnings in phase_clock_warnings(measurement_record["phases"]).values()
+                           for warning in warnings]
+    for case in table.values():
+        if clock_warnings:
+            case["warnings"].extend(deepcopy(clock_warnings))
+            case["judgment_status"] = "deferred"
     rows = []
     for request in sorted(requests, key=lambda item: (item["size"], item["seed"], item["trial"], item["condition"])):
         answer = frozen.get(request["request_key"], {"status": "missing", "selected_candidate_id": None})

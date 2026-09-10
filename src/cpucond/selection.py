@@ -19,6 +19,7 @@ from .diagnostics import run_diagnostics
 from .experiment import audit_artifacts, git_state
 from .host import discover_compiler, observe_host
 from .execution_gate import gated
+from .clock_provenance import event_fields, check_order
 
 
 def read_json(path):
@@ -236,7 +237,7 @@ def freeze_answers(directory):
             raise ValueError("cannot freeze an empty response collection")
         if local_collection is not None:
             snapshot["local_acquisition"] = local_collection
-        snapshot["frozen_utc"] = now()
+        snapshot.update(event_fields("frozen"))
         snapshot["primary_attempt_policy"] = "first_attempt_only"
         write_json(directory / "freeze.json", snapshot, exclusive=True)
         pilot = read_json(directory / "pilot.json")
@@ -282,7 +283,7 @@ def score_pilot(directory):
         preflight = _preflight(protocol)
         attempt = directory / "scoring-attempts" / unique_id()
         attempt.mkdir(parents=True, exist_ok=False)
-        binding = {"status": "running", "started_utc": now(), "cohort": frozen["cohort"],
+        binding = {"status": "running", **event_fields("started"), "cohort": frozen["cohort"],
                    "protocol_sha256": digest(directory / "protocol.json"),
                    "freeze_sha256": digest(directory / "freeze.json"), "preflight": preflight,
                    "git": git_state(Path(__file__).resolve().parent),
@@ -290,6 +291,7 @@ def score_pilot(directory):
                    "scope": "One fresh shared measurement run; all response and offline policy scores share it."}
         if isolation is not None:
             binding["local_inference_isolation"] = isolation
+        binding["clock_warnings"] = _score_clock_warnings(directory, frozen, binding)
         write_json(attempt / "attempt.json", binding, exclusive=True)
         try:
             write_json(attempt / "measurement-config.json", protocol["measurement_config"], exclusive=True)
@@ -308,12 +310,15 @@ def score_pilot(directory):
                 raise ValueError("answers changed during measurement")
             report = score_selection(protocol, frozen, record)
             files = write_selection_reports(attempt, report)
-            binding.update(status="completed", completed_utc=now(), reports={key: str((attempt / path).relative_to(directory)) for key, path in files.items()})
+            binding.update(status="completed", **event_fields("completed"), reports={key: str((attempt / path).relative_to(directory)) for key, path in files.items()})
+            binding["clock_warnings"] = _score_clock_warnings(directory, frozen, binding)
             binding["report_hashes"] = {path: digest(directory / path) for path in binding["reports"].values()}
             write_json(attempt / "attempt.json", binding)
-            write_json(directory / "score.json", {"attempt_path": str((attempt / "attempt.json").relative_to(directory)),
-                       "attempt_sha256": digest(attempt / "attempt.json"), **binding}, exclusive=True)
+            proposed = {"attempt_path": str((attempt / "attempt.json").relative_to(directory)),
+                        "attempt_sha256": digest(attempt / "attempt.json"), **binding}
             pilot = read_json(directory / "pilot.json")
+            _audit_score_record(directory, pilot, frozen, proposed)
+            write_json(directory / "score.json", proposed, exclusive=True)
             pilot.update(status=_status_from(pilot, frozen, scored=True), score_sha256=digest(directory / "score.json"))
             write_json(directory / "pilot.json", pilot)
             checked = check_pilot(directory)
@@ -321,8 +326,14 @@ def score_pilot(directory):
                 raise ValueError("scored pilot audit failed: " + "; ".join(checked["errors"]))
             return {"pilot": pilot_status(directory), "score": binding}
         except BaseException as exc:
-            binding.update(status="failed", completed_utc=now(), failure={"category": type(exc).__name__, "reason": str(exc)})
-            write_json(attempt / "attempt.json", binding)
+            failure = {"category": type(exc).__name__, "reason": str(exc)}
+            if not (directory / "score.json").exists():
+                binding.update(status="failed", **event_fields("completed"), failure=failure)
+                write_json(attempt / "attempt.json", binding)
+            else:
+                # A published pointer must never become inconsistent through an
+                # overwrite of the attempt it hashes. Retain a separate failure.
+                write_json(attempt / "postpublication-failure.json", failure, exclusive=True)
             raise
 
 
@@ -352,6 +363,63 @@ def synthetic_answers(directory):
     return {"imported_synthetic_attempts": len(results), "pilot": pilot_status(directory)}
 
 
+def _score_clock_warnings(directory, frozen, score):
+    warnings = check_order(frozen, "frozen", score, "started", "response freeze to scoring start")
+    isolation = score.get("local_inference_isolation")
+    if isolation is not None:
+        warnings += check_order(frozen, "frozen", isolation, "checked", "response freeze to local isolation check")
+        warnings += check_order(isolation, "checked", score, "started", "local isolation check to scoring start")
+        unloaded = read_json(child(directory, isolation["unload_evidence_path"]))
+        warnings += check_order(unloaded, "checked", isolation, "checked", "local unload to isolation check")
+    if "completed_utc" in score:
+        warnings += check_order(score, "started", score, "completed", "scoring start to completion")
+    return warnings
+
+
+def _audit_score_record(directory, pilot, frozen, score):
+    """Audit a proposed score before publishing the completed score pointer."""
+    from .selection_scoring import score_selection, write_selection_reports
+    import tempfile
+    attempt_path = child(directory, score["attempt_path"])
+    if digest(attempt_path) != score["attempt_sha256"]:
+        raise ValueError("scoring record changed")
+    if {k: v for k, v in score.items() if k not in ("attempt_path", "attempt_sha256")} != read_json(attempt_path):
+        raise ValueError("score/attempt metadata differ")
+    if score["status"] != "completed" or score["freeze_sha256"] != pilot["freeze_sha256"] or score["protocol_sha256"] != pilot["protocol_sha256"]:
+        raise ValueError("score is not bound to the frozen task and answers")
+    clock_warnings = _score_clock_warnings(directory, frozen, score)
+    if "started_clock" in score and score.get("clock_warnings") != clock_warnings:
+        raise ValueError("scoring clock warnings differ from saved event order")
+    measured_dir = child(directory, score["measurement_directory"])
+    if not measured_dir.is_relative_to(attempt_path.parent / "measurements"):
+        raise ValueError("measurement was not created inside this scoring attempt")
+    if digest(measured_dir / "experiment.json") != score["measurement_sha256"]:
+        raise ValueError("shared measurement changed")
+    errors = audit_artifacts(measured_dir)
+    if errors:
+        raise ValueError("shared measurement artifact audit failed: " + "; ".join(errors))
+    record = read_json(measured_dir / "experiment.json")
+    protocol = read_json(directory / "protocol.json")
+    if protocol.get("acquisition_backend") == "ollama_local":
+        isolation = score.get("local_inference_isolation", {})
+        if isolation.get("models") != [] or isolation.get("runner_processes") != []:
+            raise ValueError("scoring lacks empty local model/runner evidence")
+        unload_path = child(directory, isolation["unload_evidence_path"])
+        if digest(unload_path) != isolation["unload_evidence_sha256"]:
+            raise ValueError("scoring local unload evidence changed")
+        unloaded = read_json(unload_path)
+        if unloaded.get("models") != [] or unloaded.get("runner_processes") != []:
+            raise ValueError("saved unload evidence does not precede independent measurement")
+    _measurement_identity(protocol, record, score)
+    rebuilt = score_selection(protocol, frozen, record)
+    with tempfile.TemporaryDirectory(prefix="cpucond-pilot-audit-") as temporary:
+        generated = write_selection_reports(Path(temporary), rebuilt)
+        for key, filename in generated.items():
+            saved = child(directory, score["reports"][key])
+            if digest(saved) != score["report_hashes"][score["reports"][key]] or saved.read_bytes() != (Path(temporary) / filename).read_bytes():
+                raise ValueError("policy report does not match raw frozen answers and shared measurements")
+
+
 def check_pilot(directory):
     """Reconstruct primary responses and reports, including fresh-run lineage."""
     from .selection_scoring import score_selection, write_selection_reports
@@ -372,46 +440,9 @@ def check_pilot(directory):
             frozen = check_freeze(directory)
         if (directory / "score.json").exists():
             score = read_json(directory / "score.json")
-            attempt_path = child(directory, score["attempt_path"])
-            if digest(directory / "score.json") != pilot["score_sha256"] or digest(attempt_path) != score["attempt_sha256"]:
+            if digest(directory / "score.json") != pilot["score_sha256"]:
                 raise ValueError("scoring record changed")
-            if {k: v for k, v in score.items() if k not in ("attempt_path", "attempt_sha256")} != read_json(attempt_path):
-                raise ValueError("score/attempt metadata differ")
-            if score["status"] != "completed" or score["freeze_sha256"] != pilot["freeze_sha256"] or score["protocol_sha256"] != pilot["protocol_sha256"]:
-                raise ValueError("score is not bound to the frozen task and answers")
-            if datetime.fromisoformat(score["started_utc"]) < datetime.fromisoformat(frozen["frozen_utc"]):
-                raise ValueError("measurement was started before response freeze")
-            measured_dir = child(directory, score["measurement_directory"])
-            if not measured_dir.is_relative_to(attempt_path.parent / "measurements"):
-                raise ValueError("measurement was not created inside this scoring attempt")
-            if digest(measured_dir / "experiment.json") != score["measurement_sha256"]:
-                raise ValueError("shared measurement changed")
-            errors.extend(audit_artifacts(measured_dir))
-            record = read_json(measured_dir / "experiment.json")
-            protocol = read_json(directory / "protocol.json")
-            if protocol.get("acquisition_backend") == "ollama_local":
-                isolation = score.get("local_inference_isolation", {})
-                if isolation.get("models") != [] or isolation.get("runner_processes") != []:
-                    raise ValueError("scoring lacks empty local model/runner evidence")
-                unload_path = child(directory, isolation["unload_evidence_path"])
-                if digest(unload_path) != isolation["unload_evidence_sha256"]:
-                    raise ValueError("scoring local unload evidence changed")
-                unloaded = read_json(unload_path)
-                checked_time = datetime.fromisoformat(isolation["checked_utc"])
-                if not (datetime.fromisoformat(frozen["frozen_utc"]) <= checked_time
-                        <= datetime.fromisoformat(score["started_utc"])):
-                    raise ValueError("local inference was not checked between response freeze and measurement")
-                if (unloaded.get("models") != [] or unloaded.get("runner_processes") != []
-                        or datetime.fromisoformat(unloaded["checked_utc"]) > checked_time):
-                    raise ValueError("saved unload evidence does not precede independent measurement")
-            _measurement_identity(protocol, record, score)
-            rebuilt = score_selection(protocol, frozen, record)
-            with tempfile.TemporaryDirectory(prefix="cpucond-pilot-audit-") as temporary:
-                generated = write_selection_reports(Path(temporary), rebuilt)
-                for key, filename in generated.items():
-                    saved = child(directory, score["reports"][key])
-                    if digest(saved) != score["report_hashes"][score["reports"][key]] or saved.read_bytes() != (Path(temporary) / filename).read_bytes():
-                        raise ValueError("policy report does not match raw frozen answers and shared measurements")
+            _audit_score_record(directory, pilot, frozen, score)
         return {"passed": not errors, "errors": errors, "pilot": status}
     except (OSError, ValueError, TypeError, KeyError, AttributeError, IndexError) as exc:
         return {"passed": False, "errors": [*errors, str(exc)]}

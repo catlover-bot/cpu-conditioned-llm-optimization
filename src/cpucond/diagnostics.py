@@ -21,6 +21,7 @@ from .diagnostic_prompts import write_diagnostic_prompts
 from .diagnostic_reporting import summarize_measurement, write_reports
 from .experiment import FIXTURES, cpu_affinity, digest, git_state, measure_pairs, write_json
 from .execution_gate import gated
+from .clock_provenance import event_fields, check_order
 from .host import discover_compiler, observe_host
 from .models import ExecutionContract
 from .process import ProcessResult, run_process
@@ -267,7 +268,7 @@ def run_diagnostics(output, *, config=None, specification=None, compiler="clang"
                     verify_frozen_inputs(run_dir, record)
                     seed = getattr(config, phase + "_order_seed")
                     rng = random.Random(seed)
-                    phase_record = {"phase": phase, "order_seed": seed, "started_utc": datetime.now(timezone.utc).isoformat(),
+                    phase_record = {"phase": phase, "order_seed": seed, **event_fields("started"),
                                     "measurement_freeze_sha256": record["measurement_freeze_sha256"],
                                     "candidate_order_by_case": [], "measurements": {}, "skipped": []}
                     record["phases"][phase] = phase_record
@@ -299,7 +300,13 @@ def run_diagnostics(output, *, config=None, specification=None, compiler="clang"
                                             measurement_freeze_sha256=record["measurement_freeze_sha256"])
                             phase_record["measurements"].setdefault(name, {})[cid] = measured
                             write_json(phase_dir / f"{name}-{cid}.json", measured)
-                    phase_record["completed_utc"] = datetime.now(timezone.utc).isoformat()
+                    phase_record.update(event_fields("completed"))
+                    phase_record["clock_warnings"] = check_order(
+                        phase_record, "started", phase_record, "completed", f"{phase} phase start to completion")
+                    if phase == "confirmation":
+                        phase_record["clock_warnings"] += check_order(
+                            record["phases"]["exploration"], "completed", phase_record, "started",
+                            "exploration completion to confirmation start")
                     write_json(phase_dir / "phase.json", phase_record)
         with operation(record, "render_reports"):
             record["reports"] = write_reports(run_dir, record)

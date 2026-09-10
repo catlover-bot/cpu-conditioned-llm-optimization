@@ -116,3 +116,8 @@ def validate_local_protocol(directory, protocol):
     for item in protocol["local_setup_evidence"]:
         if digest(child(directory, item["path"])) != item["sha256"]:
             raise ValueError("local setup evidence changed")
+
+    marker = directory / "local-evidence/reused-acquisition.json"
+    if marker.exists():
+        from .recovery import validate_recovery_lineage
+        validate_recovery_lineage(directory)

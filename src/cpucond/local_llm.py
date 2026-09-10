@@ -16,6 +16,7 @@ import os
 from pathlib import Path
 import socket
 import time
+from .clock_provenance import event_fields
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
@@ -490,6 +491,8 @@ def preflight_local(directory, *, timeout=1800):
     from .execution_gate import execution_gate
     from .selection import mutation_lock
     directory = Path(directory).resolve()
+    if (directory / "local-evidence/reused-acquisition.json").exists():
+        raise ValueError("reused acquired answers cannot trigger new technical preflight generation")
     with execution_gate("inference"), mutation_lock(directory):
         directory, pilot, protocol, config = _context(directory)
         if (directory / "freeze.json").exists():
@@ -540,6 +543,8 @@ def run_local(directory, *, limit=None, timeout=1800):
     if limit is not None and (type(limit) is not int or limit <= 0):
         raise ValueError("request limit must be a positive integer")
     directory = Path(directory).resolve()
+    if (directory / "local-evidence/reused-acquisition.json").exists():
+        raise ValueError("reused acquired answers cannot trigger new model generation")
     with execution_gate("inference"), mutation_lock(directory):
         directory, pilot, protocol, config = _context(directory)
         if (directory / "freeze.json").exists():
@@ -639,7 +644,7 @@ def unload_local(directory, *, timeout=1800):
         if runners:
             _save(folder / "remaining-runner-processes.json", runners)
             raise ValueError("Ollama runner processes have not exited after unload")
-        evidence = {"checked_utc": _now(), "runtime": runtime, "models": [],
+        evidence = {**event_fields("checked"), "runtime": runtime, "models": [],
                     "runner_processes": runners,
                     "api_response_sha256": _sha(raw), "ps_sha256": _sha(raw_ps),
                     "interpretation": "No model loaded in verified Ollama server; existing warmup, load checks and quality warnings still apply."}
@@ -667,7 +672,7 @@ def assert_unloaded(directory):
     runners = runner_processes(config["server_pid"])
     if runners:
         raise ValueError("Ollama runner process exists; kernel measurement is forbidden")
-    return {"checked_utc": _now(), "models": [], "runtime": runtime,
+    return {**event_fields("checked"), "models": [], "runtime": runtime,
             "runner_processes": runners,
             "current_ps_sha256": _sha(raw), "unload_evidence_path": str(evidence_path.relative_to(directory)),
             "unload_evidence_sha256": _sha(evidence_path.read_bytes()),

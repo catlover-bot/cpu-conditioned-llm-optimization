@@ -108,7 +108,7 @@ def main() -> int:
     rows = []
 
     flags = [
-        "-std=c11",
+        "-std=gnu11",
         "-O3",
         "-march=native",
         "-fno-fast-math",

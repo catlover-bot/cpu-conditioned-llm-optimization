@@ -84,7 +84,23 @@ def statement_bounds(smoke,main:str,token:str):
  if end<0:raise RuntimeError(token+':no_semicolon')
  return start,end+1
 
-TIMER_HELPER=r'''\n#include <stdint.h>\n#include <string.h>\n#include <time.h>\nstatic uint64_t cpucond_clock_ns(void){struct timespec ts;if(clock_gettime(CLOCK_MONOTONIC_RAW,&ts)!=0){perror("clock_gettime");exit(92);}return (uint64_t)ts.tv_sec*1000000000ULL+(uint64_t)ts.tv_nsec;}\n'''
+TIMER_HELPER = """
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+static uint64_t cpucond_clock_ns(void) {
+  struct timespec ts;
+  if (clock_gettime(CLOCK_MONOTONIC_RAW, &ts) != 0) {
+    perror("clock_gettime");
+    exit(92);
+  }
+  return (uint64_t)ts.tv_sec * 1000000000ULL
+       + (uint64_t)ts.tv_nsec;
+}
+"""
 
 def replace_main(smoke,s:str,kernel:str)->str:
  a,b=smoke.function_span(s,'main','int'); main=s[a:b]

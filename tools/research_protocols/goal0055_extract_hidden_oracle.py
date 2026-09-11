@@ -298,20 +298,134 @@ def main() -> int:
                 "gate rows missing"
             )
 
-        summaries = (
-            inst.get(
-                "final_measurement_summaries"
-            )
-            or inst.get(
-                "measurement_summaries"
-            )
+        timing_path = (
+            instance_dir
+            / "final-timing.json"
         )
+
+        summary_path = (
+            instance_dir
+            / "final-timing-summary.json"
+        )
+
+        if not timing_path.is_file():
+            raise RuntimeError(
+                f"{kernel}/{size}: "
+                "final-timing.json missing"
+            )
+
+        if not summary_path.is_file():
+            raise RuntimeError(
+                f"{kernel}/{size}: "
+                "final-timing-summary.json missing"
+            )
+
+        timing = load(timing_path)
+        summaries = load(summary_path)
+
+        if not isinstance(timing, dict):
+            raise RuntimeError(
+                f"{kernel}/{size}: "
+                "final timing malformed"
+            )
 
         if not isinstance(summaries, dict):
             raise RuntimeError(
                 f"{kernel}/{size}: "
-                "final measurement summaries missing"
+                "final timing summary malformed"
             )
+
+        if set(timing) != set(summaries):
+            raise RuntimeError(
+                f"{kernel}/{size}: "
+                "timing/summary representative mismatch"
+            )
+
+        if (
+            summaries.get("identity")
+            != inst.get("identity_summaries")
+        ):
+            raise RuntimeError(
+                f"{kernel}/{size}: "
+                "identity summary mismatch"
+            )
+
+        # Independently verify every clean session median
+        # from the frozen 8 paired observations.
+        for rep, sessions in summaries.items():
+            if not isinstance(sessions, list):
+                raise RuntimeError(
+                    f"{kernel}/{size}/{rep}: "
+                    "summary sessions malformed"
+                )
+
+            if (
+                len(sessions) != 2
+                or not all(
+                    x.get(
+                        "measurement_valid",
+                        False,
+                    )
+                    for x in sessions
+                )
+            ):
+                continue
+
+            rows = timing.get(rep)
+
+            if not isinstance(rows, list):
+                raise RuntimeError(
+                    f"{kernel}/{size}/{rep}: "
+                    "timing rows malformed"
+                )
+
+            for session_index in range(2):
+                values = [
+                    float(r["speedup"])
+                    for r in rows
+                    if (
+                        r.get(
+                            "measurement_valid",
+                            False,
+                        )
+                        and r.get("session")
+                        == session_index
+                    )
+                ]
+
+                if len(values) != 8:
+                    raise RuntimeError(
+                        f"{kernel}/{size}/{rep}/"
+                        f"session{session_index}: "
+                        f"expected 8 pairs, "
+                        f"got {len(values)}"
+                    )
+
+                recomputed = (
+                    statistics.median(
+                        values
+                    )
+                )
+
+                recorded = float(
+                    sessions[
+                        session_index
+                    ][
+                        "median_paired_speedup"
+                    ]
+                )
+
+                if not math.isclose(
+                    recomputed,
+                    recorded,
+                    rel_tol=1e-12,
+                    abs_tol=1e-15,
+                ):
+                    raise RuntimeError(
+                        f"{kernel}/{size}/{rep}/"
+                        f"session{session_index}: "
+                        "median mismatch"
+                    )
 
         invalid_reps = set(
             inst.get(

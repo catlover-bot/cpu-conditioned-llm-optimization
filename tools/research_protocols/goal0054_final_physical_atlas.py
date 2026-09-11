@@ -6,7 +6,7 @@ from pathlib import Path
 import random, re, shutil, statistics, struct, subprocess, sys, tempfile, time, unittest, uuid
 from datetime import datetime, timezone
 
-PROTOCOL_ID='cpu-conditioned-final-v1.2'
+PROTOCOL_ID='cpu-conditioned-final-v1.3'
 SIZES=('MINI_DATASET','SMALL_DATASET','MEDIUM_DATASET')
 SIZE_LABEL={'MINI_DATASET':'MINI','SMALL_DATASET':'SMALL','MEDIUM_DATASET':'MEDIUM'}
 COMMON=['-std=gnu11','-fno-fast-math','-ffp-contract=off','-fno-lto']
@@ -230,7 +230,7 @@ def measure_at_target(ref,natives,reps,kernel,size,target,out):
  jwrite(out/'timing.json',tim);jwrite(out/'timing-summary.json',sums);return {'calibration':cal,'timing':tim,'summaries':sums}
 
 def load_inputs(repo):
- pp=repo/'configs/final-experiment-v1.2.json';mp=repo/'configs/final-candidate-manifest-v1.json';p=jread(pp);m=jread(mp)
+ pp=repo/'configs/final-experiment-v1.3.json';mp=repo/'configs/final-candidate-manifest-v1.json';p=jread(pp);m=jread(mp)
  if p.get('protocol_id')!=PROTOCOL_ID or p['dataset']['performance_sizes']!=['MINI','SMALL','MEDIUM'] or p['dataset']['main_instance_count']!=90 or p['dataset']['main_candidate_instance_count']!=4740:raise RuntimeError('protocol_scope_mismatch')
  if m['kernel_count']!=30 or m['total_candidates_across_30_kernels']!=1580:raise RuntimeError('manifest_scope_mismatch')
  intake=repo/'runs/goal0041-dataset-intake/20260910T132522.441454Z-69857bdb';return p,m,jread(intake/'polybench-catalog.json'),intake/'upstream/polybench-c-4.2.1-beta',pp,mp

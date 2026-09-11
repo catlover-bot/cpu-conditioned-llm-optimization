@@ -1,0 +1,36 @@
+{
+  "host_role": "required_second_physical_cpu",
+  "microarchitecture_required": "Zen 2",
+  "preferred_cpu": "AMD EPYC 7402P",
+  "acceptable_examples": [
+    "AMD EPYC 7402P",
+    "AMD EPYC 7302P",
+    "AMD Ryzen 9 3900X"
+  ],
+  "must_be_bare_metal": true,
+  "single_socket_preferred": true,
+  "virtualization_disallowed": true,
+  "compiler_required": "Clang 18.1.3",
+  "os_preferred": "Ubuntu 24.04",
+  "measurement_environment": {
+    "SMT": "disabled",
+    "boost": "disabled",
+    "governor": "performance",
+    "cpu_affinity": "one physical core",
+    "memory_policy": "local NUMA node if multiple NUMA nodes exist",
+    "background_package_updates": "stopped"
+  },
+  "experiment_reuse": {
+    "protocol": "cpu-conditioned-final-v1.3",
+    "candidate_manifest": "final-candidate-manifest-v1",
+    "candidate_count_across_kernels": 1580,
+    "instances": 90,
+    "candidate_instances": 4740,
+    "sizes": [
+      "MINI",
+      "SMALL",
+      "MEDIUM"
+    ],
+    "same_candidate_ids_as_haswell": true
+  }
+}

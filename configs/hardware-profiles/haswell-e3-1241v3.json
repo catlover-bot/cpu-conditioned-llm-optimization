@@ -1,0 +1,29 @@
+{
+  "profile_id": "haswell-e3-1241v3",
+  "product_name": "Intel Xeon E3-1241 v3",
+  "microarchitecture": "Haswell",
+  "static_details": {
+    "base_frequency_ghz": 3.5,
+    "physical_cores": 4,
+    "hardware_threads": 8,
+    "threads_per_core": 2,
+    "sockets": 1,
+    "numa_nodes": 1,
+    "l1d_per_core_kib": 32,
+    "l1i_per_core_kib": 32,
+    "l2_per_core_kib": 256,
+    "l3_shared_mib": 8,
+    "cache_line_bytes": 64,
+    "isa": [
+      "AVX",
+      "AVX2",
+      "FMA"
+    ]
+  },
+  "measurement_environment": {
+    "single_threaded": true,
+    "smt_disabled": true,
+    "turbo_or_boost_disabled": true,
+    "governor": "performance"
+  }
+}

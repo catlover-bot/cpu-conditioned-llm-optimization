@@ -1,0 +1,27 @@
+{
+  "automatic_generation_retries": 0,
+  "code_repair": false,
+  "completed_utc": "2026-09-18T00:54:44.481758Z",
+  "generation_status_counts_after_qwen_equivalent_normalization": {
+    "invalid_generation": 25,
+    "saved": 515
+  },
+  "model": "claude-sonnet-5",
+  "normalization_counts": {
+    "outer_markdown_fence_removed": 515
+  },
+  "numerical_correctness_validated": false,
+  "performance_measured": false,
+  "provider_result_type_counts": {
+    "succeeded": 540
+  },
+  "qwen_response_normalization_contract_sha256": "c0f16b48924a81320aee74f16b6b136503667d648a0dc2ee61e2c807c53fc47c",
+  "requests_total": 540,
+  "results_sha256": "24e07afbf84f431419fe6101b7f637ce4c840b16f4ab3655104a7dacca1e3266",
+  "schema": "cpucond-claude-sonnet5-official-generation-v1",
+  "source_bundle_sha256": "447eb5efcc9c0db30b9d66efaf6662c96bf355e0a8bd4969b3269db8202fc015",
+  "stop_reason_counts": {
+    "end_turn": 540
+  },
+  "syntax_repair": false
+}

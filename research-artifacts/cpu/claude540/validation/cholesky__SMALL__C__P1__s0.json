@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "cholesky__SMALL__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "8b6b60d0c5800d132e534184f9341f8c45a8254c115b943ca9dbcfb4938fb968",
+  "reference_ir_sha256": "728c6c432b446be39ce3e53f7bdc3652d09805b9056c14cdbe1a111bfc33ce7f",
+  "size": "SMALL",
+  "source_sha256": "7fc74a6c7d20620a383ed666c1a1fe2ecd38582d841c69aa4f8e0d6db284ca41",
+  "status": "checked",
+  "task": "cholesky"
+}

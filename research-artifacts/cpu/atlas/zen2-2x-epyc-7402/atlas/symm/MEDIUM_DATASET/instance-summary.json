@@ -1,0 +1,43 @@
+{
+  "kernel_id": "symm",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 28,
+  "unique_machine_code_groups": 17,
+  "nonidentity_representatives_measured": 16,
+  "aliases_to_identity": 12,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0023089950906319,
+      "paired_speedup_iqr": 0.01193047711797457,
+      "reference_batch_median_ns": 11797870.0,
+      "candidate_batch_median_ns": 11750214.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.999889829019817,
+      "paired_speedup_iqr": 0.005276433768532041,
+      "reference_batch_median_ns": 11722589.5,
+      "candidate_batch_median_ns": 11723229.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1
+    }
+  ],
+  "formal_equivalence_proven": false
+}

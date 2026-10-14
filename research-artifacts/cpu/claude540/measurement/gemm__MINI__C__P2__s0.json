@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "f85ae9cd82737fd3abff6211f9d04740bb21e6296aa243f09b8a2861d90d8b37",
+  "candidate_object_sha256": "bc75a29c1dc45cf24c2f4be56ea804c702356cbdbea74ee1e5d5fcaaac449852",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gemm__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.172571286087009
+}

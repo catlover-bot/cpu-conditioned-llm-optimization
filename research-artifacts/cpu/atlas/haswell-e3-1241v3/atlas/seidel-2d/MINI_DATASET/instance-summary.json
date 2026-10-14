@@ -1,0 +1,43 @@
+{
+  "kernel_id": "seidel-2d",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 31,
+  "unique_machine_code_groups": 12,
+  "nonidentity_representatives_measured": 11,
+  "aliases_to_identity": 20,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 32,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0015111101022796,
+      "paired_speedup_iqr": 0.0015997993740184402,
+      "reference_batch_median_ns": 8524813.0,
+      "candidate_batch_median_ns": 8513866.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 32
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9999004394844151,
+      "paired_speedup_iqr": 0.0007586792697014122,
+      "reference_batch_median_ns": 8510427.0,
+      "candidate_batch_median_ns": 8511839.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 32
+    }
+  ],
+  "formal_equivalence_proven": false
+}

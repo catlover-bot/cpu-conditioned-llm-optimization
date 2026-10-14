@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "gramschmidt__MINI__C__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "04ebb7d1a686e21645944f1de6715a98567fbbbdcf111c5ebce1c3429b4b278f",
+  "reference_ir_sha256": "00d333ee59a1be5448812c108dd5b5e506d11aad725a63d0ccb01086dcb3b4c4",
+  "size": "MINI",
+  "source_sha256": "cb56d4bbdc8cb28f1e9bb63d777d7591ef20e7e7dacb2cf46e797651de6d3292",
+  "status": "checked",
+  "task": "gramschmidt"
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "d352f25565d937f5a5d7dc7105d6d87d4d54d6032ade2d9c2a4b9bdb246f27d5",
+  "candidate_object_sha256": "2327830c44e1b9b6d99109ae283f4be9049e1cd9d67d03352939bf0236922d1b",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gesummv__MINI__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 8.30667341237766
+}

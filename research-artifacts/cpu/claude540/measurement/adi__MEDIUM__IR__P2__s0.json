@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "b36f8e44634c13a37b786c534365d9a5285318704b1d2b5e22ded6ea7aa3fa6b",
+  "candidate_object_sha256": "d8341bf46253e0bf1a5de13b90ef1d0a6cc1fc1c5138808258760c1d6d1e53be",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "adi__MEDIUM__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9994370282636734
+}

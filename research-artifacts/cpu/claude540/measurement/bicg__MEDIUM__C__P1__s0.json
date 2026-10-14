@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "de589638420b411504c5f763cf57877f2693f44c64128896ff938d9b59e868ea",
+  "candidate_object_sha256": "f897dd6cfd65bf8378bda266cfda908b04a875888c8042e067ddeacf95ecdeb6",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "bicg__MEDIUM__C__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 3.6606656890489755
+}

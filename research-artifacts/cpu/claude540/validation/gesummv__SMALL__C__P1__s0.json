@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "gesummv__SMALL__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "6a2729d80e0be7de1660813b836d1998f185e1c77c152bc64bf63540fcdfa452",
+  "reference_ir_sha256": "ec995f1663e66677432896e8357a15f859f00cd664260a50463d94d490122f8b",
+  "size": "SMALL",
+  "source_sha256": "ab2f5cba2c2de307764bcd2c31e98cb23918a0feefd2c41b342433e7dcb574fe",
+  "status": "checked",
+  "task": "gesummv"
+}

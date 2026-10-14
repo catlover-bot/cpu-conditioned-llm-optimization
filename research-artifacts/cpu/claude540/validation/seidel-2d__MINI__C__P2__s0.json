@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "C",
+  "id": "seidel-2d__MINI__C__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "30c75c391e35faad0cd2bb8f402cbbfa92a263b2e027f5575800f97414fcedff",
+  "reference_ir_sha256": "38469e307cdfea02db7a7140368cd39ab230c16336e9d0c9fb9bb47f16470ec6",
+  "size": "MINI",
+  "source_sha256": "93873983020b4264ed06337db72aaab080493ea6cfc68afe7d30683b200434d4",
+  "status": "checked",
+  "task": "seidel-2d"
+}

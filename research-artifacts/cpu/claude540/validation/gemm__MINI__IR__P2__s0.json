@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "gemm__MINI__IR__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "51c844fbfaaa74ad513b667654633deab410c8900733398935179adbead8af5f",
+  "reference_ir_sha256": "c4580beb3589118dedf10edd2a52481c101ca2ea16aec51be03dcdfca02de3d2",
+  "size": "MINI",
+  "source_sha256": "a7041290a4628c6e36a1190864e9e74ce58827e209732b94f3ff60fa8d3b5d12",
+  "status": "checked",
+  "task": "gemm"
+}

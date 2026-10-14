@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "adi__MINI__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "1cfcbabcee14ebf7584004232d00b910652335d383e33154724907f1ce15d906",
+  "reference_ir_sha256": "b62551cd90d79dc7639f6efa8f92324c1d550173f0dfb2e77c7362d4450360b1",
+  "size": "MINI",
+  "source_sha256": "d44bbf4cc79e09ab2dfad0f6acec4121f63065a3b92054414fbf41c5b2dad542",
+  "status": "checked",
+  "task": "adi"
+}

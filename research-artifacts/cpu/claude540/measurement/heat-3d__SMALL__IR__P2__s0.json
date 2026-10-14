@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "4f16daa658243ba3d97fad8cbff1b9b7664c463a1d2d34a73dd9503fd858b5d4",
+  "candidate_object_sha256": "6dce77497e431f9166c1fc1cc28da61e82dcbd314c5751b50afbc0e16453c434",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "heat-3d__SMALL__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9880127150249555
+}

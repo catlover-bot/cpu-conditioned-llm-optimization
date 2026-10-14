@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "atax__MINI__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "5b1d3fa854366f5011e4837fa45378bf1dc9547d428ab2ea727b2b97f7ec3282",
+  "reference_ir_sha256": "4bdc54687b51ab28916bbd5808edc4cedb538f42e81d8455e50713520ca10061",
+  "size": "MINI",
+  "source_sha256": "ac97525cf14eca46cb79fa7064207257699ff81187c0f18d2d3d8d0a3cf7a645",
+  "status": "checked",
+  "task": "atax"
+}

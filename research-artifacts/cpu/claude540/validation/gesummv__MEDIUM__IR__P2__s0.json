@@ -1,0 +1,15 @@
+{
+  "condition": "P2",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "gesummv__MEDIUM__IR__P2__s0",
+  "passed": false,
+  "reference_c_sha256": "6a2729d80e0be7de1660813b836d1998f185e1c77c152bc64bf63540fcdfa452",
+  "reference_ir_sha256": "ec995f1663e66677432896e8357a15f859f00cd664260a50463d94d490122f8b",
+  "size": "MEDIUM",
+  "source_sha256": "94ea7a5e1b21fe3af2da3805aaf689d7613adb44c004f861482b03c977cfeb03",
+  "status": "rejected",
+  "task": "gesummv"
+}

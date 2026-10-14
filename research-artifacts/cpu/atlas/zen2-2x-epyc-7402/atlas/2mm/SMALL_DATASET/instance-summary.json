@@ -1,0 +1,43 @@
+{
+  "kernel_id": "2mm",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 61,
+  "candidates_admitted": 55,
+  "unique_machine_code_groups": 25,
+  "nonidentity_representatives_measured": 24,
+  "aliases_to_identity": 31,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 32,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9941768789711714,
+      "paired_speedup_iqr": 0.01700854245512462,
+      "reference_batch_median_ns": 9218858.0,
+      "candidate_batch_median_ns": 9204858.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 32
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0005620287566568,
+      "paired_speedup_iqr": 0.012686116688779059,
+      "reference_batch_median_ns": 9192434.0,
+      "candidate_batch_median_ns": 9221868.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 32
+    }
+  ],
+  "formal_equivalence_proven": false
+}

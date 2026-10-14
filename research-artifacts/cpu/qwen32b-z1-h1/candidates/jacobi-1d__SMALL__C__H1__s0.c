@@ -1,0 +1,21 @@
+#include <math.h>
+#include <stdint.h>
+#include <stddef.h>
+
+__attribute__((noinline)) void kernel_jacobi_1d(int tsteps,
+       int n,
+       double A[ n + 0],
+       double B[ n + 0])
+{
+  int t, i;
+  double factor = 0.33333;
+#pragma scop
+  for (t = 0; t < tsteps; t++)
+    {
+      for (i = 1; i < n - 1; i++)
+ B[i] = factor * (A[i-1] + A[i] + A[i + 1]);
+      for (i = 1; i < n - 1; i++)
+ A[i] = factor * (B[i-1] + B[i] + B[i + 1]);
+    }
+#pragma endscop
+}

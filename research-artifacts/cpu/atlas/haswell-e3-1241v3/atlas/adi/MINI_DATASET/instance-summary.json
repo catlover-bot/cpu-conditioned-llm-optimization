@@ -1,0 +1,43 @@
+{
+  "kernel_id": "adi",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 71,
+  "unique_machine_code_groups": 28,
+  "nonidentity_representatives_measured": 27,
+  "aliases_to_identity": 44,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 64,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9999483962925935,
+      "paired_speedup_iqr": 0.0009422558777220091,
+      "reference_batch_median_ns": 7557719.0,
+      "candidate_batch_median_ns": 7561319.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 64
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0000479537950409,
+      "paired_speedup_iqr": 0.003882283947678422,
+      "reference_batch_median_ns": 7558128.0,
+      "candidate_batch_median_ns": 7555678.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 64
+    }
+  ],
+  "formal_equivalence_proven": false
+}

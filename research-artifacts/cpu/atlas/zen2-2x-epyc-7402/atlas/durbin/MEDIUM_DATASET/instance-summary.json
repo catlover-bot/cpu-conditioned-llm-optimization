@@ -1,0 +1,43 @@
+{
+  "kernel_id": "durbin",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 41,
+  "candidates_admitted": 38,
+  "unique_machine_code_groups": 17,
+  "nonidentity_representatives_measured": 16,
+  "aliases_to_identity": 22,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 64,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9961686238417541,
+      "paired_speedup_iqr": 0.020934466689407127,
+      "reference_batch_median_ns": 7589368.0,
+      "candidate_batch_median_ns": 7621183.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 64
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.011009031431223,
+      "paired_speedup_iqr": 0.01434625715823179,
+      "reference_batch_median_ns": 7598242.5,
+      "candidate_batch_median_ns": 7509397.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 64
+    }
+  ],
+  "formal_equivalence_proven": false
+}

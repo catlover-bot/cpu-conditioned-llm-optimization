@@ -1,0 +1,24 @@
+カーネル: floyd-warshall
+サイズ条件: MINI
+数値寸法: {"N": 60}
+
+static
+void kernel_floyd_warshall(int n,
+			   DATA_TYPE POLYBENCH_2D(path,N,N,n,n))
+{
+  int i, j, k;
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (k = 0; k < _PB_N; k++)
+    {
+      /* CPUCOND_LOOP_01 */
+for(i = 0; i < _PB_N; i++)
+	/* CPUCOND_LOOP_02 */
+for (j = 0; j < _PB_N; j++)
+	  path[i][j] = path[i][j] < path[i][k] + path[k][j] ?
+	    path[i][j] : path[i][k] + path[k][j];
+    }
+#pragma endscop
+
+}

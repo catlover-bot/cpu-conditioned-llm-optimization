@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "nussinov__SMALL__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "67723c40baf0e17c0c66e2822c9b02c2ad1936b24975d7f3a20fe99679a58f8a",
+  "reference_ir_sha256": "07e6f681501c9ab388ec67be76c55ebe7fa709a83798f20fef1bb38854f94a02",
+  "size": "SMALL",
+  "source_sha256": "55948eb888d30c313035c5d64d38129bc385f9a46977c0c9273b7a8cb4c5a2fe",
+  "status": "checked",
+  "task": "nussinov"
+}

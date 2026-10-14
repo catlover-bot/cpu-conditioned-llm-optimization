@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "78b2ed98778e9cef67bf60b007ba2cc8741164fa2c08f20adea8db803319745c",
+  "candidate_object_sha256": "1e303562a35ed064f4d8b48a9d1a47760b4e581d733a50e3305bf8536b102cb8",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "nussinov__MEDIUM__C__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 2.463753702385597
+}

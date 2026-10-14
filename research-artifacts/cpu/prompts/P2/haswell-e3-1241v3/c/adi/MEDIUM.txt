@@ -1,0 +1,138 @@
+あなたはコンパイラ最適化候補を1つ選択します。
+
+目的:
+対象CPU上で、提示されたカーネルの実行時間が最も短くなる可能性が高い候補IDを1つ選んでください。
+
+重要:
+- コードを書き換えてはいけません。
+- 候補IDを1つだけ選んでください。
+- 実測性能、過去の候補順位、過去のモデル回答は与えられていません。
+- 候補はClang 18.1.3でコンパイルされます。
+- コンパイル条件は -O3 -march=native -fno-fast-math -ffp-contract=off -fno-lto です。
+- 性能評価は単一スレッドです。
+- 測定時はSMTとTurbo/Boostを無効化します。
+- 出力に理由説明を含めないでください。
+
+コード表現:
+C
+
+対象CPU情報:
+- 製品名: Intel Xeon E3-1241 v3
+- マイクロアーキテクチャ: Haswell
+- ベース周波数: 3.5 GHz
+- 物理コア数: 4
+- ハードウェアスレッド数: 8
+- 1コアあたりスレッド数: 2
+- ソケット数: 1
+- NUMAノード数: 1
+- L1データキャッシュ: 32 KiB / core
+- L1命令キャッシュ: 32 KiB / core
+- L2キャッシュ: 256 KiB / core
+- 共有L3キャッシュ: 8 MiB
+- キャッシュライン: 64 bytes
+- 関連ISA: AVX, AVX2, FMA
+
+選択可能なループ番号:
+00, 01, 02, 03, 04, 05, 06
+
+候補ID規則:
+- identity
+- loop_XX_unroll_count_2
+- loop_XX_unroll_count_4
+- loop_XX_unroll_count_8
+- loop_XX_unroll_count_16
+- loop_XX_interleave_count_2
+- loop_XX_interleave_count_4
+- loop_XX_interleave_count_8
+- loop_XX_vectorize_width_2
+- loop_XX_vectorize_width_4
+- loop_XX_vectorize_width_8
+
+ここでXXには上記の存在するループ番号のみ使用できます。
+
+候補IDの意味:
+- identity: 追加のループヒントを指定しない
+- unroll_count_N: 対象ループ直前にClangのunroll_count(N)ヒントを指定
+- interleave_count_N: 対象ループ直前にClangのinterleave_count(N)ヒントを指定
+- vectorize_width_N: 対象ループ直前にClangのvectorize_width(N)ヒントを指定
+
+入力:
+----- BEGIN INPUT -----
+カーネル: adi
+サイズ条件: MEDIUM
+数値寸法: {"N": 200, "TSTEPS": 100}
+
+static
+void kernel_adi(int tsteps, int n,
+		DATA_TYPE POLYBENCH_2D(u,N,N,n,n),
+		DATA_TYPE POLYBENCH_2D(v,N,N,n,n),
+		DATA_TYPE POLYBENCH_2D(p,N,N,n,n),
+		DATA_TYPE POLYBENCH_2D(q,N,N,n,n))
+{
+  int t, i, j;
+  DATA_TYPE DX, DY, DT;
+  DATA_TYPE B1, B2;
+  DATA_TYPE mul1, mul2;
+  DATA_TYPE a, b, c, d, e, f;
+
+#pragma scop
+
+  DX = SCALAR_VAL(1.0)/(DATA_TYPE)_PB_N;
+  DY = SCALAR_VAL(1.0)/(DATA_TYPE)_PB_N;
+  DT = SCALAR_VAL(1.0)/(DATA_TYPE)_PB_TSTEPS;
+  B1 = SCALAR_VAL(2.0);
+  B2 = SCALAR_VAL(1.0);
+  mul1 = B1 * DT / (DX * DX);
+  mul2 = B2 * DT / (DY * DY);
+
+  a = -mul1 /  SCALAR_VAL(2.0);
+  b = SCALAR_VAL(1.0)+mul1;
+  c = a;
+  d = -mul2 / SCALAR_VAL(2.0);
+  e = SCALAR_VAL(1.0)+mul2;
+  f = d;
+
+ /* CPUCOND_LOOP_00 */
+for (t=1; t<=_PB_TSTEPS; t++) {
+    //Column Sweep
+    /* CPUCOND_LOOP_01 */
+for (i=1; i<_PB_N-1; i++) {
+      v[0][i] = SCALAR_VAL(1.0);
+      p[i][0] = SCALAR_VAL(0.0);
+      q[i][0] = v[0][i];
+      /* CPUCOND_LOOP_02 */
+for (j=1; j<_PB_N-1; j++) {
+        p[i][j] = -c / (a*p[i][j-1]+b);
+        q[i][j] = (-d*u[j][i-1]+(SCALAR_VAL(1.0)+SCALAR_VAL(2.0)*d)*u[j][i] - f*u[j][i+1]-a*q[i][j-1])/(a*p[i][j-1]+b);
+      }
+
+      v[_PB_N-1][i] = SCALAR_VAL(1.0);
+      /* CPUCOND_LOOP_03 */
+for (j=_PB_N-2; j>=1; j--) {
+        v[j][i] = p[i][j] * v[j+1][i] + q[i][j];
+      }
+    }
+    //Row Sweep
+    /* CPUCOND_LOOP_04 */
+for (i=1; i<_PB_N-1; i++) {
+      u[i][0] = SCALAR_VAL(1.0);
+      p[i][0] = SCALAR_VAL(0.0);
+      q[i][0] = u[i][0];
+      /* CPUCOND_LOOP_05 */
+for (j=1; j<_PB_N-1; j++) {
+        p[i][j] = -f / (d*p[i][j-1]+e);
+        q[i][j] = (-a*v[i-1][j]+(SCALAR_VAL(1.0)+SCALAR_VAL(2.0)*a)*v[i][j] - c*v[i+1][j]-d*q[i][j-1])/(d*p[i][j-1]+e);
+      }
+      u[i][_PB_N-1] = SCALAR_VAL(1.0);
+      /* CPUCOND_LOOP_06 */
+for (j=_PB_N-2; j>=1; j--) {
+        u[i][j] = p[i][j] * u[i][j+1] + q[i][j];
+      }
+    }
+  }
+#pragma endscop
+}
+----- END INPUT -----
+
+次のJSONだけを返してください。
+{"candidate_id":"..."}

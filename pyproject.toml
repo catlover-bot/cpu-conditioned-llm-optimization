@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpucond"
+version = "0.1.0"
+description = "Reproducible development smoke foundation for CPU-conditioned optimization"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+cpucond = "cpucond.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cpucond = ["fixtures/*.c", "fixtures/*.h"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: builds and executes with the real local Clang toolchain"]

@@ -1,0 +1,47 @@
+{
+  "correctness": {
+    "finite_test_equivalence_proven": false,
+    "float_default": "bitwise_under_declared_strict_fp_contract",
+    "integer_default": "exact_integer_state"
+  },
+  "datasets_initial": {
+    "polybench_c_4_2_1_beta": [
+      "gemm",
+      "atax",
+      "jacobi-2d",
+      "trisolv",
+      "nussinov",
+      "correlation"
+    ],
+    "tsvc2": {
+      "enabled_for_main_initial": false,
+      "reason": "per-loop correctness contracts not fixed yet"
+    }
+  },
+  "experiment_id": "physical-cpu-v1",
+  "initial_host_classes": [
+    {
+      "id": "intel_haswell",
+      "target_example": "Intel Xeon E3-1240 v3"
+    },
+    {
+      "id": "amd_zen2",
+      "target_example": "AMD Ryzen PRO 3600"
+    }
+  ],
+  "measurement": {
+    "identity_machine_code_control_required": true,
+    "machine_code_trace_required": true,
+    "main_host_type": "single_tenant_physical",
+    "rerun_until_favorable_forbidden": true
+  },
+  "prompt_conditions": [
+    "P0",
+    "P1",
+    "P2"
+  ],
+  "representations_initial": [
+    "c"
+  ],
+  "schema_version": 1
+}

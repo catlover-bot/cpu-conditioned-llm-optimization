@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "heat-3d__MINI__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "667d820a2927ee35f2ea72fe87cf012e1a5ba8259ea9a2a36232cebc00d0320c",
+  "reference_ir_sha256": "cca7d2ef9aa98aab894add91607b5c8db9b70a0a4da8f31de1357759c2980e25",
+  "size": "MINI",
+  "source_sha256": "2c6f6034dc50e8a868a290dbc58aed05c7bc2119edd22224df91cb233b40f4ef",
+  "status": "checked",
+  "task": "heat-3d"
+}

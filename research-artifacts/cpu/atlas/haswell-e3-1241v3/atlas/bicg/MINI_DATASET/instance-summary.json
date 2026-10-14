@@ -1,0 +1,45 @@
+{
+  "kernel_id": "bicg",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 31,
+  "unique_machine_code_groups": 8,
+  "nonidentity_representatives_measured": 7,
+  "aliases_to_identity": 24,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 2048,
+  "candidate_representatives_invalid_no_rerun": [
+    "loop_01_unroll_count_8"
+  ],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9987854800243942,
+      "paired_speedup_iqr": 0.0032642907189157633,
+      "reference_batch_median_ns": 7687276.5,
+      "candidate_batch_median_ns": 7696289.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 2048
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0013383299246632,
+      "paired_speedup_iqr": 0.00271248344680064,
+      "reference_batch_median_ns": 7704970.5,
+      "candidate_batch_median_ns": 7694726.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 2048
+    }
+  ],
+  "formal_equivalence_proven": false
+}

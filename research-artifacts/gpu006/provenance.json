@@ -1,0 +1,10 @@
+{
+  "l4_retired": true,
+  "new_a40_candidates_measured": false,
+  "original_analysis_snapshot": "11ae29ed6b1899a5df9bb4823b6618c5f2c1a1fa720b068f1f5132e6180ef4aa",
+  "original_numeric_core_sha256": "afe6858e7d510084a40e97aa81c14fa9da907fc80bc23f4a8b76f1eccf14e90a",
+  "original_plan_sha256": "9f5570a6b8d87b90df9eee97fba56fb33311e8d52cb93e1d9f17248b37c64a83",
+  "original_support_sha256": "b035a2a24a926f1e8151fb788aab4f4d37f7fdf5925c00368b4841aaea892e4a",
+  "public_copy_difference": "Generic state validation refuses unavailable private deployment. Numerical/support bodies are plaintext projections with omitted remote/generation/bootstrap paths and rebased reference filesystem binding. Public files have new hashes; original fixed hashes identify immutable local provenance, not published byte equality.",
+  "schema": "gpu006-public-provenance-v1"
+}

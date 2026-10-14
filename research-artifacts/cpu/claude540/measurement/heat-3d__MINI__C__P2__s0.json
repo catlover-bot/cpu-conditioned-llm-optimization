@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "19455bd49748115a63a8f151cb9e451e2c04d0e25f6e7e108d1ae59c253e766b",
+  "candidate_object_sha256": "19455bd49748115a63a8f151cb9e451e2c04d0e25f6e7e108d1ae59c253e766b",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "heat-3d__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9957716359528329
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "deriche__MINI__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "c64460ced73bda3881fa3138f63d4d8feda1ccf72f049fb3f86dda4e0dbbf734",
+  "reference_ir_sha256": "b2b52284b2379de2f779ad9dba52d34903b05f5a2db02786304c37b2e55d604f",
+  "size": "MINI",
+  "source_sha256": "7b3ca1fa4e155bca44f33e01e98f13ec089f35383ea03066475ee5a07657e18b",
+  "status": "checked",
+  "task": "deriche"
+}

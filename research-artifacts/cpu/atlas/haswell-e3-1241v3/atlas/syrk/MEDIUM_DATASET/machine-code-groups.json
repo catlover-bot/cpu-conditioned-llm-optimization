@@ -1,0 +1,225 @@
+[
+  {
+    "function_bytes_sha256": "097ac6ec5a1e565dac538a7262633a36c7171cdf32521bfad804adbb2a97d2c7",
+    "candidate_ids": [
+      "loop_00_unroll_count_16"
+    ],
+    "representative": "loop_00_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "1f5d1386b043b4bae882522dc8635a30667205083e2dda5d7468c6ba35630d43",
+    "candidate_ids": [
+      "loop_03_interleave_count_4"
+    ],
+    "representative": "loop_03_interleave_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "34a0a8145ba451f34b8b1ce29af674b6a35d2690f1db994697390818503b5482",
+    "candidate_ids": [
+      "loop_01_interleave_count_8"
+    ],
+    "representative": "loop_01_interleave_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "3562cbf3f6bf8e6870f3beca277008d6b9b7904b70cfc267a187d9cc482fa50d",
+    "candidate_ids": [
+      "loop_02_unroll_count_8"
+    ],
+    "representative": "loop_02_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "3c329191aa0fc502f6d3593a8c531ca8cb643238b537990d60677a58aee4dc8a",
+    "candidate_ids": [
+      "loop_02_unroll_count_16"
+    ],
+    "representative": "loop_02_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "4b0c8dd9a48f6dc7a5e0c2ad306eb452823519083a575db50b538e3b0bb40385",
+    "candidate_ids": [
+      "loop_03_interleave_count_8"
+    ],
+    "representative": "loop_03_interleave_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "56f6da47bb39cf6f258afa7c29257958196e1109100ecc40fd7432577f2c9a7c",
+    "candidate_ids": [
+      "loop_01_unroll_count_2"
+    ],
+    "representative": "loop_01_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "58bf25cccd73f98bc8f118553ce41555b8bd58bea14ad4aee47c7d05fd8bdc97",
+    "candidate_ids": [
+      "loop_00_unroll_count_4"
+    ],
+    "representative": "loop_00_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "5aa13bff9c8de80d58505d6e100486636274e842c14c42faffbf6d2e03ce72d5",
+    "candidate_ids": [
+      "loop_01_unroll_count_4"
+    ],
+    "representative": "loop_01_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "61f84a454ba0e545878368a88a3c3a44fdfe1a631295a45c65de3b7116011bb9",
+    "candidate_ids": [
+      "loop_01_interleave_count_2"
+    ],
+    "representative": "loop_01_interleave_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "80f596f8f38977291d7e615dfe7ac3532efd3e14095ee21c4328d63d89115af1",
+    "candidate_ids": [
+      "loop_01_vectorize_width_2"
+    ],
+    "representative": "loop_01_vectorize_width_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "893f4e1ad59602476f7c7d50ba429cd0feed0a088647c53e8a099d0da4e384b1",
+    "candidate_ids": [
+      "loop_00_unroll_count_8"
+    ],
+    "representative": "loop_00_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "8e3386fbde6cc76f377495949982c812344703355520ab8466e7cbf8d40f3af0",
+    "candidate_ids": [
+      "loop_03_unroll_count_2"
+    ],
+    "representative": "loop_03_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "9a1641085fdfffeb0606a91b38dbd6b5e118a3c2d54138d551e65c405dfd606e",
+    "candidate_ids": [
+      "loop_02_unroll_count_2"
+    ],
+    "representative": "loop_02_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "9bf7ed9342692f1f194fe31dad0818abeb3b70e510023e186f58056239bead8d",
+    "candidate_ids": [
+      "loop_03_unroll_count_4"
+    ],
+    "representative": "loop_03_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "a11dd8ee7f5adb8621b8433cfb21c527d4e033df6703e7bd529ab6b61c3edeae",
+    "candidate_ids": [
+      "loop_03_vectorize_width_2"
+    ],
+    "representative": "loop_03_vectorize_width_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "b5cacb893cb81e51fcc952b2b0b8ef1313162dc4d3bbb1314669b0444ac624cd",
+    "candidate_ids": [
+      "loop_01_vectorize_width_8"
+    ],
+    "representative": "loop_01_vectorize_width_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "c32c7197916f05ad11cc04205408079da2b8a9ad76801aa18073066b0f8f0d15",
+    "candidate_ids": [
+      "loop_00_unroll_count_2"
+    ],
+    "representative": "loop_00_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "c4c4a9915bf020056f2cb43717abc4a6a17333f332ef0f530a57f82a51b11a25",
+    "candidate_ids": [
+      "loop_02_unroll_count_4"
+    ],
+    "representative": "loop_02_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "d01781079e6a5e7a13a06175a6df3d9c4e9d2c2a66e1c0cf9a23c70d86a4c5db",
+    "candidate_ids": [
+      "loop_03_unroll_count_16"
+    ],
+    "representative": "loop_03_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "d4e3a2e6e9b1dce1001cedeabcdab4c1de8208dd5dfff352453eeb736fb13cce",
+    "candidate_ids": [
+      "loop_01_unroll_count_16"
+    ],
+    "representative": "loop_01_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "d5198043828664c454a2c49a264f9890a18dfe3cb607e3f4500ea984e255bfb7",
+    "candidate_ids": [
+      "loop_01_unroll_count_8"
+    ],
+    "representative": "loop_01_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "dd17fa12a623fca990f7250c18226c2eddec12b00b918fd9ecf9048f6849cbc2",
+    "candidate_ids": [
+      "loop_03_vectorize_width_8"
+    ],
+    "representative": "loop_03_vectorize_width_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "e60f71b0c4de4bfc3ece1fccc1b583b123f1b1892d2618dc54d78c2fe3834ec7",
+    "candidate_ids": [
+      "loop_03_interleave_count_2"
+    ],
+    "representative": "loop_03_interleave_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "eb219a4acebce8515d92e9e4c17f36663752e7e9f23736c2706eeee58837a674",
+    "candidate_ids": [
+      "loop_03_unroll_count_8"
+    ],
+    "representative": "loop_03_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "efcf80c1d230e26de9cceca26168fe393900cf7ac9027c76feaa69e2716b9a8f",
+    "candidate_ids": [
+      "identity",
+      "loop_00_interleave_count_2",
+      "loop_00_interleave_count_4",
+      "loop_00_interleave_count_8",
+      "loop_00_vectorize_width_2",
+      "loop_00_vectorize_width_4",
+      "loop_00_vectorize_width_8",
+      "loop_01_interleave_count_4",
+      "loop_01_vectorize_width_4",
+      "loop_02_interleave_count_2",
+      "loop_02_interleave_count_4",
+      "loop_02_interleave_count_8",
+      "loop_02_vectorize_width_2",
+      "loop_02_vectorize_width_4",
+      "loop_02_vectorize_width_8",
+      "loop_03_vectorize_width_4"
+    ],
+    "representative": "identity",
+    "same_as_identity": true
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "kernel_id": "gemver",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 65,
+  "unique_machine_code_groups": 37,
+  "nonidentity_representatives_measured": 36,
+  "aliases_to_identity": 29,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 16,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.000213082306207,
+      "paired_speedup_iqr": 0.002703092421029729,
+      "reference_batch_median_ns": 6115888.5,
+      "candidate_batch_median_ns": 6112119.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 16
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9998211807759887,
+      "paired_speedup_iqr": 0.0023835951549446843,
+      "reference_batch_median_ns": 6110233.0,
+      "candidate_batch_median_ns": 6112280.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 16
+    }
+  ],
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "deriche__MEDIUM__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "c64460ced73bda3881fa3138f63d4d8feda1ccf72f049fb3f86dda4e0dbbf734",
+  "reference_ir_sha256": "b2b52284b2379de2f779ad9dba52d34903b05f5a2db02786304c37b2e55d604f",
+  "size": "MEDIUM",
+  "source_sha256": "0bd44517f1db65725d8ea061c16fc090e1283eb1b28b9587a5f127b202d6011d",
+  "status": "checked",
+  "task": "deriche"
+}

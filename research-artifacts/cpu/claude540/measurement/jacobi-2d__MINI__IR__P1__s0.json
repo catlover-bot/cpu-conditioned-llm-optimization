@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "63f9e2880fa2006d9bbfec5643d8fcdd96243e6c25f150b74e298d100f21963c",
+  "candidate_object_sha256": "6c17be803c9cd7cb7a6c9d5afb15405474222f46f0f7108f53b0096f2577945e",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "jacobi-2d__MINI__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.2892521728438349
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "mvt__MEDIUM__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "a0f47e367e6013217f0d8a85f394654886c5182bc3cc5355e3c53367c6881571",
+  "reference_ir_sha256": "f34d9f6a1bdaf0ae2782de5b45fd68e0576d287412df5967f9b110b6af09876d",
+  "size": "MEDIUM",
+  "source_sha256": "c9165db366c7f1bb5515990e12475047dcbed10d7a31d3b01c1e6c1eefcb7324",
+  "status": "checked",
+  "task": "mvt"
+}

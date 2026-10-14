@@ -1,0 +1,43 @@
+{
+  "kernel_id": "gramschmidt",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 61,
+  "candidates_admitted": 55,
+  "unique_machine_code_groups": 35,
+  "nonidentity_representatives_measured": 34,
+  "aliases_to_identity": 21,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 16,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.002358454889641,
+      "paired_speedup_iqr": 0.00941519674110003,
+      "reference_batch_median_ns": 5416257.0,
+      "candidate_batch_median_ns": 5385157.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 16
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.001548490738613,
+      "paired_speedup_iqr": 0.014760022748600332,
+      "reference_batch_median_ns": 5403462.0,
+      "candidate_batch_median_ns": 5344952.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 16
+    }
+  ],
+  "formal_equivalence_proven": false
+}

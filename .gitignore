@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+/runs/
+/.pytest_cache/
+/build/
+/dist/
+*.egg-info/
+*.py[cod]
+external-results/
+# Large raw artifacts remain in the independent, verified local backups.
+*.tar
+*.tar.gz
+*.tgz
+*.cubin
+*.ptx

@@ -1,0 +1,43 @@
+{
+  "kernel_id": "correlation",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 91,
+  "candidates_admitted": 82,
+  "unique_machine_code_groups": 36,
+  "nonidentity_representatives_measured": 35,
+  "aliases_to_identity": 47,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 16,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9992460603819784,
+      "paired_speedup_iqr": 0.0037927918435427532,
+      "reference_batch_median_ns": 5318426.0,
+      "candidate_batch_median_ns": 5326840.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 16
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9980131014067577,
+      "paired_speedup_iqr": 0.001601587583925701,
+      "reference_batch_median_ns": 5325756.0,
+      "candidate_batch_median_ns": 5337782.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 16
+    }
+  ],
+  "formal_equivalence_proven": false
+}

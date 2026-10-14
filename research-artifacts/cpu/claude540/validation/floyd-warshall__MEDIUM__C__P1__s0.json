@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "floyd-warshall__MEDIUM__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "f566fc668295223b0a56e556a654f337ce6e6092829d44469b1fa8c0ebb711de",
+  "reference_ir_sha256": "7657f4d32a7d6a13405cfd4d0bc576f1129ce8340a60c4feb9b6597c6e480c45",
+  "size": "MEDIUM",
+  "source_sha256": "0a4ab56ce0020b95a2d70397b7914c05e107ee12ae510e144576b81cbe706863",
+  "status": "checked",
+  "task": "floyd-warshall"
+}

@@ -1,0 +1,22 @@
+{
+  "analysis_id": "cpu-conditioned-final-analysis-v1",
+  "host_id": "haswell-e3-1241v3",
+  "instances": 90,
+  "candidate_rows": 4740,
+  "correctness_admitted": 4564,
+  "correctness_rejected": 176,
+  "oracle_eligible_candidates": 4539,
+  "measurement_invalid_candidates": 25,
+  "nonidentity_machine_code_noops": 2310,
+  "instances_oracle_faster_than_reference": 87,
+  "instances_oracle_includes_identity": 3,
+  "instances_near_oracle_includes_identity": 46,
+  "oracle_speedup_mean": 1.0341025399762385,
+  "oracle_speedup_median": 1.0093153575082048,
+  "oracle_speedup_min": 1.0,
+  "oracle_speedup_max": 1.3239739733378355,
+  "near_oracle_candidate_count_mean": 24.944444444444443,
+  "analysis_contract_sha256": "c32334a68d8fd43d081af5b292a772c50b08628e7b40ffce116373379b3ece7d",
+  "bundle_SHA256SUMS_sha256": "565e9f9eb5694b103e2213c2ecd11ee2905f268ac07e8a00afd053c47d1ad7c7",
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,94 @@
+{
+  "completion": "VALIDATION_LEDGER_COMPLETE",
+  "revision": "validation-ledger-after-llvm18-v1",
+  "created_utc": "2026-09-17T19:35:00.139618+00:00",
+  "requests": 526,
+  "saved": 525,
+  "recorded_checks_passed": 351,
+  "historical_timing_available": 346,
+  "missing_valid_historical_timing": 5,
+  "by_condition": {
+    "P0": {
+      "requests": 166,
+      "saved": 166,
+      "recorded_checks_passed": 106,
+      "historical_timing_available": 104,
+      "missing_valid_historical_timing": 2
+    },
+    "P1": {
+      "requests": 180,
+      "saved": 180,
+      "recorded_checks_passed": 119,
+      "historical_timing_available": 119,
+      "missing_valid_historical_timing": 0
+    },
+    "P2": {
+      "requests": 180,
+      "saved": 179,
+      "recorded_checks_passed": 126,
+      "historical_timing_available": 123,
+      "missing_valid_historical_timing": 3
+    }
+  },
+  "by_form": {
+    "C": {
+      "requests": 263,
+      "saved": 262,
+      "recorded_checks_passed": 203,
+      "historical_timing_available": 199,
+      "missing_valid_historical_timing": 4
+    },
+    "IR": {
+      "requests": 263,
+      "saved": 263,
+      "recorded_checks_passed": 148,
+      "historical_timing_available": 147,
+      "missing_valid_historical_timing": 1
+    }
+  },
+  "old_dynamic_pass_count": 370,
+  "ir_rejected_among_dynamic_passes": [
+    "atax__MEDIUM__IR__P0__s0",
+    "nussinov__MEDIUM__IR__P0__s0",
+    "nussinov__MEDIUM__IR__P1__s0",
+    "nussinov__MINI__IR__P0__s0",
+    "nussinov__MINI__IR__P1__s0",
+    "nussinov__MINI__IR__P2__s0",
+    "nussinov__SMALL__IR__P0__s0",
+    "nussinov__SMALL__IR__P2__s0",
+    "trisolv__SMALL__IR__P0__s0"
+  ],
+  "official_recheck_passed_ids": [
+    "floyd-warshall__MEDIUM__C__P2__s0",
+    "floyd-warshall__MINI__C__P2__s0",
+    "floyd-warshall__SMALL__C__P2__s0"
+  ],
+  "official_recheck_failed_ids": [
+    "mvt__MEDIUM__C__P0__s0",
+    "mvt__MEDIUM__C__P1__s0",
+    "mvt__MEDIUM__C__P2__s0",
+    "mvt__MINI__C__P0__s0",
+    "mvt__MINI__C__P1__s0",
+    "mvt__MINI__C__P2__s0",
+    "mvt__SMALL__C__P0__s0",
+    "mvt__SMALL__C__P1__s0",
+    "mvt__SMALL__C__P2__s0",
+    "syr2k__MEDIUM__C__P1__s0",
+    "trisolv__SMALL__IR__P0__s0"
+  ],
+  "overlap_ir_rejected_and_official_recheck_failed": [
+    "trisolv__SMALL__IR__P0__s0"
+  ],
+  "missing_valid_historical_timing_ids": [
+    "ludcmp__SMALL__C__P0__s0",
+    "ludcmp__SMALL__IR__P0__s0",
+    "floyd-warshall__MEDIUM__C__P2__s0",
+    "floyd-warshall__MINI__C__P2__s0",
+    "floyd-warshall__SMALL__C__P2__s0"
+  ],
+  "formal_equivalence_proven": false,
+  "model_calls": 0,
+  "code_executions": 0,
+  "performance_measurements": 0,
+  "scope": "Join recorded checks only; no new execution or replay of raw outputs. Eligibility is not a proof and not a speedup claim."
+}

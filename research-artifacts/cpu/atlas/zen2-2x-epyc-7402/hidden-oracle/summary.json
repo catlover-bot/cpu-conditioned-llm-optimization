@@ -1,0 +1,22 @@
+{
+  "analysis_id": "cpu-conditioned-final-analysis-v1",
+  "host_id": "zen2-2x-epyc-7402",
+  "instances": 90,
+  "candidate_rows": 4740,
+  "correctness_admitted": 4564,
+  "correctness_rejected": 176,
+  "oracle_eligible_candidates": 4553,
+  "measurement_invalid_candidates": 11,
+  "nonidentity_machine_code_noops": 2253,
+  "instances_oracle_faster_than_reference": 87,
+  "instances_oracle_includes_identity": 3,
+  "instances_near_oracle_includes_identity": 32,
+  "oracle_speedup_mean": 1.0892570391552636,
+  "oracle_speedup_median": 1.0240514738687505,
+  "oracle_speedup_min": 1.0,
+  "oracle_speedup_max": 1.8266434126577364,
+  "near_oracle_candidate_count_mean": 15.733333333333333,
+  "analysis_contract_sha256": "c32334a68d8fd43d081af5b292a772c50b08628e7b40ffce116373379b3ece7d",
+  "bundle_SHA256SUMS_sha256": null,
+  "formal_equivalence_proven": false
+}

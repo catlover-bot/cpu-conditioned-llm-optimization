@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "seidel-2d__MEDIUM__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "30c75c391e35faad0cd2bb8f402cbbfa92a263b2e027f5575800f97414fcedff",
+  "reference_ir_sha256": "38469e307cdfea02db7a7140368cd39ab230c16336e9d0c9fb9bb47f16470ec6",
+  "size": "MEDIUM",
+  "source_sha256": "0fac1d680e0c21d66af319f69410fc47994fe8036b0c58f9e36864d548606ae3",
+  "status": "checked",
+  "task": "seidel-2d"
+}

@@ -1,0 +1,43 @@
+{
+  "kernel_id": "atax",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 41,
+  "candidates_admitted": 38,
+  "unique_machine_code_groups": 17,
+  "nonidentity_representatives_measured": 16,
+  "aliases_to_identity": 22,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 512,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9999059214291811,
+      "paired_speedup_iqr": 0.002470369509554704,
+      "reference_batch_median_ns": 7580418.5,
+      "candidate_batch_median_ns": 7581210.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 512
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9998074534481254,
+      "paired_speedup_iqr": 0.0006542218812508604,
+      "reference_batch_median_ns": 7577960.0,
+      "candidate_batch_median_ns": 7579781.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 512
+    }
+  ],
+  "formal_equivalence_proven": false
+}

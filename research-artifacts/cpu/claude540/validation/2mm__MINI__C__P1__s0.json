@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "2mm__MINI__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "10165b35d1352ebd01f2d4a53aa1552690c1dbc71ea023361eea01fb31d203a3",
+  "reference_ir_sha256": "ecff91fe531fb057fc2536311858882892cc37f6c412f8f5beeb386819227839",
+  "size": "MINI",
+  "source_sha256": "ef5bd4c8ba66786e80bf1bb08557af59530ee37a857a4c5da3f936c9c6c679d6",
+  "status": "checked",
+  "task": "2mm"
+}

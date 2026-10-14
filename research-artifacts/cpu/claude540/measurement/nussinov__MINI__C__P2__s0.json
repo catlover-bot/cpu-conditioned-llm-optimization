@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "78b2ed98778e9cef67bf60b007ba2cc8741164fa2c08f20adea8db803319745c",
+  "candidate_object_sha256": "dab29b6a78a29050b13414e2e6e368b76717edcbdf6fb280d29808f500cc469a",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "nussinov__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.2970258933266428
+}

@@ -1,0 +1,249 @@
+あなたはコンパイラ最適化候補を1つ選択します。
+
+目的:
+対象CPU上で、提示されたカーネルの実行時間が最も短くなる可能性が高い候補IDを1つ選んでください。
+
+重要:
+- コードを書き換えてはいけません。
+- 候補IDを1つだけ選んでください。
+- 実測性能、過去の候補順位、過去のモデル回答は与えられていません。
+- 候補はClang 18.1.3でコンパイルされます。
+- コンパイル条件は -O3 -march=native -fno-fast-math -ffp-contract=off -fno-lto です。
+- 性能評価は単一スレッドです。
+- 測定時はSMTとTurbo/Boostを無効化します。
+- 出力に理由説明を含めないでください。
+
+コード表現:
+LLVM_IR
+
+対象CPU情報:
+- 製品名: Intel Xeon E3-1241 v3
+- マイクロアーキテクチャ: Haswell
+
+選択可能なループ番号:
+00, 01, 02, 03, 04
+
+候補ID規則:
+- identity
+- loop_XX_unroll_count_2
+- loop_XX_unroll_count_4
+- loop_XX_unroll_count_8
+- loop_XX_unroll_count_16
+- loop_XX_interleave_count_2
+- loop_XX_interleave_count_4
+- loop_XX_interleave_count_8
+- loop_XX_vectorize_width_2
+- loop_XX_vectorize_width_4
+- loop_XX_vectorize_width_8
+
+ここでXXには上記の存在するループ番号のみ使用できます。
+
+候補IDの意味:
+- identity: 追加のループヒントを指定しない
+- unroll_count_N: 対象ループ直前にClangのunroll_count(N)ヒントを指定
+- interleave_count_N: 対象ループ直前にClangのinterleave_count(N)ヒントを指定
+- vectorize_width_N: 対象ループ直前にClangのvectorize_width(N)ヒントを指定
+
+入力:
+----- BEGIN INPUT -----
+カーネル: doitgen
+サイズ条件: MEDIUM
+数値寸法: {"NP": 60, "NQ": 40, "NR": 50}
+
+define dso_local void @kernel_doitgen(i32 noundef %nr, i32 noundef %nq, i32 noundef %np, ptr noundef %A, ptr noundef %C4, ptr noundef %sum) {
+entry:
+  %nr.addr = alloca i32, align 4
+  %nq.addr = alloca i32, align 4
+  %np.addr = alloca i32, align 4
+  %A.addr = alloca ptr, align 8
+  %C4.addr = alloca ptr, align 8
+  %sum.addr = alloca ptr, align 8
+  %r = alloca i32, align 4
+  %q = alloca i32, align 4
+  %p = alloca i32, align 4
+  %s = alloca i32, align 4
+  store i32 %nr, ptr %nr.addr, align 4
+  store i32 %nq, ptr %nq.addr, align 4
+  store i32 %np, ptr %np.addr, align 4
+  store ptr %A, ptr %A.addr, align 8
+  store ptr %C4, ptr %C4.addr, align 8
+  store ptr %sum, ptr %sum.addr, align 8
+  %0 = load i32, ptr %nr.addr, align 4
+  %add = add nsw i32 %0, 0
+  %1 = zext i32 %add to i64
+  %2 = load i32, ptr %nq.addr, align 4
+  %add1 = add nsw i32 %2, 0
+  %3 = zext i32 %add1 to i64
+  %4 = load i32, ptr %np.addr, align 4
+  %add2 = add nsw i32 %4, 0
+  %5 = zext i32 %add2 to i64
+  %6 = load i32, ptr %np.addr, align 4
+  %add3 = add nsw i32 %6, 0
+  %7 = zext i32 %add3 to i64
+  %8 = load i32, ptr %np.addr, align 4
+  %add4 = add nsw i32 %8, 0
+  %9 = zext i32 %add4 to i64
+  %10 = load i32, ptr %np.addr, align 4
+  %add5 = add nsw i32 %10, 0
+  %11 = zext i32 %add5 to i64
+  ; CPUCOND_LOOP_00
+  store i32 0, ptr %r, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %12 = load i32, ptr %r, align 4
+  %13 = load i32, ptr %nr.addr, align 4
+  %cmp = icmp slt i32 %12, %13
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  ; CPUCOND_LOOP_01
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body
+  %14 = load i32, ptr %r, align 4
+  %inc = add nsw i32 %14, 1
+  store i32 %inc, ptr %r, align 4
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  store i32 0, ptr %q, align 4
+  br label %for.cond6
+
+for.cond6:                                        ; preds = %for.inc48, %for.end
+  %15 = load i32, ptr %q, align 4
+  %16 = load i32, ptr %nq.addr, align 4
+  %cmp7 = icmp slt i32 %15, %16
+  br i1 %cmp7, label %for.body8, label %for.end50
+
+for.body8:                                        ; preds = %for.cond6
+  ; CPUCOND_LOOP_02
+  store i32 0, ptr %p, align 4
+  br label %for.cond9
+
+for.cond9:                                        ; preds = %for.inc31, %for.body8
+  %17 = load i32, ptr %p, align 4
+  %18 = load i32, ptr %np.addr, align 4
+  %cmp10 = icmp slt i32 %17, %18
+  br i1 %cmp10, label %for.body11, label %for.end33
+
+for.body11:                                       ; preds = %for.cond9
+  %19 = load ptr, ptr %sum.addr, align 8
+  %20 = load i32, ptr %p, align 4
+  %idxprom = sext i32 %20 to i64
+  %arrayidx = getelementptr inbounds double, ptr %19, i64 %idxprom
+  store double 0.000000e+00, ptr %arrayidx, align 8
+  ; CPUCOND_LOOP_03
+  store i32 0, ptr %s, align 4
+  br label %for.cond12
+
+for.cond12:                                       ; preds = %for.inc28, %for.body11
+  %21 = load i32, ptr %s, align 4
+  %22 = load i32, ptr %np.addr, align 4
+  %cmp13 = icmp slt i32 %21, %22
+  br i1 %cmp13, label %for.body14, label %for.end30
+
+for.body14:                                       ; preds = %for.cond12
+  %23 = load ptr, ptr %A.addr, align 8
+  %24 = load i32, ptr %r, align 4
+  %idxprom15 = sext i32 %24 to i64
+  %25 = mul nuw i64 %3, %5
+  %26 = mul nsw i64 %idxprom15, %25
+  %arrayidx16 = getelementptr inbounds double, ptr %23, i64 %26
+  %27 = load i32, ptr %q, align 4
+  %idxprom17 = sext i32 %27 to i64
+  %28 = mul nsw i64 %idxprom17, %5
+  %arrayidx18 = getelementptr inbounds double, ptr %arrayidx16, i64 %28
+  %29 = load i32, ptr %s, align 4
+  %idxprom19 = sext i32 %29 to i64
+  %arrayidx20 = getelementptr inbounds double, ptr %arrayidx18, i64 %idxprom19
+  %30 = load double, ptr %arrayidx20, align 8
+  %31 = load ptr, ptr %C4.addr, align 8
+  %32 = load i32, ptr %s, align 4
+  %idxprom21 = sext i32 %32 to i64
+  %33 = mul nsw i64 %idxprom21, %9
+  %arrayidx22 = getelementptr inbounds double, ptr %31, i64 %33
+  %34 = load i32, ptr %p, align 4
+  %idxprom23 = sext i32 %34 to i64
+  %arrayidx24 = getelementptr inbounds double, ptr %arrayidx22, i64 %idxprom23
+  %35 = load double, ptr %arrayidx24, align 8
+  %mul = fmul double %30, %35
+  %36 = load ptr, ptr %sum.addr, align 8
+  %37 = load i32, ptr %p, align 4
+  %idxprom25 = sext i32 %37 to i64
+  %arrayidx26 = getelementptr inbounds double, ptr %36, i64 %idxprom25
+  %38 = load double, ptr %arrayidx26, align 8
+  %add27 = fadd double %38, %mul
+  store double %add27, ptr %arrayidx26, align 8
+  br label %for.inc28
+
+for.inc28:                                        ; preds = %for.body14
+  %39 = load i32, ptr %s, align 4
+  %inc29 = add nsw i32 %39, 1
+  store i32 %inc29, ptr %s, align 4
+  br label %for.cond12
+
+for.end30:                                        ; preds = %for.cond12
+  br label %for.inc31
+
+for.inc31:                                        ; preds = %for.end30
+  %40 = load i32, ptr %p, align 4
+  %inc32 = add nsw i32 %40, 1
+  store i32 %inc32, ptr %p, align 4
+  br label %for.cond9
+
+for.end33:                                        ; preds = %for.cond9
+  ; CPUCOND_LOOP_04
+  store i32 0, ptr %p, align 4
+  br label %for.cond34
+
+for.cond34:                                       ; preds = %for.inc45, %for.end33
+  %41 = load i32, ptr %p, align 4
+  %42 = load i32, ptr %np.addr, align 4
+  %cmp35 = icmp slt i32 %41, %42
+  br i1 %cmp35, label %for.body36, label %for.end47
+
+for.body36:                                       ; preds = %for.cond34
+  %43 = load ptr, ptr %sum.addr, align 8
+  %44 = load i32, ptr %p, align 4
+  %idxprom37 = sext i32 %44 to i64
+  %arrayidx38 = getelementptr inbounds double, ptr %43, i64 %idxprom37
+  %45 = load double, ptr %arrayidx38, align 8
+  %46 = load ptr, ptr %A.addr, align 8
+  %47 = load i32, ptr %r, align 4
+  %idxprom39 = sext i32 %47 to i64
+  %48 = mul nuw i64 %3, %5
+  %49 = mul nsw i64 %idxprom39, %48
+  %arrayidx40 = getelementptr inbounds double, ptr %46, i64 %49
+  %50 = load i32, ptr %q, align 4
+  %idxprom41 = sext i32 %50 to i64
+  %51 = mul nsw i64 %idxprom41, %5
+  %arrayidx42 = getelementptr inbounds double, ptr %arrayidx40, i64 %51
+  %52 = load i32, ptr %p, align 4
+  %idxprom43 = sext i32 %52 to i64
+  %arrayidx44 = getelementptr inbounds double, ptr %arrayidx42, i64 %idxprom43
+  store double %45, ptr %arrayidx44, align 8
+  br label %for.inc45
+
+for.inc45:                                        ; preds = %for.body36
+  %53 = load i32, ptr %p, align 4
+  %inc46 = add nsw i32 %53, 1
+  store i32 %inc46, ptr %p, align 4
+  br label %for.cond34
+
+for.end47:                                        ; preds = %for.cond34
+  br label %for.inc48
+
+for.inc48:                                        ; preds = %for.end47
+  %54 = load i32, ptr %q, align 4
+  %inc49 = add nsw i32 %54, 1
+  store i32 %inc49, ptr %q, align 4
+  br label %for.cond6
+
+for.end50:                                        ; preds = %for.cond6
+  ret void
+}
+----- END INPUT -----
+
+次のJSONだけを返してください。
+{"candidate_id":"..."}

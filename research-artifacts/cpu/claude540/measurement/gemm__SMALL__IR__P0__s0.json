@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "f85ae9cd82737fd3abff6211f9d04740bb21e6296aa243f09b8a2861d90d8b37",
+  "candidate_object_sha256": "c79972590c37e05bb5ad489ffe6946a9387b7fe0c643e6c68321be29bfb473f0",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gemm__SMALL__IR__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0405957318722343
+}

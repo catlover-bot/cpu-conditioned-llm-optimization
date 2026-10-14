@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "jacobi-2d__MEDIUM__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "5acb4190eab0766f47ff528cb32bcd46df4161e693f114d2eff1e4439d48c9f6",
+  "reference_ir_sha256": "cb7311e71ef546cc234ebf9b9ec34268f5e740d1f0bf00067a4659e7804ce9bf",
+  "size": "MEDIUM",
+  "source_sha256": "1a9bdf109486b1d0c6c88402f5a0692a19bbb004b04f179544329cc1c6ac7bc5",
+  "status": "checked",
+  "task": "jacobi-2d"
+}

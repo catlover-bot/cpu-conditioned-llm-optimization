@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "aef7d9b5f0d1d4c32f4868fc35d4913cc6aec2a2dc206014b3143dc26afca55f",
+  "candidate_object_sha256": "3c873b624fef93adf3f95477965fea6e7996b901611965dbaac080b843ae95db",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "lu__SMALL__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0710280278163913
+}

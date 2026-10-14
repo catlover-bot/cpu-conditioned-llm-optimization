@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "9b9dadad75c4c9615088ec6e4fb31360e429550c9b61cc7f4617443e7e81ee73",
+  "candidate_object_sha256": "d959da29d864c4150c0e554eb2184754d964498ac0bceb7443f6843b5cdc37b8",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gemver__MEDIUM__IR__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.004908809617623
+}

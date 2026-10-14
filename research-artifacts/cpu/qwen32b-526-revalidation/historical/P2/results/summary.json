@@ -1,0 +1,99 @@
+{
+  "active_orchestration": {
+    "generation_window_seconds": null,
+    "original_plan_time_settings_superseded_for_orchestration_only": true,
+    "revision": "completion-driven-v1",
+    "session_limit_seconds": null
+  },
+  "additional_multiinput_not_implemented": 100,
+  "additional_multiinput_passed": 29,
+  "all_30_multinput_validation_complete": false,
+  "automatic_model_retries": 0,
+  "comparison_budget_note": "P0 legacy14 separate; matched resource166; one trial per condition",
+  "completion": "DATASET_BATCH_COMPLETE",
+  "completion_means_all_requested_attempts_processed_not_all_correct": true,
+  "condition": "P2",
+  "cpu_information_effect_measured": false,
+  "cpu_prompt_condition": {
+    "condition": "P2",
+    "hardware_block": "Target CPU information (condition P2):\n- CPU model: AMD EPYC 7402.\n- Microarchitecture: Zen 2.\n- Physical sockets in the machine: 2.\n- Physical cores per socket: socket 0: 24, socket 1: 24.\n- Logical processor slots reported present: 96.\n- NUMA nodes reported online: 2.\n- Cache hierarchy for the evaluation core (each size is one cache sharing domain, not a sum across the machine):\n  - L1 Data: 32 KiB; line 64 bytes; 8-way; 64 sets; shared by 1 online physical core(s).\n  - L1 Instruction: 32 KiB; line 64 bytes; 8-way; 64 sets; shared by 1 online physical core(s).\n  - L2 Unified: 512 KiB; line 64 bytes; 8-way; 1024 sets; shared by 1 online physical core(s).\n  - L3 Unified: 16384 KiB; line 64 bytes; 16-way; 16384 sets; shared by 3 online physical core(s).\n- Relevant ISA flags reported by the operating system: sse, sse2, pni, ssse3, sse4_1, sse4_2, avx, avx2, fma, f16c, bmi1, bmi2.\n- ISA availability does not override the common correctness contract, including its FMA prohibition.",
+    "measured_performance_in_prompt": false,
+    "prior_answers_in_prompt": false,
+    "static_profile_sha256": "976d83b089b9a9025bc2fbd7a5ae52c80397af5941f673e3fe2a627407506c9c",
+    "target_cpu": "AMD EPYC 7402",
+    "target_microarchitecture": "Zen 2"
+  },
+  "current_session": {
+    "aggregate_time_limit_seconds": null,
+    "compiler": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "elapsed_seconds": 105852.03900772397,
+    "errors": [],
+    "finished_utc": "2026-09-17T11:05:48.003139+00:00",
+    "generation_hours": null,
+    "max_hours": null,
+    "model_blobs": {
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "verified_blobs": {
+        "sha256:1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320": {
+          "bytes": 1615,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320"
+        },
+        "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e": {
+          "bytes": 68,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e"
+        },
+        "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e": {
+          "bytes": 11343,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+        },
+        "sha256:ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9": {
+          "bytes": 19851336384,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9"
+        },
+        "sha256:f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee": {
+          "bytes": 488,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee"
+        }
+      }
+    },
+    "model_freeze": {
+      "manifest_file": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/manifests/registry.ollama.ai/library/qwen2.5-coder/32b-instruct-q4_K_M",
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "model": "qwen2.5-coder:32b-instruct-q4_K_M",
+      "official_tag_prefix_checked": "b92d6a0bd47e",
+      "phase": "after_download_before_generation",
+      "recorded_utc": "2026-09-12T05:02:37.998914+00:00"
+    },
+    "orchestration_revision": "completion-driven-v1",
+    "phase": "completed",
+    "plan_sha256": "87e504f49c627fb117f9add893c474e153b4519eb10a79ce3722bf8871448f2a",
+    "started_utc": "2026-09-16T05:41:35.964214+00:00",
+    "termination_condition": "all_planned_attempts_validations_and_eligible_measurements_terminal"
+  },
+  "final_research_conclusions_ready": false,
+  "formal_equivalence_proven": false,
+  "generated_texts": 179,
+  "generation_non_success": 1,
+  "generation_runtime_revision": "dual-numa-p12-v1",
+  "generation_terminal": 180,
+  "generation_workers": 2,
+  "measurement_eligible_provisional": 129,
+  "measurement_pending": 0,
+  "measurement_quality_passed": 129,
+  "measurement_terminal": 129,
+  "model_downloads": 0,
+  "official_gate_passed": 129,
+  "p0_runtime_differs": true,
+  "paid_api_calls": 0,
+  "planned_requests": 180,
+  "prompt_language": "en",
+  "prompt_revision": "direct-codegen-en-v2-hardware-v1",
+  "requests_pending": 0,
+  "resource_amendment": null,
+  "revision": "polybench-direct-codegen-zen2-p12-v1",
+  "run_directory": "/srv/research/cpucond-p012-zen2-v1/P2/results",
+  "runtime_change_may_affect_generation": true,
+  "scope": "P2 / Zen 2 / one model / one trial / provisional",
+  "updated_utc": "2026-09-17T11:05:48.002453+00:00",
+  "validation_terminal": 180
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "function_bytes_sha256": "1345a5b6b08689d9aad7e4c9ca34e500c7995f40d91860b5710f3d284d9d1c1c",
+    "candidate_ids": [
+      "identity",
+      "loop_00_interleave_count_2",
+      "loop_00_interleave_count_4",
+      "loop_00_interleave_count_8",
+      "loop_00_vectorize_width_2",
+      "loop_00_vectorize_width_4",
+      "loop_00_vectorize_width_8",
+      "loop_01_interleave_count_2",
+      "loop_01_interleave_count_4",
+      "loop_01_interleave_count_8",
+      "loop_01_unroll_count_4",
+      "loop_01_vectorize_width_2",
+      "loop_01_vectorize_width_4",
+      "loop_01_vectorize_width_8"
+    ],
+    "representative": "identity",
+    "same_as_identity": true
+  },
+  {
+    "function_bytes_sha256": "4b504eff2acde1f47a2f52ed0747348679f8ba0a2770f5c86c0c2e63ac290c5a",
+    "candidate_ids": [
+      "loop_00_unroll_count_16"
+    ],
+    "representative": "loop_00_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "510496ea0f430f864537946bfa357792fa4834938de0cc4752ab9a670d7074a6",
+    "candidate_ids": [
+      "loop_00_unroll_count_2"
+    ],
+    "representative": "loop_00_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "7631df44b5163e14bc7f22dc2b9dfe8dce3af98577d92f0d4bbf61a14769064e",
+    "candidate_ids": [
+      "loop_01_unroll_count_16"
+    ],
+    "representative": "loop_01_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "b1a7b2230e300f124258291dd0539be1545ab3821319500ea36a3603ccd4abbb",
+    "candidate_ids": [
+      "loop_00_unroll_count_4"
+    ],
+    "representative": "loop_00_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "ba70848b3f07eaee81d7693a0f0d6da23510ff9220a1e2e0b84c1e24e4357d65",
+    "candidate_ids": [
+      "loop_01_unroll_count_2"
+    ],
+    "representative": "loop_01_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "c028e6ee7d1175af1716e708e770e17a30eab30abe54a7c3c3a5a9b3079fc808",
+    "candidate_ids": [
+      "loop_00_unroll_count_8"
+    ],
+    "representative": "loop_00_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "ee7b967143cb6663bf6a85a1d672b9fba2f5b064ef643252aa931ef9e43624a3",
+    "candidate_ids": [
+      "loop_01_unroll_count_8"
+    ],
+    "representative": "loop_01_unroll_count_8",
+    "same_as_identity": false
+  }
+]

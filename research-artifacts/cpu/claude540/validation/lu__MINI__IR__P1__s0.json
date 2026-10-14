@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "lu__MINI__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "bb05e67aff0cc521eff14f88dde3a5ea8d85a0cebae594b7b10413821922e345",
+  "reference_ir_sha256": "a3e41f8d5d2a8bf97aeb60b7ced4ef85be2f1c5b53ed483d234c18a953d688ad",
+  "size": "MINI",
+  "source_sha256": "a1f5b5d3ab7e7422058e686c8c95bdb70160f1538b5eae35bc7090a0e2a56111",
+  "status": "checked",
+  "task": "lu"
+}

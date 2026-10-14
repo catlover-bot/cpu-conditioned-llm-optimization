@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "doitgen__SMALL__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "1c632a765f496c10a4316a62b9cf4a32738b8f2abb5513623d8abe807290e1c7",
+  "reference_ir_sha256": "3b5b5fd2e6eac8680f496ad18cfedbc160d2158d9de3fa4ce4c115da2e2a0df4",
+  "size": "SMALL",
+  "source_sha256": "b86dc72cc1d91268b458f49cc8b46d708ed8f20164e4793e850849164adb554a",
+  "status": "checked",
+  "task": "doitgen"
+}

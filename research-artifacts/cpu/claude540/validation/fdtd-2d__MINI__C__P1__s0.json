@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "fdtd-2d__MINI__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "8cd97e99f8a85e2413d46594d0708f184706891f344694dde42f2ef227e8d800",
+  "reference_ir_sha256": "28a98e67f03496f63e7ac206bb03d0b5cfdbdff8cefafe9b322af88ddc272730",
+  "size": "MINI",
+  "source_sha256": "66011729a9c56e36d3083df6e32031c366fe4c55a13d6aba5579fe5ec10af995",
+  "status": "checked",
+  "task": "fdtd-2d"
+}

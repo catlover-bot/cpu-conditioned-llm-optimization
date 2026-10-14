@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "fdtd-2d__SMALL__IR__P2__s0",
+  "passed": false,
+  "reference_c_sha256": "8cd97e99f8a85e2413d46594d0708f184706891f344694dde42f2ef227e8d800",
+  "reference_ir_sha256": "28a98e67f03496f63e7ac206bb03d0b5cfdbdff8cefafe9b322af88ddc272730",
+  "size": "SMALL",
+  "source_sha256": "571459823a8e29e64da6cfa04dc8b955ad4f3b5eba789274e610fb815d730be5",
+  "status": "checked",
+  "task": "fdtd-2d"
+}

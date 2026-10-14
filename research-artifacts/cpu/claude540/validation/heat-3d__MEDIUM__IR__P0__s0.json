@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "heat-3d__MEDIUM__IR__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "a37aa3d7c0fc83501697d3aa71714485299912c0979d06e63101b75939875def",
+  "reference_ir_sha256": "41b10f290356b6cff1b294a3363e5f5b1974b99e1ebc0eed04b8ec551b621ead",
+  "size": "MEDIUM",
+  "source_sha256": "416257d5a33c782685c8b086c1b9a5ceb8c0ec7c1aa6b505e1391ee645ba4fbb",
+  "status": "checked",
+  "task": "heat-3d"
+}

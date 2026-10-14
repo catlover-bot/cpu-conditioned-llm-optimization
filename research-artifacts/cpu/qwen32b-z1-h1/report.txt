@@ -1,0 +1,6 @@
+Matched pairs: 66; kernels: 23
+Z1/H1: 1.00280433038
+Kernel-cluster 95% interval (group-weighted): [0.9997081486971408, 1.008075654553622]
+Same native objects: 63; different: 3
+Stock-output gate failures: 7; timing-quality failures: 1. Do not conflate these.
+All original results retained. No candidate execution, new timing, or model call.

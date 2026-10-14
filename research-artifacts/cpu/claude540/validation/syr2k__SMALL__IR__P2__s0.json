@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "syr2k__SMALL__IR__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "29cb7b7749d9f91274bb8d875a1ab0622c882d393155297f16fe0c95b65578c2",
+  "reference_ir_sha256": "bfa353ef498dd3dc4eb23b81cd7b2454ce66a434335d8ea9a5e029661e33ed51",
+  "size": "SMALL",
+  "source_sha256": "97e65499f7cbe5b403c96b564e6db75fa89760fe8d6d6ea52ded95ac622d4ec5",
+  "status": "checked",
+  "task": "syr2k"
+}

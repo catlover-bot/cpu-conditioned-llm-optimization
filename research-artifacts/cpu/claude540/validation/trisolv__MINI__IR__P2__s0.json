@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "trisolv__MINI__IR__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "d4732000da1315a77f72458b4988ae82bbd5926b3ccc95621913b7db2b4b638a",
+  "reference_ir_sha256": "8fcd86d58d294f2ba81cad803bb99260ad7b248feaf6815d0cb1c95622709b22",
+  "size": "MINI",
+  "source_sha256": "4af61ca6db4b861d97a9696508c3917c84394a75c747e0afd14f49ce4d30d158",
+  "status": "checked",
+  "task": "trisolv"
+}

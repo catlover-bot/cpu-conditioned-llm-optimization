@@ -1,0 +1,5 @@
+hint_kind,candidate_rows,correctness_admitted,measurement_valid,machine_code_noop,faster_than_reference,oracle_memberships,near_oracle_memberships,valid_speedup_mean,valid_speedup_median
+identity,90,90,90,0,0,3,32,1.0,1.0
+unroll_count,1860,1860,1851,41,728,68,497,0.9611422886916701,0.9980335768450617
+interleave_count,1395,1395,1395,1173,78,30,465,0.9932952201272157,1.0
+vectorize_width,1395,1219,1217,1039,62,21,422,0.994248842001126,1.0

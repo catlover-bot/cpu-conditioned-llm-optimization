@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "9a0bd907f40a06f0f1b2cf63ad64d68d75a80a7f237b82895565b8bc223e4d41",
+  "candidate_object_sha256": "b4ae6b8c0607e1c66c628fce0ee810fd54c63e0570bd00ba76efe74a6139f380",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "syrk__MEDIUM__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.7889853877336592
+}

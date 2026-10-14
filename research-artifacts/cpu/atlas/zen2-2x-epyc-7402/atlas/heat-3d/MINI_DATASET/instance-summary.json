@@ -1,0 +1,43 @@
+{
+  "kernel_id": "heat-3d",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 71,
+  "unique_machine_code_groups": 27,
+  "nonidentity_representatives_measured": 26,
+  "aliases_to_identity": 41,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 128,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0035216736542136,
+      "paired_speedup_iqr": 0.012687009397042814,
+      "reference_batch_median_ns": 5923572.5,
+      "candidate_batch_median_ns": 5888287.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 128
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0087456086343833,
+      "paired_speedup_iqr": 0.036109616904226316,
+      "reference_batch_median_ns": 5954187.5,
+      "candidate_batch_median_ns": 5923686.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 128
+    }
+  ],
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "covariance__MINI__IR__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "c514abb8ee9572a4bae7b0112d2cb62b3b363e7c9ec0726b06fdb6590d34ffc0",
+  "reference_ir_sha256": "cf163f71829723844040056526480d989a9c8ca3bdc6d6576667d3453e1f269a",
+  "size": "MINI",
+  "source_sha256": "068dcc52c969992ed6aea980a9146b986fd069953d045b355bdde773a93b6ba9",
+  "status": "checked",
+  "task": "covariance"
+}

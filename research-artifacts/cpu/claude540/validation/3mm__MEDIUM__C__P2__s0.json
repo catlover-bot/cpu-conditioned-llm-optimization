@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "C",
+  "id": "3mm__MEDIUM__C__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "1a68d1fcf73ce18db22b0cf5eb0e5b5875621504aa198071c52049efb0423323",
+  "reference_ir_sha256": "ef5c8a3eec7328732199dbd05a421d1ecb69c49cf706f8d6f815683319fb74f6",
+  "size": "MEDIUM",
+  "source_sha256": "a155508d00975414b38c13492d36d715379dfcf78897a067686ecf62b867a50c",
+  "status": "checked",
+  "task": "3mm"
+}

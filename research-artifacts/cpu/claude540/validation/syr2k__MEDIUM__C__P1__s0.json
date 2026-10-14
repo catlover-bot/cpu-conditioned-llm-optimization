@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "syr2k__MEDIUM__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "29cb7b7749d9f91274bb8d875a1ab0622c882d393155297f16fe0c95b65578c2",
+  "reference_ir_sha256": "bfa353ef498dd3dc4eb23b81cd7b2454ce66a434335d8ea9a5e029661e33ed51",
+  "size": "MEDIUM",
+  "source_sha256": "aa918d31405f31f6da6f103ab786ba634aa0aec97a1677db2d334a3540b72664",
+  "status": "checked",
+  "task": "syr2k"
+}

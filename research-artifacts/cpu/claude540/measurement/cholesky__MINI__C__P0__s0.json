@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "d7769f165f278134b3b9edd57b4013c83a2a059a28c634bb50bd96a83c4a983f",
+  "candidate_object_sha256": "b7d19ad06c36b45df3bcc363eecf46bfceea02dc0cd47ca033b1ba618633c35e",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "cholesky__MINI__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9273882571389873
+}

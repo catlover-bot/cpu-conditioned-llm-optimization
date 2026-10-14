@@ -1,0 +1,43 @@
+{
+  "kernel_id": "floyd-warshall",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 31,
+  "unique_machine_code_groups": 18,
+  "nonidentity_representatives_measured": 17,
+  "aliases_to_identity": 14,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 32,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9973500559313824,
+      "paired_speedup_iqr": 0.013544967973454392,
+      "reference_batch_median_ns": 6170722.0,
+      "candidate_batch_median_ns": 6182982.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 32
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.003289396264293,
+      "paired_speedup_iqr": 0.013867379489240994,
+      "reference_batch_median_ns": 6212492.5,
+      "candidate_batch_median_ns": 6210632.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 32
+    }
+  ],
+  "formal_equivalence_proven": false
+}

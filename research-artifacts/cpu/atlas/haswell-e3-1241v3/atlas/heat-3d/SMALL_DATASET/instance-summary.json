@@ -1,0 +1,45 @@
+{
+  "kernel_id": "heat-3d",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 71,
+  "unique_machine_code_groups": 37,
+  "nonidentity_representatives_measured": 36,
+  "aliases_to_identity": 33,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 16,
+  "candidate_representatives_invalid_no_rerun": [
+    "loop_06_interleave_count_2"
+  ],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9999861442042652,
+      "paired_speedup_iqr": 0.0012587342175403027,
+      "reference_batch_median_ns": 8121896.5,
+      "candidate_batch_median_ns": 8122182.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 16
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0010554103964266,
+      "paired_speedup_iqr": 0.002283419414096377,
+      "reference_batch_median_ns": 8123369.0,
+      "candidate_batch_median_ns": 8119102.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 16
+    }
+  ],
+  "formal_equivalence_proven": false
+}

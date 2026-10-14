@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "3mm__MINI__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "1a68d1fcf73ce18db22b0cf5eb0e5b5875621504aa198071c52049efb0423323",
+  "reference_ir_sha256": "ef5c8a3eec7328732199dbd05a421d1ecb69c49cf706f8d6f815683319fb74f6",
+  "size": "MINI",
+  "source_sha256": "9047133d4f680dabee7982795f749fb584c8464104f24b6754825aacafc45d42",
+  "status": "checked",
+  "task": "3mm"
+}

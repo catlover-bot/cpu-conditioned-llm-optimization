@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "276ffe6f307a56ad7ad4767ef7cedbc28fe7f5ec22616752b896bbb67729e5df",
+  "candidate_object_sha256": "333a4112fa40aaab32bcf12b58142fcacc49c7f7ad84e1c80c9608ea604d9151",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gramschmidt__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.820169620536346
+}

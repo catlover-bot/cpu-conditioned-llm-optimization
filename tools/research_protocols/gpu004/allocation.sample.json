@@ -1,0 +1,12 @@
+{
+  "schema": "public-historical-allocation-sample-v1",
+  "host": "example.invalid",
+  "port": 22,
+  "user": "researcher",
+  "host_fingerprint": "REPLACE_WITH_FRESH_VERIFIED_ED25519_FINGERPRINT",
+  "expected_gpu_uuid": "REPLACE_WITH_FRESH_VERIFIED_GPU_UUID",
+  "pod_id": "REPLACE_WITH_FRESH_VERIFIED_ALLOCATION_ID",
+  "historical_allocation_ended": true,
+  "network_execution_authorized": false,
+  "note": "Reference only; offline analysis never reads this sample or connects to a server."
+}

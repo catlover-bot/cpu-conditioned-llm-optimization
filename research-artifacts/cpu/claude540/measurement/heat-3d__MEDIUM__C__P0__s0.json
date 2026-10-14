@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "d9762a36a08b84ca42b4c446d8ff6b75e4074ca193188376c8d82d4d31d1af73",
+  "candidate_object_sha256": "d9762a36a08b84ca42b4c446d8ff6b75e4074ca193188376c8d82d4d31d1af73",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "heat-3d__MEDIUM__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0040469860795833
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "75645857e6601b98dedcbcb55f374639d6e0f74df00d391bb9819a55afdb81c1",
+  "candidate_object_sha256": "f23b85ca4297956bf91a8e675afea5ba92e7b70b760dac532dd4c879da6d1b49",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "seidel-2d__MEDIUM__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0034611220031378
+}

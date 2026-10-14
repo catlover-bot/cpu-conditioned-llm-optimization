@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "a990e368c6ee70b72a6eeda138c4e906c4a37aa18546ca473b9b7e4e957209b5",
+  "candidate_object_sha256": "a990e368c6ee70b72a6eeda138c4e906c4a37aa18546ca473b9b7e4e957209b5",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "fdtd-2d__MINI__C__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9997890820319025
+}

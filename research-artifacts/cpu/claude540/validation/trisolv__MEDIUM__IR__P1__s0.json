@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "trisolv__MEDIUM__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "d4732000da1315a77f72458b4988ae82bbd5926b3ccc95621913b7db2b4b638a",
+  "reference_ir_sha256": "8fcd86d58d294f2ba81cad803bb99260ad7b248feaf6815d0cb1c95622709b22",
+  "size": "MEDIUM",
+  "source_sha256": "d0762c750c388880f90e9df3911ed58227ebb3661aec782224583c094af20dc9",
+  "status": "checked",
+  "task": "trisolv"
+}

@@ -1,0 +1,46 @@
+{
+  "actual_usage": {
+    "input_tokens": 104058,
+    "output_tokens": 43724
+  },
+  "automatic_generation_retries": 0,
+  "code_repair": false,
+  "completed_utc": "2026-09-18T07:07:16.693739Z",
+  "evaluation_target": "AMD EPYC 7402 / Zen2",
+  "external_condition": "H1",
+  "generation_status_counts": {
+    "invalid_generation": 2,
+    "saved": 88
+  },
+  "inference_geo_counts": {
+    "global": 90
+  },
+  "model": "claude-sonnet-5",
+  "normalization_counts": {
+    "outer_markdown_fence_removed": 88
+  },
+  "numerical_correctness_validated": false,
+  "performance_measured": false,
+  "pricing_snapshot": {
+    "batch_1h_cache_write_per_mtok": 2.0,
+    "batch_5m_cache_write_per_mtok": 1.25,
+    "batch_cache_read_per_mtok": 0.1,
+    "batch_output_per_mtok": 5.0,
+    "batch_uncached_input_per_mtok": 1.0,
+    "us_inference_geo_multiplier": 1.1,
+    "verified_date": "2026-09-18"
+  },
+  "prompt_information_level": "P1",
+  "provider_billing_reconciled": false,
+  "provider_result_type_counts": {
+    "succeeded": 90
+  },
+  "qwen_response_normalization_contract_sha256": "c0f16b48924a81320aee74f16b6b136503667d648a0dc2ee61e2c807c53fc47c",
+  "requests_total": 90,
+  "schema": "cpucond-claude-sonnet5-wrong-cpu-h1-generation-v1",
+  "stop_reason_counts": {
+    "end_turn": 90
+  },
+  "usage_based_h1_generation_cost_usd": 0.322678,
+  "wrong_prompt_cpu": "Intel Core i7-5820K / Haswell"
+}

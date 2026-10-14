@@ -1,0 +1,12 @@
+{
+  "condition": "P2",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "IR",
+  "id": "jacobi-2d__SMALL__IR__P2__s0",
+  "passed": false,
+  "size": "SMALL",
+  "status": "generation_failed",
+  "task": "jacobi-2d"
+}

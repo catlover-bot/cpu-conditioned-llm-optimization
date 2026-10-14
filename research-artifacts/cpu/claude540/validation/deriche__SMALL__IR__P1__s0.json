@@ -1,0 +1,12 @@
+{
+  "condition": "P1",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "IR",
+  "id": "deriche__SMALL__IR__P1__s0",
+  "passed": false,
+  "size": "SMALL",
+  "status": "generation_failed",
+  "task": "deriche"
+}

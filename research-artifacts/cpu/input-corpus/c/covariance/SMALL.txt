@@ -1,0 +1,45 @@
+カーネル: covariance
+サイズ条件: SMALL
+数値寸法: {"M": 80, "N": 100}
+
+static
+void kernel_covariance(int m, int n,
+		       DATA_TYPE float_n,
+		       DATA_TYPE POLYBENCH_2D(data,N,M,n,m),
+		       DATA_TYPE POLYBENCH_2D(cov,M,M,m,m),
+		       DATA_TYPE POLYBENCH_1D(mean,M,m))
+{
+  int i, j, k;
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (j = 0; j < _PB_M; j++)
+    {
+      mean[j] = SCALAR_VAL(0.0);
+      /* CPUCOND_LOOP_01 */
+for (i = 0; i < _PB_N; i++)
+        mean[j] += data[i][j];
+      mean[j] /= float_n;
+    }
+
+  /* CPUCOND_LOOP_02 */
+for (i = 0; i < _PB_N; i++)
+    /* CPUCOND_LOOP_03 */
+for (j = 0; j < _PB_M; j++)
+      data[i][j] -= mean[j];
+
+  /* CPUCOND_LOOP_04 */
+for (i = 0; i < _PB_M; i++)
+    /* CPUCOND_LOOP_05 */
+for (j = i; j < _PB_M; j++)
+      {
+        cov[i][j] = SCALAR_VAL(0.0);
+        /* CPUCOND_LOOP_06 */
+for (k = 0; k < _PB_N; k++)
+	  cov[i][j] += data[k][i] * data[k][j];
+        cov[i][j] /= (float_n - SCALAR_VAL(1.0));
+        cov[j][i] = cov[i][j];
+      }
+#pragma endscop
+
+}

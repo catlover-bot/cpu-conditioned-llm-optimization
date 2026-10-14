@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "8077a740e2f58bfc42cb20c4eb8d16e1cfbcf4107324d9d488dfc35f59e1b490",
+  "candidate_object_sha256": "8077a740e2f58bfc42cb20c4eb8d16e1cfbcf4107324d9d488dfc35f59e1b490",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "durbin__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.9987817597555492
+}

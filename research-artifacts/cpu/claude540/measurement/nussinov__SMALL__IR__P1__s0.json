@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "78b2ed98778e9cef67bf60b007ba2cc8741164fa2c08f20adea8db803319745c",
+  "candidate_object_sha256": "3a1f1ca8ee0c15f4933d3e3fbbdcd4fe235bed0776a5a762d976ad5081885782",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "nussinov__SMALL__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.038903344965198
+}

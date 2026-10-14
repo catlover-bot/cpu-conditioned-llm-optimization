@@ -1,0 +1,15 @@
+{
+  "condition": "P0",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "deriche__MINI__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "c64460ced73bda3881fa3138f63d4d8feda1ccf72f049fb3f86dda4e0dbbf734",
+  "reference_ir_sha256": "b2b52284b2379de2f779ad9dba52d34903b05f5a2db02786304c37b2e55d604f",
+  "size": "MINI",
+  "source_sha256": "3dfc460efddc7a86060bd8660bced28be28ae72ad79722223cdfd4c7ea04a2dc",
+  "status": "rejected",
+  "task": "deriche"
+}

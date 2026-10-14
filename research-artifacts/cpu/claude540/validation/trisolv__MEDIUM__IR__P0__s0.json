@@ -1,0 +1,15 @@
+{
+  "condition": "P0",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "trisolv__MEDIUM__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "d4732000da1315a77f72458b4988ae82bbd5926b3ccc95621913b7db2b4b638a",
+  "reference_ir_sha256": "8fcd86d58d294f2ba81cad803bb99260ad7b248feaf6815d0cb1c95622709b22",
+  "size": "MEDIUM",
+  "source_sha256": "593fc68590079c5de77369875cd146e41eb8671a18647cd24c4035646016db29",
+  "status": "rejected",
+  "task": "trisolv"
+}

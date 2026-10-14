@@ -1,0 +1,97 @@
+あなたはコンパイラ最適化候補を1つ選択します。
+
+目的:
+対象CPU上で、提示されたカーネルの実行時間が最も短くなる可能性が高い候補IDを1つ選んでください。
+
+重要:
+- コードを書き換えてはいけません。
+- 候補IDを1つだけ選んでください。
+- 実測性能、過去の候補順位、過去のモデル回答は与えられていません。
+- 候補はClang 18.1.3でコンパイルされます。
+- コンパイル条件は -O3 -march=native -fno-fast-math -ffp-contract=off -fno-lto です。
+- 性能評価は単一スレッドです。
+- 測定時はSMTとTurbo/Boostを無効化します。
+- 出力に理由説明を含めないでください。
+
+コード表現:
+C
+
+対象CPU情報:
+- 製品名: Intel Xeon E3-1241 v3
+- マイクロアーキテクチャ: Haswell
+- ベース周波数: 3.5 GHz
+- 物理コア数: 4
+- ハードウェアスレッド数: 8
+- 1コアあたりスレッド数: 2
+- ソケット数: 1
+- NUMAノード数: 1
+- L1データキャッシュ: 32 KiB / core
+- L1命令キャッシュ: 32 KiB / core
+- L2キャッシュ: 256 KiB / core
+- 共有L3キャッシュ: 8 MiB
+- キャッシュライン: 64 bytes
+- 関連ISA: AVX, AVX2, FMA
+
+選択可能なループ番号:
+00, 01, 02, 03
+
+候補ID規則:
+- identity
+- loop_XX_unroll_count_2
+- loop_XX_unroll_count_4
+- loop_XX_unroll_count_8
+- loop_XX_unroll_count_16
+- loop_XX_interleave_count_2
+- loop_XX_interleave_count_4
+- loop_XX_interleave_count_8
+- loop_XX_vectorize_width_2
+- loop_XX_vectorize_width_4
+- loop_XX_vectorize_width_8
+
+ここでXXには上記の存在するループ番号のみ使用できます。
+
+候補IDの意味:
+- identity: 追加のループヒントを指定しない
+- unroll_count_N: 対象ループ直前にClangのunroll_count(N)ヒントを指定
+- interleave_count_N: 対象ループ直前にClangのinterleave_count(N)ヒントを指定
+- vectorize_width_N: 対象ループ直前にClangのvectorize_width(N)ヒントを指定
+
+入力:
+----- BEGIN INPUT -----
+カーネル: cholesky
+サイズ条件: MINI
+数値寸法: {"N": 40}
+
+static
+void kernel_cholesky(int n,
+		     DATA_TYPE POLYBENCH_2D(A,N,N,n,n))
+{
+  int i, j, k;
+
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (i = 0; i < _PB_N; i++) {
+     //j<i
+     /* CPUCOND_LOOP_01 */
+for (j = 0; j < i; j++) {
+        /* CPUCOND_LOOP_02 */
+for (k = 0; k < j; k++) {
+           A[i][j] -= A[i][k] * A[j][k];
+        }
+        A[i][j] /= A[j][j];
+     }
+     // i==j case
+     /* CPUCOND_LOOP_03 */
+for (k = 0; k < i; k++) {
+        A[i][i] -= A[i][k] * A[i][k];
+     }
+     A[i][i] = SQRT_FUN(A[i][i]);
+  }
+#pragma endscop
+
+}
+----- END INPUT -----
+
+次のJSONだけを返してください。
+{"candidate_id":"..."}

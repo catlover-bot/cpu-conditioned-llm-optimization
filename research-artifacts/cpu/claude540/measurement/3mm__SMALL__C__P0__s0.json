@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "a1db2e1373a45949856598c6783e7423468115d71dbec2430c9ca79c740ec4db",
+  "candidate_object_sha256": "dc97328e8e9d5d005c502bdc94c98fed1c96c83bf1094dfab6cb8ca231dde78d",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "3mm__SMALL__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 2.633997350870256
+}

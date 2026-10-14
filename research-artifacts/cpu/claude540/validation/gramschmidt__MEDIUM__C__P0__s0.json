@@ -1,0 +1,12 @@
+{
+  "condition": "P0",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "C",
+  "id": "gramschmidt__MEDIUM__C__P0__s0",
+  "passed": false,
+  "size": "MEDIUM",
+  "status": "generation_failed",
+  "task": "gramschmidt"
+}

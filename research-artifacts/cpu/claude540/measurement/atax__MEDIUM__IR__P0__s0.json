@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "5e92d1622bbf35003a2d663d91a3b65a66daadb0e52ef4a4c682435eb2c0f5b2",
+  "candidate_object_sha256": "3905b15ad19ad617b527b952184016caec371657782127f0783f352781ac1bb4",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "atax__MEDIUM__IR__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.008682657099715
+}

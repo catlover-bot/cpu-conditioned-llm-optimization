@@ -1,0 +1,94 @@
+あなたはコンパイラ最適化候補を1つ選択します。
+
+目的:
+対象CPU上で、提示されたカーネルの実行時間が最も短くなる可能性が高い候補IDを1つ選んでください。
+
+重要:
+- コードを書き換えてはいけません。
+- 候補IDを1つだけ選んでください。
+- 実測性能、過去の候補順位、過去のモデル回答は与えられていません。
+- 候補はClang 18.1.3でコンパイルされます。
+- コンパイル条件は -O3 -march=native -fno-fast-math -ffp-contract=off -fno-lto です。
+- 性能評価は単一スレッドです。
+- 測定時はSMTとTurbo/Boostを無効化します。
+- 出力に理由説明を含めないでください。
+
+コード表現:
+C
+
+対象CPUに固有の情報は与えられていません。
+
+選択可能なループ番号:
+00, 01, 02, 03
+
+候補ID規則:
+- identity
+- loop_XX_unroll_count_2
+- loop_XX_unroll_count_4
+- loop_XX_unroll_count_8
+- loop_XX_unroll_count_16
+- loop_XX_interleave_count_2
+- loop_XX_interleave_count_4
+- loop_XX_interleave_count_8
+- loop_XX_vectorize_width_2
+- loop_XX_vectorize_width_4
+- loop_XX_vectorize_width_8
+
+ここでXXには上記の存在するループ番号のみ使用できます。
+
+候補IDの意味:
+- identity: 追加のループヒントを指定しない
+- unroll_count_N: 対象ループ直前にClangのunroll_count(N)ヒントを指定
+- interleave_count_N: 対象ループ直前にClangのinterleave_count(N)ヒントを指定
+- vectorize_width_N: 対象ループ直前にClangのvectorize_width(N)ヒントを指定
+
+入力:
+----- BEGIN INPUT -----
+カーネル: durbin
+サイズ条件: SMALL
+数値寸法: {"N": 120}
+
+static
+void kernel_durbin(int n,
+		   DATA_TYPE POLYBENCH_1D(r,N,n),
+		   DATA_TYPE POLYBENCH_1D(y,N,n))
+{
+ DATA_TYPE z[N];
+ DATA_TYPE alpha;
+ DATA_TYPE beta;
+ DATA_TYPE sum;
+
+ int i,k;
+
+#pragma scop
+ y[0] = -r[0];
+ beta = SCALAR_VAL(1.0);
+ alpha = -r[0];
+
+ /* CPUCOND_LOOP_00 */
+for (k = 1; k < _PB_N; k++) {
+   beta = (1-alpha*alpha)*beta;
+   sum = SCALAR_VAL(0.0);
+   /* CPUCOND_LOOP_01 */
+for (i=0; i<k; i++) {
+      sum += r[k-i-1]*y[i];
+   }
+   alpha = - (r[k] + sum)/beta;
+
+   /* CPUCOND_LOOP_02 */
+for (i=0; i<k; i++) {
+      z[i] = y[i] + alpha*y[k-i-1];
+   }
+   /* CPUCOND_LOOP_03 */
+for (i=0; i<k; i++) {
+     y[i] = z[i];
+   }
+   y[k] = alpha;
+ }
+#pragma endscop
+
+}
+----- END INPUT -----
+
+次のJSONだけを返してください。
+{"candidate_id":"..."}

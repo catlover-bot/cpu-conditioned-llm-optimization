@@ -1,0 +1,15 @@
+{
+  "condition": "P1",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "correlation__SMALL__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "33a580d07d107976fe348e0e0403db738eb4320607f430f4e03acca005d557b5",
+  "reference_ir_sha256": "ab34afabac2bb52d71b0e71ac220baebf95b58815c09e8f00112422b3e06ee6f",
+  "size": "SMALL",
+  "source_sha256": "f302a786c9b71dbbb21f37f8144321329009478ee7db064fc32711032c1abaed",
+  "status": "rejected",
+  "task": "correlation"
+}

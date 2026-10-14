@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "a1db2e1373a45949856598c6783e7423468115d71dbec2430c9ca79c740ec4db",
+  "candidate_object_sha256": "76558bdb7f0222275f785e6f2a0cff6d9f3f16e061508ea4db1e47b9d606217d",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "3mm__MEDIUM__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 5.559443157208425
+}

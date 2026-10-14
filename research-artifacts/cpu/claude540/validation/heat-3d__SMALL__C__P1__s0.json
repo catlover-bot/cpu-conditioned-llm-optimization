@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "heat-3d__SMALL__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "9e505cf0de5ea7c586611d85d1e2e3ec87aae80fd6692fe68e56f06a2753239b",
+  "reference_ir_sha256": "f5f54a87fdc16128dfbb3747b3333a896559380da0f57981b61bd87d57963593",
+  "size": "SMALL",
+  "source_sha256": "fa86de62557d43fbdb26cf7e6ee37fc526d2f19186ae4ec68f192ec094cbcd0d",
+  "status": "checked",
+  "task": "heat-3d"
+}

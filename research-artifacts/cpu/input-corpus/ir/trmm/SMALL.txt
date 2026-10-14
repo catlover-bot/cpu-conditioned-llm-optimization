@@ -1,0 +1,145 @@
+カーネル: trmm
+サイズ条件: SMALL
+数値寸法: {"M": 60, "N": 80}
+
+define internal void @kernel_trmm(i32 noundef %m, i32 noundef %n, double noundef %alpha, ptr noundef %A, ptr noundef %B) {
+entry:
+  %m.addr = alloca i32, align 4
+  %n.addr = alloca i32, align 4
+  %alpha.addr = alloca double, align 8
+  %A.addr = alloca ptr, align 8
+  %B.addr = alloca ptr, align 8
+  %i = alloca i32, align 4
+  %j = alloca i32, align 4
+  %k = alloca i32, align 4
+  store i32 %m, ptr %m.addr, align 4
+  store i32 %n, ptr %n.addr, align 4
+  store double %alpha, ptr %alpha.addr, align 8
+  store ptr %A, ptr %A.addr, align 8
+  store ptr %B, ptr %B.addr, align 8
+  %0 = load i32, ptr %m.addr, align 4
+  %add = add nsw i32 %0, 0
+  %1 = zext i32 %add to i64
+  %2 = load i32, ptr %m.addr, align 4
+  %add1 = add nsw i32 %2, 0
+  %3 = zext i32 %add1 to i64
+  %4 = load i32, ptr %m.addr, align 4
+  %add2 = add nsw i32 %4, 0
+  %5 = zext i32 %add2 to i64
+  %6 = load i32, ptr %n.addr, align 4
+  %add3 = add nsw i32 %6, 0
+  %7 = zext i32 %add3 to i64
+  ; CPUCOND_LOOP_00
+  store i32 0, ptr %i, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %8 = load i32, ptr %i, align 4
+  %9 = load i32, ptr %m.addr, align 4
+  %cmp = icmp slt i32 %8, %9
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  ; CPUCOND_LOOP_01
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body
+  %10 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %10, 1
+  store i32 %inc, ptr %i, align 4
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  store i32 0, ptr %j, align 4
+  br label %for.cond4
+
+for.cond4:                                        ; preds = %for.inc34, %for.end
+  %11 = load i32, ptr %j, align 4
+  %12 = load i32, ptr %n.addr, align 4
+  %cmp5 = icmp slt i32 %11, %12
+  br i1 %cmp5, label %for.body6, label %for.end36
+
+for.body6:                                        ; preds = %for.cond4
+  ; CPUCOND_LOOP_02
+  %13 = load i32, ptr %i, align 4
+  %add7 = add nsw i32 %13, 1
+  store i32 %add7, ptr %k, align 4
+  br label %for.cond8
+
+for.cond8:                                        ; preds = %for.inc22, %for.body6
+  %14 = load i32, ptr %k, align 4
+  %15 = load i32, ptr %m.addr, align 4
+  %cmp9 = icmp slt i32 %14, %15
+  br i1 %cmp9, label %for.body10, label %for.end24
+
+for.body10:                                       ; preds = %for.cond8
+  %16 = load ptr, ptr %A.addr, align 8
+  %17 = load i32, ptr %k, align 4
+  %idxprom = sext i32 %17 to i64
+  %18 = mul nsw i64 %idxprom, %3
+  %arrayidx = getelementptr inbounds double, ptr %16, i64 %18
+  %19 = load i32, ptr %i, align 4
+  %idxprom11 = sext i32 %19 to i64
+  %arrayidx12 = getelementptr inbounds double, ptr %arrayidx, i64 %idxprom11
+  %20 = load double, ptr %arrayidx12, align 8
+  %21 = load ptr, ptr %B.addr, align 8
+  %22 = load i32, ptr %k, align 4
+  %idxprom13 = sext i32 %22 to i64
+  %23 = mul nsw i64 %idxprom13, %7
+  %arrayidx14 = getelementptr inbounds double, ptr %21, i64 %23
+  %24 = load i32, ptr %j, align 4
+  %idxprom15 = sext i32 %24 to i64
+  %arrayidx16 = getelementptr inbounds double, ptr %arrayidx14, i64 %idxprom15
+  %25 = load double, ptr %arrayidx16, align 8
+  %mul = fmul double %20, %25
+  %26 = load ptr, ptr %B.addr, align 8
+  %27 = load i32, ptr %i, align 4
+  %idxprom17 = sext i32 %27 to i64
+  %28 = mul nsw i64 %idxprom17, %7
+  %arrayidx18 = getelementptr inbounds double, ptr %26, i64 %28
+  %29 = load i32, ptr %j, align 4
+  %idxprom19 = sext i32 %29 to i64
+  %arrayidx20 = getelementptr inbounds double, ptr %arrayidx18, i64 %idxprom19
+  %30 = load double, ptr %arrayidx20, align 8
+  %add21 = fadd double %30, %mul
+  store double %add21, ptr %arrayidx20, align 8
+  br label %for.inc22
+
+for.inc22:                                        ; preds = %for.body10
+  %31 = load i32, ptr %k, align 4
+  %inc23 = add nsw i32 %31, 1
+  store i32 %inc23, ptr %k, align 4
+  br label %for.cond8
+
+for.end24:                                        ; preds = %for.cond8
+  %32 = load double, ptr %alpha.addr, align 8
+  %33 = load ptr, ptr %B.addr, align 8
+  %34 = load i32, ptr %i, align 4
+  %idxprom25 = sext i32 %34 to i64
+  %35 = mul nsw i64 %idxprom25, %7
+  %arrayidx26 = getelementptr inbounds double, ptr %33, i64 %35
+  %36 = load i32, ptr %j, align 4
+  %idxprom27 = sext i32 %36 to i64
+  %arrayidx28 = getelementptr inbounds double, ptr %arrayidx26, i64 %idxprom27
+  %37 = load double, ptr %arrayidx28, align 8
+  %mul29 = fmul double %32, %37
+  %38 = load ptr, ptr %B.addr, align 8
+  %39 = load i32, ptr %i, align 4
+  %idxprom30 = sext i32 %39 to i64
+  %40 = mul nsw i64 %idxprom30, %7
+  %arrayidx31 = getelementptr inbounds double, ptr %38, i64 %40
+  %41 = load i32, ptr %j, align 4
+  %idxprom32 = sext i32 %41 to i64
+  %arrayidx33 = getelementptr inbounds double, ptr %arrayidx31, i64 %idxprom32
+  store double %mul29, ptr %arrayidx33, align 8
+  br label %for.inc34
+
+for.inc34:                                        ; preds = %for.end24
+  %42 = load i32, ptr %j, align 4
+  %inc35 = add nsw i32 %42, 1
+  store i32 %inc35, ptr %j, align 4
+  br label %for.cond4
+
+for.end36:                                        ; preds = %for.cond4
+  ret void
+}

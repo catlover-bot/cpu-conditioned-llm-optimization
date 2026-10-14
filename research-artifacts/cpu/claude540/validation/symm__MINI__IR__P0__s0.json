@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "symm__MINI__IR__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "977afc7932f04c3f01038c49044b4725a8e22d3ce6bf06b699cca1ef6647ff46",
+  "reference_ir_sha256": "250db04f1b8df72f8e5f09075aefdb2251603d50e6db23a75dda9e92918900cb",
+  "size": "MINI",
+  "source_sha256": "387c879851730e68d3efb1b1198bf13143fe204530afa7fc9c2e5d8e460886db",
+  "status": "checked",
+  "task": "symm"
+}

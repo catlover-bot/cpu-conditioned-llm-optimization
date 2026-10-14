@@ -1,0 +1,43 @@
+{
+  "kernel_id": "syrk",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 41,
+  "candidates_admitted": 41,
+  "unique_machine_code_groups": 27,
+  "nonidentity_representatives_measured": 26,
+  "aliases_to_identity": 15,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 128,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.997245239062829,
+      "paired_speedup_iqr": 0.002890846304095196,
+      "reference_batch_median_ns": 8410960.5,
+      "candidate_batch_median_ns": 8427197.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 128
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9975167526050717,
+      "paired_speedup_iqr": 0.002905851797021519,
+      "reference_batch_median_ns": 8390392.5,
+      "candidate_batch_median_ns": 8412098.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 128
+    }
+  ],
+  "formal_equivalence_proven": false
+}

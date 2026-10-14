@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "276ffe6f307a56ad7ad4767ef7cedbc28fe7f5ec22616752b896bbb67729e5df",
+  "candidate_object_sha256": "60d1b708989defe8d65fef433c9be02260b53e9bbeab6abdc6e3f578e09b3e2a",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "gramschmidt__MEDIUM__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0179653723590425
+}

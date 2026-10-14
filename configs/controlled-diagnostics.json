@@ -1,0 +1,17 @@
+{
+  "verification_sizes": [1, 2, 3, 4, 5, 7, 8, 9, 15, 16, 17],
+  "verification_seeds": [1, 17, 42],
+  "measure_cases": [[128, 17], [256, 17]],
+  "repeats": 8,
+  "warmups": 2,
+  "exploration_order_seed": 2026002,
+  "confirmation_order_seed": 2026003,
+  "timeout_seconds": 30.0,
+  "quality": {
+    "min_median_ns": 100000,
+    "max_relative_iqr": 0.20,
+    "rank_tolerance": 1,
+    "near_tie_fraction": 0.03
+  },
+  "size_rationale": "Two preregistered small development sizes, 128 and 256; not representative research workloads."
+}

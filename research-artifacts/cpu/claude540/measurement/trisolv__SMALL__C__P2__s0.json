@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "9b7e80dec0814310ea984276d6f5dcb1c4fda4897c23ee8d7053df1441b0e741",
+  "candidate_object_sha256": "16e814b898cb6c39efdc213a53d3dff69f3c86f09b4a009be418ee1f86af438b",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "trisolv__SMALL__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0483313198297388
+}

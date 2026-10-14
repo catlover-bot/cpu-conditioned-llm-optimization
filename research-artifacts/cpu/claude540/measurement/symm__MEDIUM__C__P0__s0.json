@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "33cd5f4573450fb35785935cf9e581feaa678f79bf29f02fba5aef26778a7c80",
+  "candidate_object_sha256": "57a9d65be1c61addb180367d392ed9ebb8a9e2727e710386b152e30d8cd15bc9",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "symm__MEDIUM__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 2.244572247815604
+}

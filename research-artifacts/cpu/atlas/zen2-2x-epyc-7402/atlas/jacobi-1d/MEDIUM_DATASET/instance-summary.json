@@ -1,0 +1,43 @@
+{
+  "kernel_id": "jacobi-1d",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 31,
+  "unique_machine_code_groups": 21,
+  "nonidentity_representatives_measured": 20,
+  "aliases_to_identity": 11,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 512,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.003778324542374,
+      "paired_speedup_iqr": 0.015220807536624803,
+      "reference_batch_median_ns": 8502118.0,
+      "candidate_batch_median_ns": 8498343.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 512
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9987116533195628,
+      "paired_speedup_iqr": 0.017357595528315062,
+      "reference_batch_median_ns": 8370842.5,
+      "candidate_batch_median_ns": 8412163.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 512
+    }
+  ],
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "2b515ce0988562a9f1342f21351a969a191dced7d72b48e5ba4f7041b040cc9e",
+  "candidate_object_sha256": "9a708d14a2a5bd4da930e3142471b99790466663f708020a631a1a074410195f",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "durbin__SMALL__C__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.8189961447946321
+}

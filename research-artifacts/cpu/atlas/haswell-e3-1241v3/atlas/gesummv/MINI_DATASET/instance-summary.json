@@ -1,0 +1,43 @@
+{
+  "kernel_id": "gesummv",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 21,
+  "candidates_admitted": 21,
+  "unique_machine_code_groups": 9,
+  "nonidentity_representatives_measured": 8,
+  "aliases_to_identity": 13,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 4096,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9994987468807474,
+      "paired_speedup_iqr": 0.0011703417418873485,
+      "reference_batch_median_ns": 8240312.0,
+      "candidate_batch_median_ns": 8239369.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 4096
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.000879219605797,
+      "paired_speedup_iqr": 0.0014895500431679753,
+      "reference_batch_median_ns": 8242285.0,
+      "candidate_batch_median_ns": 8232671.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 4096
+    }
+  ],
+  "formal_equivalence_proven": false
+}

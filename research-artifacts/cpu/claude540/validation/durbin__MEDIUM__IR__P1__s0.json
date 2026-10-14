@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "durbin__MEDIUM__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "365bae416643dd9f517d4a5462284fef80f5971f373e2f5eb28a21f8261a2d04",
+  "reference_ir_sha256": "4e995d0477e77c1b7daff32e8ac3056d49fcfa8f99847c2dcf66716934345c31",
+  "size": "MEDIUM",
+  "source_sha256": "08ec2a56c96eed99b84d2bffa9fbb92daafed5282b24177b5e37454d7c29e9e4",
+  "status": "checked",
+  "task": "durbin"
+}

@@ -1,0 +1,99 @@
+{
+  "active_orchestration": {
+    "generation_window_seconds": null,
+    "original_plan_time_settings_superseded_for_orchestration_only": true,
+    "revision": "completion-driven-v1",
+    "session_limit_seconds": null
+  },
+  "additional_multiinput_not_implemented": 102,
+  "additional_multiinput_passed": 27,
+  "all_30_multinput_validation_complete": false,
+  "automatic_model_retries": 0,
+  "comparison_budget_note": "P0 legacy14 separate; matched resource166; one trial per condition",
+  "completion": "DATASET_BATCH_COMPLETE",
+  "completion_means_all_requested_attempts_processed_not_all_correct": true,
+  "condition": "P1",
+  "cpu_information_effect_measured": false,
+  "cpu_prompt_condition": {
+    "condition": "P1",
+    "hardware_block": "Target CPU information (condition P1):\n- CPU model: AMD EPYC 7402.\n- Microarchitecture: Zen 2.",
+    "measured_performance_in_prompt": false,
+    "prior_answers_in_prompt": false,
+    "static_profile_sha256": "976d83b089b9a9025bc2fbd7a5ae52c80397af5941f673e3fe2a627407506c9c",
+    "target_cpu": "AMD EPYC 7402",
+    "target_microarchitecture": "Zen 2"
+  },
+  "current_session": {
+    "aggregate_time_limit_seconds": null,
+    "compiler": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "elapsed_seconds": 103509.47666822403,
+    "errors": [],
+    "finished_utc": "2026-09-16T05:41:27.960936+00:00",
+    "generation_hours": null,
+    "max_hours": null,
+    "model_blobs": {
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "verified_blobs": {
+        "sha256:1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320": {
+          "bytes": 1615,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320"
+        },
+        "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e": {
+          "bytes": 68,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e"
+        },
+        "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e": {
+          "bytes": 11343,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+        },
+        "sha256:ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9": {
+          "bytes": 19851336384,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9"
+        },
+        "sha256:f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee": {
+          "bytes": 488,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee"
+        }
+      }
+    },
+    "model_freeze": {
+      "manifest_file": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/manifests/registry.ollama.ai/library/qwen2.5-coder/32b-instruct-q4_K_M",
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "model": "qwen2.5-coder:32b-instruct-q4_K_M",
+      "official_tag_prefix_checked": "b92d6a0bd47e",
+      "phase": "after_download_before_generation",
+      "recorded_utc": "2026-09-12T05:02:37.998914+00:00"
+    },
+    "orchestration_revision": "completion-driven-v1",
+    "phase": "completed",
+    "plan_sha256": "200f8a26d1f14d218d58eb6dea6f7378ab71ab5e7a6bca8d364e33d3b3439094",
+    "started_utc": "2026-09-15T00:56:18.484352+00:00",
+    "termination_condition": "all_planned_attempts_validations_and_eligible_measurements_terminal"
+  },
+  "final_research_conclusions_ready": false,
+  "formal_equivalence_proven": false,
+  "generated_texts": 180,
+  "generation_non_success": 0,
+  "generation_runtime_revision": "dual-numa-p12-v1",
+  "generation_terminal": 180,
+  "generation_workers": 2,
+  "measurement_eligible_provisional": 129,
+  "measurement_pending": 0,
+  "measurement_quality_passed": 129,
+  "measurement_terminal": 129,
+  "model_downloads": 0,
+  "official_gate_passed": 129,
+  "p0_runtime_differs": true,
+  "paid_api_calls": 0,
+  "planned_requests": 180,
+  "prompt_language": "en",
+  "prompt_revision": "direct-codegen-en-v2-hardware-v1",
+  "requests_pending": 0,
+  "resource_amendment": null,
+  "revision": "polybench-direct-codegen-zen2-p12-v1",
+  "run_directory": "/srv/research/cpucond-p012-zen2-v1/P1/results",
+  "runtime_change_may_affect_generation": true,
+  "scope": "P1 / Zen 2 / one model / one trial / provisional",
+  "updated_utc": "2026-09-16T05:41:27.960211+00:00",
+  "validation_terminal": 180
+}

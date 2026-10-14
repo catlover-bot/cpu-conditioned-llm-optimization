@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "57d860b31a288689458b289ee89e9f5762bec6f87c825ba06098bae0cc86055f",
+  "candidate_object_sha256": "a1aa75e6e224c24ae890c5e09b22455a9ac908e9a3e504cb4dd8e20248b3af4b",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "mvt__MINI__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0156740538419804
+}

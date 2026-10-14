@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "trisolv__SMALL__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "d4732000da1315a77f72458b4988ae82bbd5926b3ccc95621913b7db2b4b638a",
+  "reference_ir_sha256": "8fcd86d58d294f2ba81cad803bb99260ad7b248feaf6815d0cb1c95622709b22",
+  "size": "SMALL",
+  "source_sha256": "d03320f69001991694cbfaf632fb146e0e792dc0df1bc2e9f225f908f338ca3e",
+  "status": "checked",
+  "task": "trisolv"
+}

@@ -1,0 +1,21 @@
+=== 記録済み検査の統合結果 ===
+要求=526 保存コード=525 検査条件の共通合格=351
+過去の有効計測あり=346 有効な過去計測なし=5
+P0: 分母=166 共通合格=106 過去の有効計測あり=104
+P1: 分母=180 共通合格=119 過去の有効計測あり=119
+P2: 分母=180 共通合格=126 過去の有効計測あり=123
+旧不合格から、今回の旧入力再確認にも通ったID:
+floyd-warshall__MEDIUM__C__P2__s0
+floyd-warshall__MINI__C__P2__s0
+floyd-warshall__SMALL__C__P2__s0
+構造拒否と旧入力再確認不合格が重なっているID:
+trisolv__SMALL__IR__P0__s0
+合格だが有効な過去計測がないID:
+ludcmp__SMALL__C__P0__s0
+ludcmp__SMALL__IR__P0__s0
+floyd-warshall__MEDIUM__C__P2__s0
+floyd-warshall__MINI__C__P2__s0
+floyd-warshall__SMALL__C__P2__s0
+有限の検査結果の積集合です。全入力での同値証明・新しい性能測定ではありません。
+旧判定・コードは変更せず、別の台帳として保存します。
+VALIDATION_LEDGER_COMPLETE

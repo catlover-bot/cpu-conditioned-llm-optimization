@@ -1,0 +1,655 @@
+カーネル: deriche
+サイズ条件: SMALL
+数値寸法: {"H": 128, "W": 192}
+
+define internal void @kernel_deriche(i32 noundef %w, i32 noundef %h, float noundef %alpha, ptr noundef %imgIn, ptr noundef %imgOut, ptr noundef %y1, ptr noundef %y2) {
+entry:
+  %w.addr = alloca i32, align 4
+  %h.addr = alloca i32, align 4
+  %alpha.addr = alloca float, align 4
+  %imgIn.addr = alloca ptr, align 8
+  %imgOut.addr = alloca ptr, align 8
+  %y1.addr = alloca ptr, align 8
+  %y2.addr = alloca ptr, align 8
+  %i = alloca i32, align 4
+  %j = alloca i32, align 4
+  %xm1 = alloca float, align 4
+  %tm1 = alloca float, align 4
+  %ym1 = alloca float, align 4
+  %ym2 = alloca float, align 4
+  %xp1 = alloca float, align 4
+  %xp2 = alloca float, align 4
+  %tp1 = alloca float, align 4
+  %tp2 = alloca float, align 4
+  %yp1 = alloca float, align 4
+  %yp2 = alloca float, align 4
+  %k = alloca float, align 4
+  %a1 = alloca float, align 4
+  %a2 = alloca float, align 4
+  %a3 = alloca float, align 4
+  %a4 = alloca float, align 4
+  %a5 = alloca float, align 4
+  %a6 = alloca float, align 4
+  %a7 = alloca float, align 4
+  %a8 = alloca float, align 4
+  %b1 = alloca float, align 4
+  %b2 = alloca float, align 4
+  %c1 = alloca float, align 4
+  %c2 = alloca float, align 4
+  store i32 %w, ptr %w.addr, align 4
+  store i32 %h, ptr %h.addr, align 4
+  store float %alpha, ptr %alpha.addr, align 4
+  store ptr %imgIn, ptr %imgIn.addr, align 8
+  store ptr %imgOut, ptr %imgOut.addr, align 8
+  store ptr %y1, ptr %y1.addr, align 8
+  store ptr %y2, ptr %y2.addr, align 8
+  %0 = load i32, ptr %w.addr, align 4
+  %add = add nsw i32 %0, 0
+  %1 = zext i32 %add to i64
+  %2 = load i32, ptr %h.addr, align 4
+  %add1 = add nsw i32 %2, 0
+  %3 = zext i32 %add1 to i64
+  %4 = load i32, ptr %w.addr, align 4
+  %add2 = add nsw i32 %4, 0
+  %5 = zext i32 %add2 to i64
+  %6 = load i32, ptr %h.addr, align 4
+  %add3 = add nsw i32 %6, 0
+  %7 = zext i32 %add3 to i64
+  %8 = load i32, ptr %w.addr, align 4
+  %add4 = add nsw i32 %8, 0
+  %9 = zext i32 %add4 to i64
+  %10 = load i32, ptr %h.addr, align 4
+  %add5 = add nsw i32 %10, 0
+  %11 = zext i32 %add5 to i64
+  %12 = load i32, ptr %w.addr, align 4
+  %add6 = add nsw i32 %12, 0
+  %13 = zext i32 %add6 to i64
+  %14 = load i32, ptr %h.addr, align 4
+  %add7 = add nsw i32 %14, 0
+  %15 = zext i32 %add7 to i64
+  %16 = load float, ptr %alpha.addr, align 4
+  %fneg = fneg float %16
+  %call = call float @expf(float noundef %fneg) #5
+  %sub = fsub float 1.000000e+00, %call
+  %17 = load float, ptr %alpha.addr, align 4
+  %fneg8 = fneg float %17
+  %call9 = call float @expf(float noundef %fneg8) #5
+  %sub10 = fsub float 1.000000e+00, %call9
+  %mul = fmul float %sub, %sub10
+  %18 = load float, ptr %alpha.addr, align 4
+  %mul11 = fmul float 2.000000e+00, %18
+  %19 = load float, ptr %alpha.addr, align 4
+  %fneg12 = fneg float %19
+  %call13 = call float @expf(float noundef %fneg12) #5
+  %mul14 = fmul float %mul11, %call13
+  %add15 = fadd float 1.000000e+00, %mul14
+  %20 = load float, ptr %alpha.addr, align 4
+  %mul16 = fmul float 2.000000e+00, %20
+  %call17 = call float @expf(float noundef %mul16) #5
+  %sub18 = fsub float %add15, %call17
+  %div = fdiv float %mul, %sub18
+  store float %div, ptr %k, align 4
+  %21 = load float, ptr %k, align 4
+  store float %21, ptr %a5, align 4
+  store float %21, ptr %a1, align 4
+  %22 = load float, ptr %k, align 4
+  %23 = load float, ptr %alpha.addr, align 4
+  %fneg19 = fneg float %23
+  %call20 = call float @expf(float noundef %fneg19) #5
+  %mul21 = fmul float %22, %call20
+  %24 = load float, ptr %alpha.addr, align 4
+  %sub22 = fsub float %24, 1.000000e+00
+  %mul23 = fmul float %mul21, %sub22
+  store float %mul23, ptr %a6, align 4
+  store float %mul23, ptr %a2, align 4
+  %25 = load float, ptr %k, align 4
+  %26 = load float, ptr %alpha.addr, align 4
+  %fneg24 = fneg float %26
+  %call25 = call float @expf(float noundef %fneg24) #5
+  %mul26 = fmul float %25, %call25
+  %27 = load float, ptr %alpha.addr, align 4
+  %add27 = fadd float %27, 1.000000e+00
+  %mul28 = fmul float %mul26, %add27
+  store float %mul28, ptr %a7, align 4
+  store float %mul28, ptr %a3, align 4
+  %28 = load float, ptr %k, align 4
+  %fneg29 = fneg float %28
+  %29 = load float, ptr %alpha.addr, align 4
+  %mul30 = fmul float -2.000000e+00, %29
+  %call31 = call float @expf(float noundef %mul30) #5
+  %mul32 = fmul float %fneg29, %call31
+  store float %mul32, ptr %a8, align 4
+  store float %mul32, ptr %a4, align 4
+  %30 = load float, ptr %alpha.addr, align 4
+  %fneg33 = fneg float %30
+  %call34 = call float @powf(float noundef 2.000000e+00, float noundef %fneg33) #5
+  store float %call34, ptr %b1, align 4
+  %31 = load float, ptr %alpha.addr, align 4
+  %mul35 = fmul float -2.000000e+00, %31
+  %call36 = call float @expf(float noundef %mul35) #5
+  %fneg37 = fneg float %call36
+  store float %fneg37, ptr %b2, align 4
+  store float 1.000000e+00, ptr %c2, align 4
+  store float 1.000000e+00, ptr %c1, align 4
+  ; CPUCOND_LOOP_00
+  store i32 0, ptr %i, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc62, %entry
+  %32 = load i32, ptr %i, align 4
+  %33 = load i32, ptr %w.addr, align 4
+  %cmp = icmp slt i32 %32, %33
+  br i1 %cmp, label %for.body, label %for.end64
+
+for.body:                                         ; preds = %for.cond
+  store float 0.000000e+00, ptr %ym1, align 4
+  store float 0.000000e+00, ptr %ym2, align 4
+  store float 0.000000e+00, ptr %xm1, align 4
+  ; CPUCOND_LOOP_01
+  store i32 0, ptr %j, align 4
+  br label %for.cond38
+
+for.cond38:                                       ; preds = %for.inc, %for.body
+  %34 = load i32, ptr %j, align 4
+  %35 = load i32, ptr %h.addr, align 4
+  %cmp39 = icmp slt i32 %34, %35
+  br i1 %cmp39, label %for.body40, label %for.end
+
+for.body40:                                       ; preds = %for.cond38
+  %36 = load float, ptr %a1, align 4
+  %37 = load ptr, ptr %imgIn.addr, align 8
+  %38 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %38 to i64
+  %39 = mul nsw i64 %idxprom, %3
+  %arrayidx = getelementptr inbounds float, ptr %37, i64 %39
+  %40 = load i32, ptr %j, align 4
+  %idxprom41 = sext i32 %40 to i64
+  %arrayidx42 = getelementptr inbounds float, ptr %arrayidx, i64 %idxprom41
+  %41 = load float, ptr %arrayidx42, align 4
+  %mul43 = fmul float %36, %41
+  %42 = load float, ptr %a2, align 4
+  %43 = load float, ptr %xm1, align 4
+  %mul44 = fmul float %42, %43
+  %add45 = fadd float %mul43, %mul44
+  %44 = load float, ptr %b1, align 4
+  %45 = load float, ptr %ym1, align 4
+  %mul46 = fmul float %44, %45
+  %add47 = fadd float %add45, %mul46
+  %46 = load float, ptr %b2, align 4
+  %47 = load float, ptr %ym2, align 4
+  %mul48 = fmul float %46, %47
+  %add49 = fadd float %add47, %mul48
+  %48 = load ptr, ptr %y1.addr, align 8
+  %49 = load i32, ptr %i, align 4
+  %idxprom50 = sext i32 %49 to i64
+  %50 = mul nsw i64 %idxprom50, %11
+  %arrayidx51 = getelementptr inbounds float, ptr %48, i64 %50
+  %51 = load i32, ptr %j, align 4
+  %idxprom52 = sext i32 %51 to i64
+  %arrayidx53 = getelementptr inbounds float, ptr %arrayidx51, i64 %idxprom52
+  store float %add49, ptr %arrayidx53, align 4
+  %52 = load ptr, ptr %imgIn.addr, align 8
+  %53 = load i32, ptr %i, align 4
+  %idxprom54 = sext i32 %53 to i64
+  %54 = mul nsw i64 %idxprom54, %3
+  %arrayidx55 = getelementptr inbounds float, ptr %52, i64 %54
+  %55 = load i32, ptr %j, align 4
+  %idxprom56 = sext i32 %55 to i64
+  %arrayidx57 = getelementptr inbounds float, ptr %arrayidx55, i64 %idxprom56
+  %56 = load float, ptr %arrayidx57, align 4
+  store float %56, ptr %xm1, align 4
+  %57 = load float, ptr %ym1, align 4
+  store float %57, ptr %ym2, align 4
+  %58 = load ptr, ptr %y1.addr, align 8
+  %59 = load i32, ptr %i, align 4
+  %idxprom58 = sext i32 %59 to i64
+  %60 = mul nsw i64 %idxprom58, %11
+  %arrayidx59 = getelementptr inbounds float, ptr %58, i64 %60
+  %61 = load i32, ptr %j, align 4
+  %idxprom60 = sext i32 %61 to i64
+  %arrayidx61 = getelementptr inbounds float, ptr %arrayidx59, i64 %idxprom60
+  %62 = load float, ptr %arrayidx61, align 4
+  store float %62, ptr %ym1, align 4
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body40
+  %63 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %63, 1
+  store i32 %inc, ptr %j, align 4
+  br label %for.cond38
+
+for.end:                                          ; preds = %for.cond38
+  br label %for.inc62
+
+for.inc62:                                        ; preds = %for.end
+  %64 = load i32, ptr %i, align 4
+  %inc63 = add nsw i32 %64, 1
+  store i32 %inc63, ptr %i, align 4
+  br label %for.cond
+
+for.end64:                                        ; preds = %for.cond
+  ; CPUCOND_LOOP_02
+  store i32 0, ptr %i, align 4
+  br label %for.cond65
+
+for.cond65:                                       ; preds = %for.inc93, %for.end64
+  %65 = load i32, ptr %i, align 4
+  %66 = load i32, ptr %w.addr, align 4
+  %cmp66 = icmp slt i32 %65, %66
+  br i1 %cmp66, label %for.body67, label %for.end95
+
+for.body67:                                       ; preds = %for.cond65
+  store float 0.000000e+00, ptr %yp1, align 4
+  store float 0.000000e+00, ptr %yp2, align 4
+  store float 0.000000e+00, ptr %xp1, align 4
+  store float 0.000000e+00, ptr %xp2, align 4
+  ; CPUCOND_LOOP_03
+  %67 = load i32, ptr %h.addr, align 4
+  %sub68 = sub nsw i32 %67, 1
+  store i32 %sub68, ptr %j, align 4
+  br label %for.cond69
+
+for.cond69:                                       ; preds = %for.inc91, %for.body67
+  %68 = load i32, ptr %j, align 4
+  %cmp70 = icmp sge i32 %68, 0
+  br i1 %cmp70, label %for.body71, label %for.end92
+
+for.body71:                                       ; preds = %for.cond69
+  %69 = load float, ptr %a3, align 4
+  %70 = load float, ptr %xp1, align 4
+  %mul72 = fmul float %69, %70
+  %71 = load float, ptr %a4, align 4
+  %72 = load float, ptr %xp2, align 4
+  %mul73 = fmul float %71, %72
+  %add74 = fadd float %mul72, %mul73
+  %73 = load float, ptr %b1, align 4
+  %74 = load float, ptr %yp1, align 4
+  %mul75 = fmul float %73, %74
+  %add76 = fadd float %add74, %mul75
+  %75 = load float, ptr %b2, align 4
+  %76 = load float, ptr %yp2, align 4
+  %mul77 = fmul float %75, %76
+  %add78 = fadd float %add76, %mul77
+  %77 = load ptr, ptr %y2.addr, align 8
+  %78 = load i32, ptr %i, align 4
+  %idxprom79 = sext i32 %78 to i64
+  %79 = mul nsw i64 %idxprom79, %15
+  %arrayidx80 = getelementptr inbounds float, ptr %77, i64 %79
+  %80 = load i32, ptr %j, align 4
+  %idxprom81 = sext i32 %80 to i64
+  %arrayidx82 = getelementptr inbounds float, ptr %arrayidx80, i64 %idxprom81
+  store float %add78, ptr %arrayidx82, align 4
+  %81 = load float, ptr %xp1, align 4
+  store float %81, ptr %xp2, align 4
+  %82 = load ptr, ptr %imgIn.addr, align 8
+  %83 = load i32, ptr %i, align 4
+  %idxprom83 = sext i32 %83 to i64
+  %84 = mul nsw i64 %idxprom83, %3
+  %arrayidx84 = getelementptr inbounds float, ptr %82, i64 %84
+  %85 = load i32, ptr %j, align 4
+  %idxprom85 = sext i32 %85 to i64
+  %arrayidx86 = getelementptr inbounds float, ptr %arrayidx84, i64 %idxprom85
+  %86 = load float, ptr %arrayidx86, align 4
+  store float %86, ptr %xp1, align 4
+  %87 = load float, ptr %yp1, align 4
+  store float %87, ptr %yp2, align 4
+  %88 = load ptr, ptr %y2.addr, align 8
+  %89 = load i32, ptr %i, align 4
+  %idxprom87 = sext i32 %89 to i64
+  %90 = mul nsw i64 %idxprom87, %15
+  %arrayidx88 = getelementptr inbounds float, ptr %88, i64 %90
+  %91 = load i32, ptr %j, align 4
+  %idxprom89 = sext i32 %91 to i64
+  %arrayidx90 = getelementptr inbounds float, ptr %arrayidx88, i64 %idxprom89
+  %92 = load float, ptr %arrayidx90, align 4
+  store float %92, ptr %yp1, align 4
+  br label %for.inc91
+
+for.inc91:                                        ; preds = %for.body71
+  %93 = load i32, ptr %j, align 4
+  %dec = add nsw i32 %93, -1
+  store i32 %dec, ptr %j, align 4
+  br label %for.cond69
+
+for.end92:                                        ; preds = %for.cond69
+  br label %for.inc93
+
+for.inc93:                                        ; preds = %for.end92
+  %94 = load i32, ptr %i, align 4
+  %inc94 = add nsw i32 %94, 1
+  store i32 %inc94, ptr %i, align 4
+  br label %for.cond65
+
+for.end95:                                        ; preds = %for.cond65
+  ; CPUCOND_LOOP_04
+  store i32 0, ptr %i, align 4
+  br label %for.cond96
+
+for.cond96:                                       ; preds = %for.inc99, %for.end95
+  %95 = load i32, ptr %i, align 4
+  %96 = load i32, ptr %w.addr, align 4
+  %cmp97 = icmp slt i32 %95, %96
+  br i1 %cmp97, label %for.body98, label %for.end101
+
+for.body98:                                       ; preds = %for.cond96
+  ; CPUCOND_LOOP_05
+  br label %for.inc99
+
+for.inc99:                                        ; preds = %for.body98
+  %97 = load i32, ptr %i, align 4
+  %inc100 = add nsw i32 %97, 1
+  store i32 %inc100, ptr %i, align 4
+  br label %for.cond96
+
+for.end101:                                       ; preds = %for.cond96
+  store i32 0, ptr %j, align 4
+  br label %for.cond102
+
+for.cond102:                                      ; preds = %for.inc119, %for.end101
+  %98 = load i32, ptr %j, align 4
+  %99 = load i32, ptr %h.addr, align 4
+  %cmp103 = icmp slt i32 %98, %99
+  br i1 %cmp103, label %for.body104, label %for.end121
+
+for.body104:                                      ; preds = %for.cond102
+  %100 = load float, ptr %c1, align 4
+  %101 = load ptr, ptr %y1.addr, align 8
+  %102 = load i32, ptr %i, align 4
+  %idxprom105 = sext i32 %102 to i64
+  %103 = mul nsw i64 %idxprom105, %11
+  %arrayidx106 = getelementptr inbounds float, ptr %101, i64 %103
+  %104 = load i32, ptr %j, align 4
+  %idxprom107 = sext i32 %104 to i64
+  %arrayidx108 = getelementptr inbounds float, ptr %arrayidx106, i64 %idxprom107
+  %105 = load float, ptr %arrayidx108, align 4
+  %106 = load ptr, ptr %y2.addr, align 8
+  %107 = load i32, ptr %i, align 4
+  %idxprom109 = sext i32 %107 to i64
+  %108 = mul nsw i64 %idxprom109, %15
+  %arrayidx110 = getelementptr inbounds float, ptr %106, i64 %108
+  %109 = load i32, ptr %j, align 4
+  %idxprom111 = sext i32 %109 to i64
+  %arrayidx112 = getelementptr inbounds float, ptr %arrayidx110, i64 %idxprom111
+  %110 = load float, ptr %arrayidx112, align 4
+  %add113 = fadd float %105, %110
+  %mul114 = fmul float %100, %add113
+  %111 = load ptr, ptr %imgOut.addr, align 8
+  %112 = load i32, ptr %i, align 4
+  %idxprom115 = sext i32 %112 to i64
+  %113 = mul nsw i64 %idxprom115, %7
+  %arrayidx116 = getelementptr inbounds float, ptr %111, i64 %113
+  %114 = load i32, ptr %j, align 4
+  %idxprom117 = sext i32 %114 to i64
+  %arrayidx118 = getelementptr inbounds float, ptr %arrayidx116, i64 %idxprom117
+  store float %mul114, ptr %arrayidx118, align 4
+  br label %for.inc119
+
+for.inc119:                                       ; preds = %for.body104
+  %115 = load i32, ptr %j, align 4
+  %inc120 = add nsw i32 %115, 1
+  store i32 %inc120, ptr %j, align 4
+  br label %for.cond102
+
+for.end121:                                       ; preds = %for.cond102
+  ; CPUCOND_LOOP_06
+  store i32 0, ptr %j, align 4
+  br label %for.cond122
+
+for.cond122:                                      ; preds = %for.inc154, %for.end121
+  %116 = load i32, ptr %j, align 4
+  %117 = load i32, ptr %h.addr, align 4
+  %cmp123 = icmp slt i32 %116, %117
+  br i1 %cmp123, label %for.body124, label %for.end156
+
+for.body124:                                      ; preds = %for.cond122
+  store float 0.000000e+00, ptr %tm1, align 4
+  store float 0.000000e+00, ptr %ym1, align 4
+  store float 0.000000e+00, ptr %ym2, align 4
+  ; CPUCOND_LOOP_07
+  store i32 0, ptr %i, align 4
+  br label %for.cond125
+
+for.cond125:                                      ; preds = %for.inc151, %for.body124
+  %118 = load i32, ptr %i, align 4
+  %119 = load i32, ptr %w.addr, align 4
+  %cmp126 = icmp slt i32 %118, %119
+  br i1 %cmp126, label %for.body127, label %for.end153
+
+for.body127:                                      ; preds = %for.cond125
+  %120 = load float, ptr %a5, align 4
+  %121 = load ptr, ptr %imgOut.addr, align 8
+  %122 = load i32, ptr %i, align 4
+  %idxprom128 = sext i32 %122 to i64
+  %123 = mul nsw i64 %idxprom128, %7
+  %arrayidx129 = getelementptr inbounds float, ptr %121, i64 %123
+  %124 = load i32, ptr %j, align 4
+  %idxprom130 = sext i32 %124 to i64
+  %arrayidx131 = getelementptr inbounds float, ptr %arrayidx129, i64 %idxprom130
+  %125 = load float, ptr %arrayidx131, align 4
+  %mul132 = fmul float %120, %125
+  %126 = load float, ptr %a6, align 4
+  %127 = load float, ptr %tm1, align 4
+  %mul133 = fmul float %126, %127
+  %add134 = fadd float %mul132, %mul133
+  %128 = load float, ptr %b1, align 4
+  %129 = load float, ptr %ym1, align 4
+  %mul135 = fmul float %128, %129
+  %add136 = fadd float %add134, %mul135
+  %130 = load float, ptr %b2, align 4
+  %131 = load float, ptr %ym2, align 4
+  %mul137 = fmul float %130, %131
+  %add138 = fadd float %add136, %mul137
+  %132 = load ptr, ptr %y1.addr, align 8
+  %133 = load i32, ptr %i, align 4
+  %idxprom139 = sext i32 %133 to i64
+  %134 = mul nsw i64 %idxprom139, %11
+  %arrayidx140 = getelementptr inbounds float, ptr %132, i64 %134
+  %135 = load i32, ptr %j, align 4
+  %idxprom141 = sext i32 %135 to i64
+  %arrayidx142 = getelementptr inbounds float, ptr %arrayidx140, i64 %idxprom141
+  store float %add138, ptr %arrayidx142, align 4
+  %136 = load ptr, ptr %imgOut.addr, align 8
+  %137 = load i32, ptr %i, align 4
+  %idxprom143 = sext i32 %137 to i64
+  %138 = mul nsw i64 %idxprom143, %7
+  %arrayidx144 = getelementptr inbounds float, ptr %136, i64 %138
+  %139 = load i32, ptr %j, align 4
+  %idxprom145 = sext i32 %139 to i64
+  %arrayidx146 = getelementptr inbounds float, ptr %arrayidx144, i64 %idxprom145
+  %140 = load float, ptr %arrayidx146, align 4
+  store float %140, ptr %tm1, align 4
+  %141 = load float, ptr %ym1, align 4
+  store float %141, ptr %ym2, align 4
+  %142 = load ptr, ptr %y1.addr, align 8
+  %143 = load i32, ptr %i, align 4
+  %idxprom147 = sext i32 %143 to i64
+  %144 = mul nsw i64 %idxprom147, %11
+  %arrayidx148 = getelementptr inbounds float, ptr %142, i64 %144
+  %145 = load i32, ptr %j, align 4
+  %idxprom149 = sext i32 %145 to i64
+  %arrayidx150 = getelementptr inbounds float, ptr %arrayidx148, i64 %idxprom149
+  %146 = load float, ptr %arrayidx150, align 4
+  store float %146, ptr %ym1, align 4
+  br label %for.inc151
+
+for.inc151:                                       ; preds = %for.body127
+  %147 = load i32, ptr %i, align 4
+  %inc152 = add nsw i32 %147, 1
+  store i32 %inc152, ptr %i, align 4
+  br label %for.cond125
+
+for.end153:                                       ; preds = %for.cond125
+  br label %for.inc154
+
+for.inc154:                                       ; preds = %for.end153
+  %148 = load i32, ptr %j, align 4
+  %inc155 = add nsw i32 %148, 1
+  store i32 %inc155, ptr %j, align 4
+  br label %for.cond122
+
+for.end156:                                       ; preds = %for.cond122
+  ; CPUCOND_LOOP_08
+  store i32 0, ptr %j, align 4
+  br label %for.cond157
+
+for.cond157:                                      ; preds = %for.inc186, %for.end156
+  %149 = load i32, ptr %j, align 4
+  %150 = load i32, ptr %h.addr, align 4
+  %cmp158 = icmp slt i32 %149, %150
+  br i1 %cmp158, label %for.body159, label %for.end188
+
+for.body159:                                      ; preds = %for.cond157
+  store float 0.000000e+00, ptr %tp1, align 4
+  store float 0.000000e+00, ptr %tp2, align 4
+  store float 0.000000e+00, ptr %yp1, align 4
+  store float 0.000000e+00, ptr %yp2, align 4
+  ; CPUCOND_LOOP_09
+  %151 = load i32, ptr %w.addr, align 4
+  %sub160 = sub nsw i32 %151, 1
+  store i32 %sub160, ptr %i, align 4
+  br label %for.cond161
+
+for.cond161:                                      ; preds = %for.inc183, %for.body159
+  %152 = load i32, ptr %i, align 4
+  %cmp162 = icmp sge i32 %152, 0
+  br i1 %cmp162, label %for.body163, label %for.end185
+
+for.body163:                                      ; preds = %for.cond161
+  %153 = load float, ptr %a7, align 4
+  %154 = load float, ptr %tp1, align 4
+  %mul164 = fmul float %153, %154
+  %155 = load float, ptr %a8, align 4
+  %156 = load float, ptr %tp2, align 4
+  %mul165 = fmul float %155, %156
+  %add166 = fadd float %mul164, %mul165
+  %157 = load float, ptr %b1, align 4
+  %158 = load float, ptr %yp1, align 4
+  %mul167 = fmul float %157, %158
+  %add168 = fadd float %add166, %mul167
+  %159 = load float, ptr %b2, align 4
+  %160 = load float, ptr %yp2, align 4
+  %mul169 = fmul float %159, %160
+  %add170 = fadd float %add168, %mul169
+  %161 = load ptr, ptr %y2.addr, align 8
+  %162 = load i32, ptr %i, align 4
+  %idxprom171 = sext i32 %162 to i64
+  %163 = mul nsw i64 %idxprom171, %15
+  %arrayidx172 = getelementptr inbounds float, ptr %161, i64 %163
+  %164 = load i32, ptr %j, align 4
+  %idxprom173 = sext i32 %164 to i64
+  %arrayidx174 = getelementptr inbounds float, ptr %arrayidx172, i64 %idxprom173
+  store float %add170, ptr %arrayidx174, align 4
+  %165 = load float, ptr %tp1, align 4
+  store float %165, ptr %tp2, align 4
+  %166 = load ptr, ptr %imgOut.addr, align 8
+  %167 = load i32, ptr %i, align 4
+  %idxprom175 = sext i32 %167 to i64
+  %168 = mul nsw i64 %idxprom175, %7
+  %arrayidx176 = getelementptr inbounds float, ptr %166, i64 %168
+  %169 = load i32, ptr %j, align 4
+  %idxprom177 = sext i32 %169 to i64
+  %arrayidx178 = getelementptr inbounds float, ptr %arrayidx176, i64 %idxprom177
+  %170 = load float, ptr %arrayidx178, align 4
+  store float %170, ptr %tp1, align 4
+  %171 = load float, ptr %yp1, align 4
+  store float %171, ptr %yp2, align 4
+  %172 = load ptr, ptr %y2.addr, align 8
+  %173 = load i32, ptr %i, align 4
+  %idxprom179 = sext i32 %173 to i64
+  %174 = mul nsw i64 %idxprom179, %15
+  %arrayidx180 = getelementptr inbounds float, ptr %172, i64 %174
+  %175 = load i32, ptr %j, align 4
+  %idxprom181 = sext i32 %175 to i64
+  %arrayidx182 = getelementptr inbounds float, ptr %arrayidx180, i64 %idxprom181
+  %176 = load float, ptr %arrayidx182, align 4
+  store float %176, ptr %yp1, align 4
+  br label %for.inc183
+
+for.inc183:                                       ; preds = %for.body163
+  %177 = load i32, ptr %i, align 4
+  %dec184 = add nsw i32 %177, -1
+  store i32 %dec184, ptr %i, align 4
+  br label %for.cond161
+
+for.end185:                                       ; preds = %for.cond161
+  br label %for.inc186
+
+for.inc186:                                       ; preds = %for.end185
+  %178 = load i32, ptr %j, align 4
+  %inc187 = add nsw i32 %178, 1
+  store i32 %inc187, ptr %j, align 4
+  br label %for.cond157
+
+for.end188:                                       ; preds = %for.cond157
+  ; CPUCOND_LOOP_10
+  store i32 0, ptr %i, align 4
+  br label %for.cond189
+
+for.cond189:                                      ; preds = %for.inc192, %for.end188
+  %179 = load i32, ptr %i, align 4
+  %180 = load i32, ptr %w.addr, align 4
+  %cmp190 = icmp slt i32 %179, %180
+  br i1 %cmp190, label %for.body191, label %for.end194
+
+for.body191:                                      ; preds = %for.cond189
+  ; CPUCOND_LOOP_11
+  br label %for.inc192
+
+for.inc192:                                       ; preds = %for.body191
+  %181 = load i32, ptr %i, align 4
+  %inc193 = add nsw i32 %181, 1
+  store i32 %inc193, ptr %i, align 4
+  br label %for.cond189
+
+for.end194:                                       ; preds = %for.cond189
+  store i32 0, ptr %j, align 4
+  br label %for.cond195
+
+for.cond195:                                      ; preds = %for.inc212, %for.end194
+  %182 = load i32, ptr %j, align 4
+  %183 = load i32, ptr %h.addr, align 4
+  %cmp196 = icmp slt i32 %182, %183
+  br i1 %cmp196, label %for.body197, label %for.end214
+
+for.body197:                                      ; preds = %for.cond195
+  %184 = load float, ptr %c2, align 4
+  %185 = load ptr, ptr %y1.addr, align 8
+  %186 = load i32, ptr %i, align 4
+  %idxprom198 = sext i32 %186 to i64
+  %187 = mul nsw i64 %idxprom198, %11
+  %arrayidx199 = getelementptr inbounds float, ptr %185, i64 %187
+  %188 = load i32, ptr %j, align 4
+  %idxprom200 = sext i32 %188 to i64
+  %arrayidx201 = getelementptr inbounds float, ptr %arrayidx199, i64 %idxprom200
+  %189 = load float, ptr %arrayidx201, align 4
+  %190 = load ptr, ptr %y2.addr, align 8
+  %191 = load i32, ptr %i, align 4
+  %idxprom202 = sext i32 %191 to i64
+  %192 = mul nsw i64 %idxprom202, %15
+  %arrayidx203 = getelementptr inbounds float, ptr %190, i64 %192
+  %193 = load i32, ptr %j, align 4
+  %idxprom204 = sext i32 %193 to i64
+  %arrayidx205 = getelementptr inbounds float, ptr %arrayidx203, i64 %idxprom204
+  %194 = load float, ptr %arrayidx205, align 4
+  %add206 = fadd float %189, %194
+  %mul207 = fmul float %184, %add206
+  %195 = load ptr, ptr %imgOut.addr, align 8
+  %196 = load i32, ptr %i, align 4
+  %idxprom208 = sext i32 %196 to i64
+  %197 = mul nsw i64 %idxprom208, %7
+  %arrayidx209 = getelementptr inbounds float, ptr %195, i64 %197
+  %198 = load i32, ptr %j, align 4
+  %idxprom210 = sext i32 %198 to i64
+  %arrayidx211 = getelementptr inbounds float, ptr %arrayidx209, i64 %idxprom210
+  store float %mul207, ptr %arrayidx211, align 4
+  br label %for.inc212
+
+for.inc212:                                       ; preds = %for.body197
+  %199 = load i32, ptr %j, align 4
+  %inc213 = add nsw i32 %199, 1
+  store i32 %inc213, ptr %j, align 4
+  br label %for.cond195
+
+for.end214:                                       ; preds = %for.cond195
+  ret void
+}

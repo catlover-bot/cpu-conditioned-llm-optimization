@@ -1,0 +1,15 @@
+{
+  "condition": "P1",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "2mm__MEDIUM__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "10165b35d1352ebd01f2d4a53aa1552690c1dbc71ea023361eea01fb31d203a3",
+  "reference_ir_sha256": "ecff91fe531fb057fc2536311858882892cc37f6c412f8f5beeb386819227839",
+  "size": "MEDIUM",
+  "source_sha256": "8db5fcbc2b4dd9c9b770bdcf4cbd76f52350feb6cd04ffe7e6f4c2bd3f65c1d6",
+  "status": "rejected",
+  "task": "2mm"
+}

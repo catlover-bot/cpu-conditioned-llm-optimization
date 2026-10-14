@@ -1,0 +1,13 @@
+{
+  "completion": "FINAL_PHYSICAL_ATLAS_COMPLETE",
+  "role": "final",
+  "passed": true,
+  "instances_completed": 90,
+  "instances_expected": 90,
+  "instances_valid": 90,
+  "instances_escalated": 0,
+  "formal_equivalence_proven": false,
+  "llm_requests": 0,
+  "network_requests": 0,
+  "run_directory": "/root/cpu-conditioned-llm-optimization/runs/goal0054-final-atlas/20260911T142929.004268Z-2d5a2a23"
+}

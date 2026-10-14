@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "4a372081e8d0fb0de0b1c199b429768407d50c4fbd3c09ebbaff3792c960178c",
+  "candidate_object_sha256": "6ad509b22e1ec5604aeb2e52ff905b7489794a9c8f1437ed34f8d3003014f48f",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "syr2k__SMALL__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.4879722622796425
+}

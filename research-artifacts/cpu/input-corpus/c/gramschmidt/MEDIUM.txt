@@ -1,0 +1,41 @@
+カーネル: gramschmidt
+サイズ条件: MEDIUM
+数値寸法: {"M": 200, "N": 240}
+
+static
+void kernel_gramschmidt(int m, int n,
+			DATA_TYPE POLYBENCH_2D(A,M,N,m,n),
+			DATA_TYPE POLYBENCH_2D(R,N,N,n,n),
+			DATA_TYPE POLYBENCH_2D(Q,M,N,m,n))
+{
+  int i, j, k;
+
+  DATA_TYPE nrm;
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (k = 0; k < _PB_N; k++)
+    {
+      nrm = SCALAR_VAL(0.0);
+      /* CPUCOND_LOOP_01 */
+for (i = 0; i < _PB_M; i++)
+        nrm += A[i][k] * A[i][k];
+      R[k][k] = SQRT_FUN(nrm);
+      /* CPUCOND_LOOP_02 */
+for (i = 0; i < _PB_M; i++)
+        Q[i][k] = A[i][k] / R[k][k];
+      /* CPUCOND_LOOP_03 */
+for (j = k + 1; j < _PB_N; j++)
+	{
+	  R[k][j] = SCALAR_VAL(0.0);
+	  /* CPUCOND_LOOP_04 */
+for (i = 0; i < _PB_M; i++)
+	    R[k][j] += Q[i][k] * A[i][j];
+	  /* CPUCOND_LOOP_05 */
+for (i = 0; i < _PB_M; i++)
+	    A[i][j] = A[i][j] - Q[i][k] * R[k][j];
+	}
+    }
+#pragma endscop
+
+}

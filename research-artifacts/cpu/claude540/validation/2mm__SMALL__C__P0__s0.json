@@ -1,0 +1,12 @@
+{
+  "condition": "P0",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "C",
+  "id": "2mm__SMALL__C__P0__s0",
+  "passed": false,
+  "size": "SMALL",
+  "status": "generation_failed",
+  "task": "2mm"
+}

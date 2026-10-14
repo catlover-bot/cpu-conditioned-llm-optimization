@@ -1,0 +1,43 @@
+{
+  "kernel_id": "trisolv",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 21,
+  "candidates_admitted": 21,
+  "unique_machine_code_groups": 9,
+  "nonidentity_representatives_measured": 8,
+  "aliases_to_identity": 13,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 8192,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9964164221523211,
+      "paired_speedup_iqr": 0.011021656208580866,
+      "reference_batch_median_ns": 5589280.5,
+      "candidate_batch_median_ns": 5614738.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 8192
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0005958456654456,
+      "paired_speedup_iqr": 0.018341183614306367,
+      "reference_batch_median_ns": 5557587.5,
+      "candidate_batch_median_ns": 5579697.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 8192
+    }
+  ],
+  "formal_equivalence_proven": false
+}

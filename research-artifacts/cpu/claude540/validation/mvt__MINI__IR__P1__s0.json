@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "IR",
+  "id": "mvt__MINI__IR__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "a0f47e367e6013217f0d8a85f394654886c5182bc3cc5355e3c53367c6881571",
+  "reference_ir_sha256": "f34d9f6a1bdaf0ae2782de5b45fd68e0576d287412df5967f9b110b6af09876d",
+  "size": "MINI",
+  "source_sha256": "0c78083427b9b12f47ce5554d74964b84a3deb631b188fbb5e1bf27be8968bf1",
+  "status": "checked",
+  "task": "mvt"
+}

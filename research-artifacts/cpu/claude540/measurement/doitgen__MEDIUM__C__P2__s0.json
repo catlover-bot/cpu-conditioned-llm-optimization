@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "4e2272a7ac8655481b1b2c8bb04fc5bdb85c3c6918e9913a608f2ba15e3e75d9",
+  "candidate_object_sha256": "ef2b6ef3a14fd8361d544eff0d9ddd55b04b192e4cb5cc1b7f37d91cdb953e94",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "doitgen__MEDIUM__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 4.383658433126828
+}

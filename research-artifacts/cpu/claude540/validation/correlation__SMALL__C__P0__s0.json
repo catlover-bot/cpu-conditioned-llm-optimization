@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "correlation__SMALL__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "33a580d07d107976fe348e0e0403db738eb4320607f430f4e03acca005d557b5",
+  "reference_ir_sha256": "ab34afabac2bb52d71b0e71ac220baebf95b58815c09e8f00112422b3e06ee6f",
+  "size": "SMALL",
+  "source_sha256": "e6c14dc092736e75541361e4715424387f31e38cba7144b3ebd8315780cf163f",
+  "status": "checked",
+  "task": "correlation"
+}

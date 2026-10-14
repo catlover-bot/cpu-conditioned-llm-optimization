@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "jacobi-2d__MEDIUM__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "5acb4190eab0766f47ff528cb32bcd46df4161e693f114d2eff1e4439d48c9f6",
+  "reference_ir_sha256": "cb7311e71ef546cc234ebf9b9ec34268f5e740d1f0bf00067a4659e7804ce9bf",
+  "size": "MEDIUM",
+  "source_sha256": "14c0737b739894bbbe835da93343184df1e67ef5244e16b061395c688c871ed2",
+  "status": "checked",
+  "task": "jacobi-2d"
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "gesummv__MINI__IR__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "6a2729d80e0be7de1660813b836d1998f185e1c77c152bc64bf63540fcdfa452",
+  "reference_ir_sha256": "ec995f1663e66677432896e8357a15f859f00cd664260a50463d94d490122f8b",
+  "size": "MINI",
+  "source_sha256": "2ccf63cd79f25f441e77410c849aa863ae4ffc3c4e6e9fe778430c1d3461d6de",
+  "status": "checked",
+  "task": "gesummv"
+}

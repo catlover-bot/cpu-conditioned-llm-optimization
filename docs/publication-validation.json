@@ -1,0 +1,445 @@
+{
+  "schema": "cpucond-publication-validation-v1",
+  "verified_at_utc": "2026-10-14T09:50:22.075529+00:00",
+  "python_version": "3.12.3",
+  "pytest_version": "8.4.2",
+  "tests": {
+    "discovered": 543,
+    "passed": 539,
+    "skipped": 4,
+    "cpu_framework": {
+      "discovered": 402,
+      "passed": 402,
+      "skipped": 0,
+      "record": {
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "tests/test_cli.py",
+          "tests/test_clock_provenance.py",
+          "tests/test_diagnostic_audit.py",
+          "tests/test_diagnostic_prompts.py",
+          "tests/test_diagnostic_reporting.py",
+          "tests/test_execution_gate.py",
+          "tests/test_local_cohort.py",
+          "tests/test_local_llm.py",
+          "tests/test_models_prompts.py",
+          "tests/test_recovery.py",
+          "tests/test_score_publication.py",
+          "tests/test_selection_protocol.py",
+          "tests/test_selection_responses.py",
+          "tests/test_selection_scoring.py",
+          "tests/test_selection_task_v2.py",
+          "tests/test_verification_process.py"
+        ],
+        "cpucond_import_from_publication": true,
+        "environment_overrides": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "publication-worktree/src"
+        },
+        "exit_code": 0,
+        "module_count": 16,
+        "not_run": [
+          "tests/test_harness.py",
+          "tests/test_selection.py",
+          "tests/test_experiment.py",
+          "tests/test_code_analysis.py",
+          "tests/test_transformations.py",
+          "tests/test_diagnostics.py"
+        ],
+        "schema": "cpucond-publication-offline-tests-v1",
+        "scope": "inspected offline fixtures only; no compiler/API/GPU/SSH/benchmark",
+        "stderr": "",
+        "stdout": "........................................................................ [ 17%]\n........................................................................ [ 35%]\n........................................................................ [ 53%]\n........................................................................ [ 71%]\n........................................................................ [ 89%]\n..........................................                               [100%]\n402 passed in 53.66s\n",
+        "command_path_normalization": "Interpreter path rendered as python3; the actual run used an existing Python virtual environment with pytest8.4.2 and loaded code from publication-worktree/src."
+      }
+    },
+    "gpu004_gpu005": {
+      "CUDA_or_C_compilation": 0,
+      "GPU_or_performance_jobs": 0,
+      "actual_local_cli_subprocess_tests": 1,
+      "command": "python3 -B -m unittest tools.research_protocols.gpu005.test_offline -v",
+      "elapsed_seconds": 0.891,
+      "generation_calls": 0,
+      "historical_runtime_modules_executed": false,
+      "network_calls": 0,
+      "passed": true,
+      "tests_run": 8
+    },
+    "gpu006": {
+      "API_calls": 0,
+      "compilations": 0,
+      "limits": [
+        "Four controller tests require omitted private deployment bindings and are explicitly skipped.",
+        "Public pilot format-failure test preserves controller API acceptance and terminal/no-repeat assertions; private worker handoff portion omitted.",
+        "Original private live CLI and worker suites excluded because operational runner/worker are not published.",
+        "Historical private test counts are not claimed as current public results.",
+        "Numerical GPU/compiler functions are preserved source-only; no compiler or GPU was used."
+      ],
+      "new_measurements": 0,
+      "reanalyze": {
+        "all_l4_quality_valid_candidates": 253,
+        "baseline_geomeans_recomputed": 6,
+        "command": "python3 -B tools/research_protocols/gpu006/reanalyze.py --check",
+        "invalid_generation": 15,
+        "measurement_cells": 1020,
+        "new_candidate_A40": "not_measured",
+        "paired_contrast_cells": 800,
+        "planned_ids": 270,
+        "saved_candidate_files": 255,
+        "status": "passed",
+        "valid_measurement_cells": 1018,
+        "within_model_contrast_summaries_recomputed": 24
+      },
+      "schema": "gpu006-public-offline-verification-v1",
+      "server_connections": 0,
+      "suites": [
+        {
+          "command": "python3 -B -m unittest discover -s tools/research_protocols/gpu006 -p test_public_data.py",
+          "discovered": 4,
+          "passed": 4,
+          "skipped": 0
+        },
+        {
+          "command": "python3 -B -m unittest discover -s runs/gpu006-backup-v1 -p test_verify_backup.py",
+          "discovered": 28,
+          "passed": 28,
+          "skipped": 0
+        },
+        {
+          "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_providers.py",
+          "discovered": 58,
+          "passed": 58,
+          "skipped": 0
+        },
+        {
+          "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_controller.py",
+          "discovered": 25,
+          "passed": 21,
+          "skipped": 4
+        },
+        {
+          "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_pilot.py",
+          "discovered": 18,
+          "passed": 18,
+          "skipped": 0
+        }
+      ],
+      "totals": {
+        "discovered": 133,
+        "passed": 129,
+        "skipped": 4
+      },
+      "verified_date": "2026-10-14"
+    }
+  },
+  "standalone_verifier_fixture_checks": {
+    "count": 3,
+    "passed": [
+      "valid inventory",
+      "content change rejection",
+      "path escape rejection"
+    ]
+  },
+  "inspection_fixture_checks": {
+    "passed": [
+      "plain source",
+      "credential detector",
+      "recursive base64 gzip inspection",
+      "archive traversal rejection",
+      "unknown binary rejection",
+      "personal path detection"
+    ],
+    "count": 6
+  },
+  "offline_reanalysis_commands": [
+    "python3 -B research-artifacts/cpu/offline_summary.py",
+    "python3 -B -m tools.research_protocols.gpu005.analyze",
+    "python3 -B tools/research_protocols/gpu006/reanalyze.py --check"
+  ],
+  "offline_reanalysis_status": "all passed on current publication files",
+  "gpu006_original_plan_sha256": "9f5570a6b8d87b90df9eee97fba56fb33311e8d52cb93e1d9f17248b37c64a83",
+  "gpu006_numeric_ast_comparison": [
+    {
+      "module": "numeric_core.py",
+      "unchanged_function_count": 21,
+      "changed_functions": [
+        "baseline_source"
+      ],
+      "new_functions": [],
+      "omitted_original_function_count": 16
+    },
+    {
+      "module": "numeric_support.py",
+      "unchanged_function_count": 32,
+      "changed_functions": [],
+      "new_functions": [],
+      "omitted_original_function_count": 31
+    }
+  ],
+  "original_backup_read_only_verification": {
+    "verified": true,
+    "manifest_sha256": "c6942ccd6b2a3d2cf9c5ecd3973cf0c30298c9ca9674563b6aeabd13cff69a3b",
+    "current_files": 43792,
+    "semantic_audit_sha256": "b09d03f7acee28fb197e532f64ea2971f0f033231f5b54a32f72c29cbc6b8ea1",
+    "archive_extraction": false,
+    "symlinks_followed": false,
+    "ssh_connections": 0,
+    "api_calls": 0,
+    "generated_code_executed": false,
+    "finalization": {
+      "checksum_files_verified": 25,
+      "complete": true,
+      "present": true,
+      "receipt_sha256": "13e32f5d66d3800ea33aa232d1a7b0628c6fbc5db94dab4ba59c720e49e2ce26",
+      "references_verified": 5
+    },
+    "coverage": {
+      "actual_submitted_batches": 7,
+      "allblock_bitwise_jobs": 440,
+      "allblock_sanitizer_jobs": 352,
+      "candidate_bitwise_jobs": 1275,
+      "candidate_compiled_shapes": 1275,
+      "candidate_measurement_cells": 1020,
+      "candidate_raw_timing_rows": 32640,
+      "candidate_sanitizer_jobs": 1020,
+      "candidate_valid_measurement_cells": 1018,
+      "cloud_archive_count": 54,
+      "cloud_native_raw_ids": 180,
+      "control_cells": 352,
+      "control_raw_timing_rows": 11264,
+      "invalid_generation": 15,
+      "original_control_bitwise_jobs": 120,
+      "original_control_compiled_shapes": 120,
+      "original_control_sanitizer_jobs": 48,
+      "original_identity_raw_timing_rows": 384,
+      "planned_ids": 270,
+      "qwen_actual_requests": 90,
+      "qwen_archive_count": 54,
+      "qwen_raw_responses": 90,
+      "saved_candidates": 255
+    },
+    "archives": 6,
+    "elapsed_seconds": 8.029652833938599
+  },
+  "publication_actions": {
+    "model_generation": 0,
+    "provider_API_requests": 0,
+    "old_server_connections": 0,
+    "GPU_executions": 0,
+    "C_or_CUDA_compilation_experiments": 0,
+    "performance_measurements": 0
+  },
+  "automation": {
+    "github_workflow_files": 0,
+    "active_local_git_hooks": 0,
+    "git_lfs_configuration": false
+  },
+  "limits": [
+    "Only the inspected CPU 16-module allowlist was executed; compiler/benchmark modules were excluded.",
+    "Four GPU006 controller tests require private deployment bindings and were skipped; private live CLI/worker tests were not run.",
+    "Archived numerical/GPU test counts describe historical evidence; they are not new GPU runs or a formal equivalence proof.",
+    "Large raw archives, original account/connection state and full raw replay inputs are held separately.",
+    "Push and fresh-clone verification are recorded in the completion report, after this pre-commit validation record."
+  ],
+  "public_content_inspection": {
+    "mode": "read-only text and bounded recursive base64/gzip/ZIP/TAR inspection; embedded code was not executed",
+    "files_inspected": 4008,
+    "original_and_decoded_nodes_inspected": 4049,
+    "unreviewed_findings": 0,
+    "reviewed_exact_findings": [
+      {
+        "kind": "personal_path",
+        "path": "docs/legacy-audit.md",
+        "line": 15,
+        "value_sha256": "5431a7d8acfc22afb6bfadebce58ee5b4d4b3403e065456abe626a042a58761a",
+        "reason": "generic sample home directory"
+      },
+      {
+        "kind": "personal_path",
+        "path": "docs/local-llm-pilot.md",
+        "line": 57,
+        "value_sha256": "5431a7d8acfc22afb6bfadebce58ee5b4d4b3403e065456abe626a042a58761a",
+        "reason": "generic sample home directory"
+      },
+      {
+        "kind": "personal_path",
+        "path": "research-artifacts/cpu/claude540/statistics/summary.json",
+        "line": 1,
+        "value_sha256": "5431a7d8acfc22afb6bfadebce58ee5b4d4b3403e065456abe626a042a58761a",
+        "reason": "generic sample home directory"
+      },
+      {
+        "kind": "personal_path",
+        "path": "research-artifacts/cpu/claude540/statistics/summary.json",
+        "line": 1,
+        "value_sha256": "5431a7d8acfc22afb6bfadebce58ee5b4d4b3403e065456abe626a042a58761a",
+        "reason": "generic sample home directory"
+      },
+      {
+        "kind": "gpu_uuid",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py",
+        "line": 46,
+        "value_sha256": "e74c83d305b66600f0e723d768c6ef6e796aa39d7f5fd8788262ac1eb6637177",
+        "reason": "all-zero public sample UUID"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py",
+        "line": 183,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py",
+        "line": 800,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py!base64:91e87b6ffad9!gzip!base64:cbc62d39f9fd!gzip!base64:6152ac3b7a50!gzip",
+        "line": 46,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py!base64:e609074f675c!gzip",
+        "line": 47,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py!base64:e609074f675c!gzip",
+        "line": 551,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/a40-handoff-tools-v1_1/cpucond_a40_handoff_v1_1.py!base64:e609074f675c!gzip",
+        "line": 714,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/goal0069-launcher.OeYnlG/model_support.py",
+        "line": 573,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/goal0070-launcher.tUN3P7/model_support.py",
+        "line": 573,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/goal0073-launcher.YSvE1y/model_support.py",
+        "line": 573,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "personal_path",
+        "path": "runs/gpu006-backup-v1/test_verify_backup.py",
+        "line": 127,
+        "value_sha256": "86c29e239ed8ecb0bc38c159c44d70d5d99568032af1fc5c40337d4bfc85afb9",
+        "reason": "Exact synthetic Windows path in backup traversal-rejection fixtures; test creates temporary files only."
+      },
+      {
+        "kind": "personal_path",
+        "path": "runs/gpu006-backup-v1/test_verify_backup.py",
+        "line": 127,
+        "value_sha256": "86c29e239ed8ecb0bc38c159c44d70d5d99568032af1fc5c40337d4bfc85afb9",
+        "reason": "Exact synthetic Windows path in backup traversal-rejection fixtures; test creates temporary files only."
+      },
+      {
+        "kind": "personal_path",
+        "path": "runs/gpu006-backup-v1/test_verify_backup.py",
+        "line": 351,
+        "value_sha256": "86c29e239ed8ecb0bc38c159c44d70d5d99568032af1fc5c40337d4bfc85afb9",
+        "reason": "Exact synthetic Windows path in backup traversal-rejection fixtures; test creates temporary files only."
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/open14b-continuous-tools-v1_1/cpucond_open14b_continue_v1_1.py!base64:cbc62d39f9fd!gzip!base64:6152ac3b7a50!gzip",
+        "line": 46,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/open14b-saved45-tools-v1/cpucond_open14b_evaluate_saved_v1.py!base64:6152ac3b7a50!gzip",
+        "line": 46,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "network_address",
+        "path": "runs/open14b-tools-v2/cpucond_open14b_pipeline_v2.py",
+        "line": 46,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "url_userinfo",
+        "path": "tests/test_local_llm.py",
+        "line": 148,
+        "value_sha256": "a28b8176f57374f4f478f28ad1530d57fff8e37cdb58a74e5146350154124e29",
+        "reason": "literal username/password endpoint rejection test; not an account credential"
+      },
+      {
+        "kind": "network_address",
+        "path": "tests/test_local_llm.py",
+        "line": 147,
+        "value_sha256": "37fcff24bf62035b2b08020afc08b4fecd4fcffce57ab23518e3561ff0fe76b9",
+        "reason": "documentation-only sample address; also rejected by loopback-only endpoint test"
+      },
+      {
+        "kind": "personal_path",
+        "path": "tools/research_protocols/goal0041_dataset_intake.py",
+        "line": 477,
+        "value_sha256": "77ab6a50fa3717732ff50b8fec8711d1fa9875eb188934d3563d63ceeb980890",
+        "reason": "generic sample Windows home directory"
+      },
+      {
+        "kind": "personal_path",
+        "path": "tools/research_protocols/goal0042_polybench_gated.py",
+        "line": 729,
+        "value_sha256": "77ab6a50fa3717732ff50b8fec8711d1fa9875eb188934d3563d63ceeb980890",
+        "reason": "generic sample Windows home directory"
+      },
+      {
+        "kind": "personal_path",
+        "path": "tools/research_protocols/goal0043_measurement.py",
+        "line": 508,
+        "value_sha256": "77ab6a50fa3717732ff50b8fec8711d1fa9875eb188934d3563d63ceeb980890",
+        "reason": "generic sample Windows home directory"
+      }
+    ],
+    "note": "Exceptions are exact file/value-hash matches for inspected synthetic fixtures or public sample values; no blanket token/hash exclusions."
+  },
+  "staged_diff_whitespace_review": {
+    "git_diff_check_exit_code": 2,
+    "warnings": 13230,
+    "warning_types": [
+      "new blank line at EOF",
+      "space before tab in indent",
+      "trailing whitespace"
+    ],
+    "warnings_in_byte_identical_original_files": 13229,
+    "remaining_warning": "One inherited EOF blank line in the public provider test; final150 bytes match original.",
+    "disposition": "Reviewed formatting only, preserved to retain original scientific source/CSV bytes; no conflict markers or non-whitespace findings."
+  }
+}

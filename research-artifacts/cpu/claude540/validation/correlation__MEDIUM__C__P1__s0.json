@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "correlation__MEDIUM__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "33a580d07d107976fe348e0e0403db738eb4320607f430f4e03acca005d557b5",
+  "reference_ir_sha256": "ab34afabac2bb52d71b0e71ac220baebf95b58815c09e8f00112422b3e06ee6f",
+  "size": "MEDIUM",
+  "source_sha256": "1e010b8e4bd7f349b90d62e3942777c15d915643ae0ae56802dc84088313256d",
+  "status": "checked",
+  "task": "correlation"
+}

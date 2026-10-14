@@ -1,0 +1,1184 @@
+{
+  "corpus_id": "llm-input-corpus-v1",
+  "representation_conditions": [
+    "C",
+    "LLVM_IR"
+  ],
+  "instances": 90,
+  "c_documents": 90,
+  "ir_documents": 90,
+  "cpu_specific_information_in_documents": false,
+  "llvm_generation": {
+    "compiler": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "optimization_level": "O0",
+    "discard_value_names": false,
+    "cpu_specific_attributes_removed": true,
+    "loop_labels_preserved": true
+  },
+  "rows": [
+    {
+      "kernel": "correlation",
+      "size": "MINI",
+      "loop_count": 9,
+      "dimensions": {
+        "M": 28,
+        "N": 32
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/correlation/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/correlation/MINI.txt",
+      "c_sha256": "6c89dd0835001488ff44564419a307948e5370672905e57906a280d4b9ee61c8",
+      "ir_sha256": "44332b1ee2dc6b152562eea4ff8f9934413770d36a4a55dfb97d3d170bdcc3d9"
+    },
+    {
+      "kernel": "correlation",
+      "size": "SMALL",
+      "loop_count": 9,
+      "dimensions": {
+        "M": 80,
+        "N": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/correlation/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/correlation/SMALL.txt",
+      "c_sha256": "c7ffb988e85aad13e1b854705006a4b1b2a48c384e7b636cce00d2b618c6365f",
+      "ir_sha256": "0ed1a24e1f8fb6cf0306555e75579ca15266f0a04e3d733d741069a438c98784"
+    },
+    {
+      "kernel": "correlation",
+      "size": "MEDIUM",
+      "loop_count": 9,
+      "dimensions": {
+        "M": 240,
+        "N": 260
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/correlation/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/correlation/MEDIUM.txt",
+      "c_sha256": "609a63fb6360389802d9f3f3483c13a625a15afecde254d8c3d0ab600a5600cb",
+      "ir_sha256": "447a3135ed4c7b28d23a3b5b1ebefde9506c3ecdc3197af3102ebade8e00d0be"
+    },
+    {
+      "kernel": "covariance",
+      "size": "MINI",
+      "loop_count": 7,
+      "dimensions": {
+        "M": 28,
+        "N": 32
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/covariance/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/covariance/MINI.txt",
+      "c_sha256": "c2308c3993f21e54c3366b9cd373fc999660d8574c7ef42ab18500bb6d11a19c",
+      "ir_sha256": "2536d83ac772eca94c22dc29d2e789ddee70c0f3e7788b959be7a3b8c1fd991a"
+    },
+    {
+      "kernel": "covariance",
+      "size": "SMALL",
+      "loop_count": 7,
+      "dimensions": {
+        "M": 80,
+        "N": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/covariance/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/covariance/SMALL.txt",
+      "c_sha256": "08f7bcc6d7ea69e8f8756373d6839796344e523bd1d16befc48b9fc016ce1a4f",
+      "ir_sha256": "060ddf14e8ae0c4081a37b56b6163aa22b72ac8169151ab27385284e430a9668"
+    },
+    {
+      "kernel": "covariance",
+      "size": "MEDIUM",
+      "loop_count": 7,
+      "dimensions": {
+        "M": 240,
+        "N": 260
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/covariance/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/covariance/MEDIUM.txt",
+      "c_sha256": "0774453d701bc40c2e289d0f68bad818d42c1c97016f74dc421bc14e62abd459",
+      "ir_sha256": "334d96829b6e59180c1b392c1519e6e59e032a1e533a806a8eed8000bb326161"
+    },
+    {
+      "kernel": "2mm",
+      "size": "MINI",
+      "loop_count": 6,
+      "dimensions": {
+        "NI": 16,
+        "NJ": 18,
+        "NK": 22,
+        "NL": 24
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/2mm/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/2mm/MINI.txt",
+      "c_sha256": "f3d1e27b12fb6845009019d8373e7cb9389db35f309ca51373455a9f0cab7394",
+      "ir_sha256": "dec39bb4225ce99080e40a71ed9ffaa28dfeb970a2b61c94d3b0e20fe753eed7"
+    },
+    {
+      "kernel": "2mm",
+      "size": "SMALL",
+      "loop_count": 6,
+      "dimensions": {
+        "NI": 40,
+        "NJ": 50,
+        "NK": 70,
+        "NL": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/2mm/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/2mm/SMALL.txt",
+      "c_sha256": "308911ef31f8452a7b1a5f6177feabc32293525f09a2314459d42766f092ad41",
+      "ir_sha256": "8a7dde7dd52fc7e23461bd997d365d59a4c23b8576a4de1da14136145cc06713"
+    },
+    {
+      "kernel": "2mm",
+      "size": "MEDIUM",
+      "loop_count": 6,
+      "dimensions": {
+        "NI": 180,
+        "NJ": 190,
+        "NK": 210,
+        "NL": 220
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/2mm/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/2mm/MEDIUM.txt",
+      "c_sha256": "8231c3495547fedf9a77d13c8544b749ea7ed6a825845fda57416aeff315ce21",
+      "ir_sha256": "052607db05ba7e464ccf88be479ceee38baa10bec5ed3cfa4edb2605225f2bf4"
+    },
+    {
+      "kernel": "3mm",
+      "size": "MINI",
+      "loop_count": 9,
+      "dimensions": {
+        "NI": 16,
+        "NJ": 18,
+        "NK": 20,
+        "NL": 22,
+        "NM": 24
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/3mm/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/3mm/MINI.txt",
+      "c_sha256": "27a5782b564853b821a838bde406c397ed63cee808718897370d01c015907ec1",
+      "ir_sha256": "0832968945c77267beafcc92d182eb6969b91d542561899852353cb0b1ae2572"
+    },
+    {
+      "kernel": "3mm",
+      "size": "SMALL",
+      "loop_count": 9,
+      "dimensions": {
+        "NI": 40,
+        "NJ": 50,
+        "NK": 60,
+        "NL": 70,
+        "NM": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/3mm/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/3mm/SMALL.txt",
+      "c_sha256": "edeb2d9e93371710d42dcafff63f74ae8643238575e8e5d7c878b16819ea5103",
+      "ir_sha256": "5fede276928ca5b1c619cbfe27f77fab63d61bc3115bd4c4624dc880cbb5db30"
+    },
+    {
+      "kernel": "3mm",
+      "size": "MEDIUM",
+      "loop_count": 9,
+      "dimensions": {
+        "NI": 180,
+        "NJ": 190,
+        "NK": 200,
+        "NL": 210,
+        "NM": 220
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/3mm/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/3mm/MEDIUM.txt",
+      "c_sha256": "37509c59854f8ad0fc2a49145bb74be8fe7a2e4c32ad3a16c9f3beda996f2390",
+      "ir_sha256": "825a01d09b39a6337274ad2a9d009bf71d90ea34c930b99818cbd79c5f481725"
+    },
+    {
+      "kernel": "atax",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 38,
+        "N": 42
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/atax/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/atax/MINI.txt",
+      "c_sha256": "41b3c11581ef32c93bb83780fe7f1ca4f79cd70faa50fda4ac04a5c88c5c483f",
+      "ir_sha256": "47e68d06e04f1393891dc8b41c864c15bac768067727a5c1dfb2864dffb3622a"
+    },
+    {
+      "kernel": "atax",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 116,
+        "N": 124
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/atax/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/atax/SMALL.txt",
+      "c_sha256": "8a1e74ed0c518f8877d0b636fd0cfb56bf3160ab97e776d199eb73a0f8267dd1",
+      "ir_sha256": "021b4cbb9fb8a57c05a2176849600f67f56051d9cc5a6e88b3d88509ceee5f7a"
+    },
+    {
+      "kernel": "atax",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 390,
+        "N": 410
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/atax/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/atax/MEDIUM.txt",
+      "c_sha256": "522ea4dd1425cf0b9c3c4672e0df7611268357c6cd305c3eb4ba8d271b1fcf63",
+      "ir_sha256": "2664bd8f24f9458bd9663a742f7be39e7e335717ff8fe6f4faf616c4be23a97c"
+    },
+    {
+      "kernel": "bicg",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 38,
+        "N": 42
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/bicg/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/bicg/MINI.txt",
+      "c_sha256": "986c2e3f91cc0dc5767cb46e7098a3cdc9d70869fbc8795aa2337f6324948c46",
+      "ir_sha256": "476859b92bd73fd479310fb31dbe362720af4653ccec19db75d365195f811c33"
+    },
+    {
+      "kernel": "bicg",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 116,
+        "N": 124
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/bicg/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/bicg/SMALL.txt",
+      "c_sha256": "2597df681d8f066d864733d437cbedfb5d4d0b8ae475b084cfbb63bf88d74cbd",
+      "ir_sha256": "00404a63a9ce61bcb025d4ddd94666d455a5717c4608cb9f09c9fa3c30acd34d"
+    },
+    {
+      "kernel": "bicg",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 390,
+        "N": 410
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/bicg/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/bicg/MEDIUM.txt",
+      "c_sha256": "48a503339913acf35a87ea489239965ef65a128c774b632ade7dd45e3b89445a",
+      "ir_sha256": "1f55d8a835a0df36f9fa13af90ac71a938524ce279b334a8b505815c8db48db2"
+    },
+    {
+      "kernel": "doitgen",
+      "size": "MINI",
+      "loop_count": 5,
+      "dimensions": {
+        "NP": 12,
+        "NQ": 8,
+        "NR": 10
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/doitgen/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/doitgen/MINI.txt",
+      "c_sha256": "777ac2161150fe54c2168a688a6fbb134afeb6bf0ccc74ece00a5270ff04b765",
+      "ir_sha256": "ce81db1317d51f1e0c172e05e59eda74c881a9e293f74b3caf2320f7362114d0"
+    },
+    {
+      "kernel": "doitgen",
+      "size": "SMALL",
+      "loop_count": 5,
+      "dimensions": {
+        "NP": 30,
+        "NQ": 20,
+        "NR": 25
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/doitgen/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/doitgen/SMALL.txt",
+      "c_sha256": "4ffc78a71e7cbeff2070c31a12fbf0aac61eb5a2cf00ac69c0ad4a4d3bfd833b",
+      "ir_sha256": "751a3de0137e923e60ce314ed3d2ffc392fc40181ee2d1cbad8de56450b1e810"
+    },
+    {
+      "kernel": "doitgen",
+      "size": "MEDIUM",
+      "loop_count": 5,
+      "dimensions": {
+        "NP": 60,
+        "NQ": 40,
+        "NR": 50
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/doitgen/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/doitgen/MEDIUM.txt",
+      "c_sha256": "5afdedf7397bc7c03d69a754244089fe8083e20185c9f05a4e19f16e1f6aebea",
+      "ir_sha256": "21a8595071d2e07f02acf57f7e1db152b3d48723058ac222e4d07fbe68db2225"
+    },
+    {
+      "kernel": "mvt",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/mvt/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/mvt/MINI.txt",
+      "c_sha256": "d36159f2ba533216b7d6599e083622ec3a575c381ff984758e61bba10702713a",
+      "ir_sha256": "0bd10a1aa1afb3f76128a413b319d3fe47f44c29ba3b3d66b4d8c6fa30934525"
+    },
+    {
+      "kernel": "mvt",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/mvt/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/mvt/SMALL.txt",
+      "c_sha256": "5465ac10afe4d609429820d4e24964693324118e263550e5375cf4ae90470da5",
+      "ir_sha256": "4eea85f12321872f178741525f601ca2e3342d03fbd702d431dd29eae8bfb68e"
+    },
+    {
+      "kernel": "mvt",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/mvt/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/mvt/MEDIUM.txt",
+      "c_sha256": "0e688e93fc9df670acfd75f4784181269726edc531f6e44240b8738e022ac99c",
+      "ir_sha256": "a21d99a92e9165533438c89f42ca84c9a309044a73667a40de093fba50a5f847"
+    },
+    {
+      "kernel": "gemm",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "NI": 20,
+        "NJ": 25,
+        "NK": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemm/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemm/MINI.txt",
+      "c_sha256": "83d70a5dd1bc38d2753984543aff45ca06863ad3466076a440e52ce5e6e5759f",
+      "ir_sha256": "6ab4add96ea7fbeb02665b3750fa3911923e7bd41f838f2121f3c16a705f3561"
+    },
+    {
+      "kernel": "gemm",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "NI": 60,
+        "NJ": 70,
+        "NK": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemm/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemm/SMALL.txt",
+      "c_sha256": "7ef22106de2e22abf137987992257d74f2270a54e449f6f275580c82caaeb9b5",
+      "ir_sha256": "64b6de7b0d1f580b0ff8d7598b5355da9ab72bf16c698b6b7d9930e75af6b331"
+    },
+    {
+      "kernel": "gemm",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "NI": 200,
+        "NJ": 220,
+        "NK": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemm/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemm/MEDIUM.txt",
+      "c_sha256": "0cac1ca0cd55dfdec9483670baa5cac797cfe996f4fefd2a562cf7ab283e2e73",
+      "ir_sha256": "26f7bc570e7285bcde3d2db5acc4b1fcda918603b3fd5df0ac862bd333e44282"
+    },
+    {
+      "kernel": "gemver",
+      "size": "MINI",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemver/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemver/MINI.txt",
+      "c_sha256": "d8e8960240f2a7dbda70800a6722e90fdb558ec7e0bd8d151ea546e966459a8a",
+      "ir_sha256": "2430e4a266a391cfb205068c8a8a3a934931bf4267ff96cd1c46eab49686644c"
+    },
+    {
+      "kernel": "gemver",
+      "size": "SMALL",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemver/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemver/SMALL.txt",
+      "c_sha256": "f692b89f78bae5bac5bccc571c2c6f53f1b6e8933b77c26b7df83ded91c586e2",
+      "ir_sha256": "f1161ada44401853518a091182db995a5a8c440861aa6d761935a384606f5c8e"
+    },
+    {
+      "kernel": "gemver",
+      "size": "MEDIUM",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gemver/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gemver/MEDIUM.txt",
+      "c_sha256": "e89265cb1c7c6de7d4b32a56792a3347a7e7d14f565993ea45b0a22d1190119c",
+      "ir_sha256": "facff1c13e7020d98f4c53e8fafe1fcec431c3fb2684f68f6e89e9566cd65080"
+    },
+    {
+      "kernel": "gesummv",
+      "size": "MINI",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gesummv/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gesummv/MINI.txt",
+      "c_sha256": "f6ac1db27b147f315192af20f59c4115ec71d7c34fd40f8f5d14615e5cd3e2f1",
+      "ir_sha256": "41d5ea3cf71c5d46d423aa3fe827499a26ee6ddac31c833028a0a04bc4a4f81c"
+    },
+    {
+      "kernel": "gesummv",
+      "size": "SMALL",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 90
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gesummv/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gesummv/SMALL.txt",
+      "c_sha256": "89509782366c53990bd9eab7e0c59659324cc6329832368b9351e2fab868774b",
+      "ir_sha256": "f93411878ed7f6b8e1b7e07d4620e61713d6a86ff999f65a101d7e148ed8b335"
+    },
+    {
+      "kernel": "gesummv",
+      "size": "MEDIUM",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 250
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gesummv/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gesummv/MEDIUM.txt",
+      "c_sha256": "c1005407dfc50aee30ac9a4438fde0ccb1a674ed331c32ff8cfe20ef579d7bae",
+      "ir_sha256": "1676d44a566da8d3458921f589f5639048b889e82a04808bd76d325d3be4b2d8"
+    },
+    {
+      "kernel": "symm",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 20,
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/symm/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/symm/MINI.txt",
+      "c_sha256": "8117f552738a1f35e3dc1e27fa2df6ec516be91ee1fddf1e60c8e81b2cd7e6c2",
+      "ir_sha256": "fc3638e10e27b830db9b965c20c44119e6f017158aadf7c658dbfcf8b692a09f"
+    },
+    {
+      "kernel": "symm",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 60,
+        "N": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/symm/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/symm/SMALL.txt",
+      "c_sha256": "fc32b5b2ceb7fc2dcca95e437fbf16569b05c0fd0091e764563a68e6a61cc258",
+      "ir_sha256": "d36b3da06ea0efdc630773211cc9c25284e271835a7edc40b985accff6092fa4"
+    },
+    {
+      "kernel": "symm",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 200,
+        "N": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/symm/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/symm/MEDIUM.txt",
+      "c_sha256": "bd2dd1347b88d99a6b26403d59f12d1efa96f6ef5c0c6660630df0f1d22342c2",
+      "ir_sha256": "336df1fa3c3bb55f9866ce57e6753cd1d30f1bb228d148fb75e137ec39823d1d"
+    },
+    {
+      "kernel": "syr2k",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 20,
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syr2k/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syr2k/MINI.txt",
+      "c_sha256": "91f129db4c208b2b6b7d44d6dc1183ae7e8ee6e08117904904e44415010d308f",
+      "ir_sha256": "dfaf2975eddf703dc50a945d13ee0e2aaf94355d64bf8ac63503adb4fa078f76"
+    },
+    {
+      "kernel": "syr2k",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 60,
+        "N": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syr2k/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syr2k/SMALL.txt",
+      "c_sha256": "b6653511881d53e3b19b89ba06365db995be6559ac98174367659be409427a02",
+      "ir_sha256": "c68fa66a0557d0e77e6abe634463831fb28e0c78561dffa3b03cb9b0fea08450"
+    },
+    {
+      "kernel": "syr2k",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 200,
+        "N": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syr2k/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syr2k/MEDIUM.txt",
+      "c_sha256": "670cc7abb6284a0efc7461c4d220ddd7984d4b99500262fe9cf824cbaaa4f419",
+      "ir_sha256": "89b5fec105415273f3ae9f9f18d4691b31fb5eff574437d11a27cd05080d6588"
+    },
+    {
+      "kernel": "syrk",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 20,
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syrk/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syrk/MINI.txt",
+      "c_sha256": "99232c5e725828e65a33922b2170445f0ad725eebfa5cd94a44bae31c48d5b3d",
+      "ir_sha256": "8bea69df05f4cfb6177dbc1ee774ae687ce6fc6041212a4bc3e159a852b65fc0"
+    },
+    {
+      "kernel": "syrk",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 60,
+        "N": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syrk/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syrk/SMALL.txt",
+      "c_sha256": "458a803a6fbb0eface4e675629a8268b355e3c2bfa712adc31c651388f923483",
+      "ir_sha256": "1bd76f70319a8d768ece2a22b9e1b7a03b362a1a6904d8240ae54b1f8a09c690"
+    },
+    {
+      "kernel": "syrk",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "M": 200,
+        "N": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/syrk/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/syrk/MEDIUM.txt",
+      "c_sha256": "dca84afa496778af37e9ebcd9dbad6804f877321fd53eff6ed242337f921e611",
+      "ir_sha256": "ad6e21997b2dfa5bbc1843ae34dfe6086a2c182a9b2850fa502810b58c1b889f"
+    },
+    {
+      "kernel": "trmm",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 20,
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trmm/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trmm/MINI.txt",
+      "c_sha256": "6f1c0fa90584290652aaa817c9f2aa077cdd9d39d97bddf157fb7ba6f80984f4",
+      "ir_sha256": "4f05a9b00f48f5c9dbe6cbf73282b6501b458fac93b8616a33f01abc8f0fb389"
+    },
+    {
+      "kernel": "trmm",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 60,
+        "N": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trmm/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trmm/SMALL.txt",
+      "c_sha256": "98c6ae979e2f70a4970493760609d3067862a1f179154fa1ae1b35dde3135a2b",
+      "ir_sha256": "280286be54307a91011c78e11797f15002bd2c300d08cec28c8365197790a7f1"
+    },
+    {
+      "kernel": "trmm",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "M": 200,
+        "N": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trmm/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trmm/MEDIUM.txt",
+      "c_sha256": "56594cad3cabf1c51eee934d523b74002f7c31edb9bfb665cad56328c04ed5a4",
+      "ir_sha256": "dcdeffe40293bafb58992d3fcff8058c8ab89dc32b13a1c66ccff4acc96346d2"
+    },
+    {
+      "kernel": "cholesky",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/cholesky/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/cholesky/MINI.txt",
+      "c_sha256": "65aaaf7553769bb4e12d66e6e0bb39b700d9bc88aad5c88409a93eb84e2acf4e",
+      "ir_sha256": "d0f0cd3a46b3951a735dec80b57285efe16da6ba789345980b528dd653624620"
+    },
+    {
+      "kernel": "cholesky",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/cholesky/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/cholesky/SMALL.txt",
+      "c_sha256": "c031a6f93551e7c56238d043c9078d9d5740d17da310484bf25a8ea4f82365a0",
+      "ir_sha256": "7d9740fa9b3a66d90579147f4b0a50e9e3f393eaa557e7b37ac86f1d774a79fa"
+    },
+    {
+      "kernel": "cholesky",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/cholesky/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/cholesky/MEDIUM.txt",
+      "c_sha256": "7b08752a932fcd61ba5159930c607370239c22cca4780e5a621ccc1fdf1f9e78",
+      "ir_sha256": "97d9df7fedc34b7130c740c4a25e789a5a49d1b55d534451d3a927406e8f185e"
+    },
+    {
+      "kernel": "durbin",
+      "size": "MINI",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/durbin/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/durbin/MINI.txt",
+      "c_sha256": "9baf50ce6ecbc2aef57fd98480ca3942a9179d385862e627a7d1315fda797070",
+      "ir_sha256": "f293dd5686f354c8cc9f9f04db1f8c46af000cdcd0165e4d419009d64709e591"
+    },
+    {
+      "kernel": "durbin",
+      "size": "SMALL",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/durbin/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/durbin/SMALL.txt",
+      "c_sha256": "7939b9476152511390a160ea5a042b1ae39d81afdca04603b3301b0a139ef48f",
+      "ir_sha256": "33407fdc9055b762a129446f7eb6be3b540d9252c7974a93ec6b0c21b7180c01"
+    },
+    {
+      "kernel": "durbin",
+      "size": "MEDIUM",
+      "loop_count": 4,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/durbin/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/durbin/MEDIUM.txt",
+      "c_sha256": "4ea6adb15ff9559fc9ebe74e8da2f33a878affee0017b44a2ae9c63734d2cd52",
+      "ir_sha256": "cd88244be04b724b2af79055fd4cbf12e61d5d66a2c0b1bc6bb7afd0401b321c"
+    },
+    {
+      "kernel": "gramschmidt",
+      "size": "MINI",
+      "loop_count": 6,
+      "dimensions": {
+        "M": 20,
+        "N": 30
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gramschmidt/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gramschmidt/MINI.txt",
+      "c_sha256": "731d982961c353bc9be64bc4b620449d64bbf2fae7b9d418a917bde91a55da19",
+      "ir_sha256": "6290724c2d4e154393265e498072cd59e50b64f2c406d0b56042194cbe60178a"
+    },
+    {
+      "kernel": "gramschmidt",
+      "size": "SMALL",
+      "loop_count": 6,
+      "dimensions": {
+        "M": 60,
+        "N": 80
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gramschmidt/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gramschmidt/SMALL.txt",
+      "c_sha256": "eb8978d767c8cc11e9d73a6b4fe3b7c5ab95c0fa5309a7333e9e9a31b9564720",
+      "ir_sha256": "38876db7c26b3e618d369767d645af8a7922359e9f8486ce25739f78f605233c"
+    },
+    {
+      "kernel": "gramschmidt",
+      "size": "MEDIUM",
+      "loop_count": 6,
+      "dimensions": {
+        "M": 200,
+        "N": 240
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/gramschmidt/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/gramschmidt/MEDIUM.txt",
+      "c_sha256": "22155199b8cd739080d8ed93d3cd071332ae7f7132822e2c6f20c30ad067cacc",
+      "ir_sha256": "ac76b799b4b66691bf3dee49505ce01b91aab1151975984a46b600971ea939f7"
+    },
+    {
+      "kernel": "lu",
+      "size": "MINI",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/lu/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/lu/MINI.txt",
+      "c_sha256": "62b5007d15a0f94f150727282e2d431952938460e25593a0b925e821b000f551",
+      "ir_sha256": "26d6cebbea3c31e8960c4501cbf5bec5924ed1da01801416d3c247d23c709248"
+    },
+    {
+      "kernel": "lu",
+      "size": "SMALL",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/lu/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/lu/SMALL.txt",
+      "c_sha256": "68e5840210f18647247d1186431ab049ff37901ce4dc8dd5f08a096df9f101f9",
+      "ir_sha256": "1cc1e1b2cadcb050e2256f318b50e98b99ef54dafc8c3c8a934e488fd772e3ae"
+    },
+    {
+      "kernel": "lu",
+      "size": "MEDIUM",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/lu/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/lu/MEDIUM.txt",
+      "c_sha256": "8dc903c6e082f100c924fd505665a33a643631eb0e8138d0b28ec390373ea071",
+      "ir_sha256": "9c639a5b56b3165aeb6e74c27a811a58f9e1d518522cb0c4c8f4bc48fd5d6b8a"
+    },
+    {
+      "kernel": "ludcmp",
+      "size": "MINI",
+      "loop_count": 9,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/ludcmp/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/ludcmp/MINI.txt",
+      "c_sha256": "7f61a74993cbb3d80d33516ea7a74973f7161b12c74cd2d9a96631375400a584",
+      "ir_sha256": "935c3fd59aac88657309074154a2958215e665b1370cd21140ba1402526de042"
+    },
+    {
+      "kernel": "ludcmp",
+      "size": "SMALL",
+      "loop_count": 9,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/ludcmp/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/ludcmp/SMALL.txt",
+      "c_sha256": "15863de6a48dce741b73b7b074a11d6460b8ce6900abb3658086d5d616ae9c13",
+      "ir_sha256": "88c70e9c2f43a4ea3077b1e7d1ba75faa64fc98f3aebe015dc42ef7fdbc048b8"
+    },
+    {
+      "kernel": "ludcmp",
+      "size": "MEDIUM",
+      "loop_count": 9,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/ludcmp/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/ludcmp/MEDIUM.txt",
+      "c_sha256": "d981c60f49159b2d9881cd78e4d5b4e72301ac7e43bb05e8753b7191560a69cb",
+      "ir_sha256": "051b20ad5a8f24a3376fed3be350489535a9079c48b97a01d7d7901673babeda"
+    },
+    {
+      "kernel": "trisolv",
+      "size": "MINI",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trisolv/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trisolv/MINI.txt",
+      "c_sha256": "3df8a561894077566dc204e026a129d2b7ec6dd3a4f1230e0dfc7ad63e7c02ce",
+      "ir_sha256": "20f1fea5ddd052d1e7e16b11b69219a1583bfa011cf10656458cbd4ecdc84677"
+    },
+    {
+      "kernel": "trisolv",
+      "size": "SMALL",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 120
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trisolv/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trisolv/SMALL.txt",
+      "c_sha256": "c908858e77d2c676358ada5a12b4de2c25802d4810d561f3d4a8d21e65435825",
+      "ir_sha256": "e93b42562a1c3bc26d0a7623252dd68cbaa5dbfbe28e95de6622de0f5f31ec90"
+    },
+    {
+      "kernel": "trisolv",
+      "size": "MEDIUM",
+      "loop_count": 2,
+      "dimensions": {
+        "N": 400
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/trisolv/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/trisolv/MEDIUM.txt",
+      "c_sha256": "c7257e5410873aab56dfc1ef1e9cd5bb3ebd8c428e5a125bafdb7d7f97e94b9b",
+      "ir_sha256": "f5f4acd261a895459218926c3b9c50f404d275c19eafecd00161c9fd9365d13d"
+    },
+    {
+      "kernel": "deriche",
+      "size": "MINI",
+      "loop_count": 12,
+      "dimensions": {
+        "H": 64,
+        "W": 64
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/deriche/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/deriche/MINI.txt",
+      "c_sha256": "478bd36fd36860de04c347a618d6a27eb20435d1bf896aff15ef94e59d50a9fb",
+      "ir_sha256": "eced4254a4004ee5861f927b98070b393afd815c65faa540f0b0123134e57bc7"
+    },
+    {
+      "kernel": "deriche",
+      "size": "SMALL",
+      "loop_count": 12,
+      "dimensions": {
+        "H": 128,
+        "W": 192
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/deriche/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/deriche/SMALL.txt",
+      "c_sha256": "ad04be7292bf9e622a925086917d295c1a537e36ebf37a2a893c682080b05238",
+      "ir_sha256": "6c4ffbf506a995b2cecbd23b466d26b1536ae164afaa2b2519bd6c21949c4ea3"
+    },
+    {
+      "kernel": "deriche",
+      "size": "MEDIUM",
+      "loop_count": 12,
+      "dimensions": {
+        "H": 480,
+        "W": 720
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/deriche/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/deriche/MEDIUM.txt",
+      "c_sha256": "1c3c00f8f9869dfd5b01e80b7fa62ddb80c2d97b8652ae83de8d6f5412247d18",
+      "ir_sha256": "cfeebfee31c2f39e82e4347756a88aa768c76bf127e53e94e14b972a1bf1cbc0"
+    },
+    {
+      "kernel": "floyd-warshall",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 60
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/floyd-warshall/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/floyd-warshall/MINI.txt",
+      "c_sha256": "7158715bf2ad910d5cf7a02753cd609c8c48e6df8af5f44828d4db6c55a558f5",
+      "ir_sha256": "8a96057e9061ee83a00f98a7dd799d4c8568485ee96e64cb2ce671ad2d6f0561"
+    },
+    {
+      "kernel": "floyd-warshall",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 180
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/floyd-warshall/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/floyd-warshall/SMALL.txt",
+      "c_sha256": "eefb2ba746de2d15e4dc0cf209bcf98920e05a1dda9a23e45504fd2b5bb5e311",
+      "ir_sha256": "ff6e3d9731faf3ccf020f151e8701ca03caef9210e55e04cd62f07d322cdf6b5"
+    },
+    {
+      "kernel": "floyd-warshall",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 500
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/floyd-warshall/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/floyd-warshall/MEDIUM.txt",
+      "c_sha256": "921adf72249978088f854969e6cd31c01e37c576b561a82961da061b7e52bdee",
+      "ir_sha256": "94347531b5db21a77a036f1df3380cbc325de47d31f8880268862f4208a2a12c"
+    },
+    {
+      "kernel": "nussinov",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 60
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/nussinov/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/nussinov/MINI.txt",
+      "c_sha256": "1698de4ef70a84afae8faf9832d2262ce9818803a9712a6fc656325b7b1ad164",
+      "ir_sha256": "67a39fd9695768c52db1d3e77a389be29e9c50305e146a0bbcf70fa4f1b5c0f6"
+    },
+    {
+      "kernel": "nussinov",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 180
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/nussinov/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/nussinov/SMALL.txt",
+      "c_sha256": "33a5ed8b087119e2818a421ad4642948d188ceb77334495223f77cbf92f4ea49",
+      "ir_sha256": "f48472f959fb9f3ec3a138b55429ecd200d12771fcbd3d5a59f379ebf80fbff4"
+    },
+    {
+      "kernel": "nussinov",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 500
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/nussinov/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/nussinov/MEDIUM.txt",
+      "c_sha256": "7385e2ded6d419aadfe20a1a32dd22f8389760bf33450fff840ef636c3a13912",
+      "ir_sha256": "21e219b8f29a5870260e1a7f5f6a10a083edd8fe1d634991b4596a1aa44e42e6"
+    },
+    {
+      "kernel": "adi",
+      "size": "MINI",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 20,
+        "TSTEPS": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/adi/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/adi/MINI.txt",
+      "c_sha256": "efe425313ca75a414403b5e2731ef385e51fbd4efe5c3a3a01bec3806b7b4c4a",
+      "ir_sha256": "2a8883e43c859ff5870d0ef43374c39aec2bd9652ec84f99644b6891a87e220d"
+    },
+    {
+      "kernel": "adi",
+      "size": "SMALL",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 60,
+        "TSTEPS": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/adi/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/adi/SMALL.txt",
+      "c_sha256": "938e5b9b4ebbf6f99f4c279ffe5978f8060bbe5df09fd437dcc7cc776f52ae03",
+      "ir_sha256": "e7ee5672d961f4955bd1ef41f8580b03e58100454718d5727a31465b143d0204"
+    },
+    {
+      "kernel": "adi",
+      "size": "MEDIUM",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 200,
+        "TSTEPS": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/adi/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/adi/MEDIUM.txt",
+      "c_sha256": "bcccb9091460cc19e3fb60ed963d152977eaaae4e2412a50d84d514cf7aec9fb",
+      "ir_sha256": "3ff5d8c3fb69cf1adb1ea30221b54cec24e17dc5cb4532c4dd56ddb8f970cb67"
+    },
+    {
+      "kernel": "fdtd-2d",
+      "size": "MINI",
+      "loop_count": 8,
+      "dimensions": {
+        "NX": 20,
+        "NY": 30,
+        "TMAX": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/fdtd-2d/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/fdtd-2d/MINI.txt",
+      "c_sha256": "5c6e304d58fd78bce3771122c0443ab05525b77b3594ec6b3b5d1894d3a8e738",
+      "ir_sha256": "e4c0fa87eb3f754b0e7a38ff001a192c389d9f66eed6daec910a1b2b98066982"
+    },
+    {
+      "kernel": "fdtd-2d",
+      "size": "SMALL",
+      "loop_count": 8,
+      "dimensions": {
+        "NX": 60,
+        "NY": 80,
+        "TMAX": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/fdtd-2d/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/fdtd-2d/SMALL.txt",
+      "c_sha256": "c5faf59b6c94ad6974445683b32c447077bdb2e59e8c9bbff136724a522fdad9",
+      "ir_sha256": "88a17ef32d2a1f11686b195e73d034919466c8285c1f31d67b00246aa65fff13"
+    },
+    {
+      "kernel": "fdtd-2d",
+      "size": "MEDIUM",
+      "loop_count": 8,
+      "dimensions": {
+        "NX": 200,
+        "NY": 240,
+        "TMAX": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/fdtd-2d/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/fdtd-2d/MEDIUM.txt",
+      "c_sha256": "a6ed754ca787d0be88a3a450df396efa0ce5395a7cf4ecf86f876cfad1f787f9",
+      "ir_sha256": "4a6e5db45b5d1fa6af7c3fc21ed95e02bb7f7472f3dbe3b57aee190fe72cfb07"
+    },
+    {
+      "kernel": "heat-3d",
+      "size": "MINI",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 10,
+        "TSTEPS": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/heat-3d/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/heat-3d/MINI.txt",
+      "c_sha256": "dc0e67a10154c8e5eccdcc525c178c724f6da0fccb85173dbafc84daabdc7cec",
+      "ir_sha256": "83cd338042b0a0f0ede32402e7f8551b263cecb98cc9a771891a24976b1e05b3"
+    },
+    {
+      "kernel": "heat-3d",
+      "size": "SMALL",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 20,
+        "TSTEPS": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/heat-3d/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/heat-3d/SMALL.txt",
+      "c_sha256": "56917a1ec6ec6febbab9b567fb14d5858e76961ba0c9ae7305008d9f9970bf51",
+      "ir_sha256": "719aa37903af7be1802f4c1aa773843d440b60510a83e7a2a868b16808b4b776"
+    },
+    {
+      "kernel": "heat-3d",
+      "size": "MEDIUM",
+      "loop_count": 7,
+      "dimensions": {
+        "N": 40,
+        "TSTEPS": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/heat-3d/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/heat-3d/MEDIUM.txt",
+      "c_sha256": "740c6fb6b6738152696a482747bb92a1e87be5c71997b189ddb57a1d9304eaa7",
+      "ir_sha256": "27dd8d9a6cf94cd1b20d4f7f4f13e223924d6d8ea3df2d933824fd9ad57828ee"
+    },
+    {
+      "kernel": "jacobi-1d",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 30,
+        "TSTEPS": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-1d/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-1d/MINI.txt",
+      "c_sha256": "8002199569e1f360e2ec202ca51bfd8e81ddce30d3f45faafcc217f63c636907",
+      "ir_sha256": "b8bc00cdff3c9100372b1e79938f31ec8e140bc7d73cea97cff0ee00820af98f"
+    },
+    {
+      "kernel": "jacobi-1d",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 120,
+        "TSTEPS": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-1d/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-1d/SMALL.txt",
+      "c_sha256": "2a741b64db593edac9b98beee379dc33a51f92fc2b77beb92681fbe7a3157f44",
+      "ir_sha256": "64b16b71498d1f699ad790ece76f31d87105493931b137f855ab9a4678800922"
+    },
+    {
+      "kernel": "jacobi-1d",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 400,
+        "TSTEPS": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-1d/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-1d/MEDIUM.txt",
+      "c_sha256": "febf5583bd2e98942f5b37604e6aa6f0dfe5568d6ca558db7f6b971fc2c6005e",
+      "ir_sha256": "ef4b034603b8124efbb8707a931b253f72812b5f135b5b9115edb3c41b53d3fe"
+    },
+    {
+      "kernel": "jacobi-2d",
+      "size": "MINI",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 30,
+        "TSTEPS": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-2d/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-2d/MINI.txt",
+      "c_sha256": "8c1e9c18e9f550af23cc75ecb1795315431a0b98fe98227de6de6e71a2207c50",
+      "ir_sha256": "405b697a049d7c49452c991d9284697811af9e13751e81a0e36c72216c2c02c3"
+    },
+    {
+      "kernel": "jacobi-2d",
+      "size": "SMALL",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 90,
+        "TSTEPS": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-2d/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-2d/SMALL.txt",
+      "c_sha256": "1f1570773440e250775f925f68a89d9f072ce237397a40fe5861a92f7111d87f",
+      "ir_sha256": "a59b7694b8c394998fc489010bc282e04b0288e8ddce6c75e66d1679cb542f0f"
+    },
+    {
+      "kernel": "jacobi-2d",
+      "size": "MEDIUM",
+      "loop_count": 5,
+      "dimensions": {
+        "N": 250,
+        "TSTEPS": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/jacobi-2d/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/jacobi-2d/MEDIUM.txt",
+      "c_sha256": "a084d69ac336e1653ce87bb3747bc4de722d69492dd11cf1ec7f92add8f24689",
+      "ir_sha256": "1073d60c4b21b4c6e456ce9eaa309a42102b29fe5b0b1ebcf727d03b089bb76d"
+    },
+    {
+      "kernel": "seidel-2d",
+      "size": "MINI",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 40,
+        "TSTEPS": 20
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/seidel-2d/MINI.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/seidel-2d/MINI.txt",
+      "c_sha256": "d3bfb7d78951734557b100ee035048d3ef08f3ffcfc6e4b5f66eb0b3e6e8948b",
+      "ir_sha256": "5404b36e18a43d89509ff600a17ab08f43e4a92fe31a9eebbb4d0e09db66841b"
+    },
+    {
+      "kernel": "seidel-2d",
+      "size": "SMALL",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 120,
+        "TSTEPS": 40
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/seidel-2d/SMALL.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/seidel-2d/SMALL.txt",
+      "c_sha256": "0155d07088d3c3c4278cc017eed281a9429f4c0e7e4a3ec28c26e71cb3f72b8a",
+      "ir_sha256": "c78b913998d29edf5727838ec8ecf162c435f9bcff167c240ab669179bd1214d"
+    },
+    {
+      "kernel": "seidel-2d",
+      "size": "MEDIUM",
+      "loop_count": 3,
+      "dimensions": {
+        "N": 400,
+        "TSTEPS": 100
+      },
+      "c_path": "generated/llm-input-corpus-v1/c/seidel-2d/MEDIUM.txt",
+      "ir_path": "generated/llm-input-corpus-v1/ir/seidel-2d/MEDIUM.txt",
+      "c_sha256": "556f5873574b0053f13fe7c2b26a0026d9cf6d2efe0a86816946557b739f2ea4",
+      "ir_sha256": "98aeaecba883a91b41cb4db933f2e68d9445a1b137088b43e4e0192a32ca7e82"
+    }
+  ]
+}

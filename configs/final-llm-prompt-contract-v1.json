@@ -1,0 +1,58 @@
+{
+  "contract_id": "final-llm-prompt-contract-v1",
+  "status": "FROZEN_BEFORE_FINAL_LLM_API_CALLS",
+
+  "task": "select_one_candidate_id",
+
+  "representations": [
+    "C",
+    "LLVM_IR"
+  ],
+
+  "hardware_information_conditions": {
+    "P0": {
+      "description": "ハードウェア固有情報なし"
+    },
+    "P1": {
+      "description": "CPU製品名とマイクロアーキテクチャのみ"
+    },
+    "P2": {
+      "description": "検証済みの静的CPU詳細情報"
+    }
+  },
+
+  "candidate_grammar": {
+    "identity": "identity",
+    "unroll_count": "loop_XX_unroll_count_{2,4,8,16}",
+    "interleave_count": "loop_XX_interleave_count_{2,4,8}",
+    "vectorize_width": "loop_XX_vectorize_width_{2,4,8}"
+  },
+
+  "output_contract": {
+    "format": "JSON",
+    "schema": {
+      "candidate_id": "string"
+    },
+    "reasoning_text": false,
+    "additional_fields": false
+  },
+
+  "sampling": {
+    "independent_samples_per_condition": 3,
+    "temperature_policy": "same_fixed_setting_within_each_provider",
+    "tool_use": false,
+    "web_search": false,
+    "external_feedback": false
+  },
+
+  "anti_leakage": {
+    "measured_speedups_visible": false,
+    "oracle_candidate_visible": false,
+    "candidate_ranking_visible": false,
+    "previous_model_answers_visible": false,
+    "performance_counter_data_visible": false
+  },
+
+  "primary_comparison": "within_model_P0_vs_P1_vs_P2",
+  "cross_model_ranking_is_secondary": true
+}

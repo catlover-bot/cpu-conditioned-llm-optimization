@@ -1,0 +1,43 @@
+{
+  "kernel_id": "trmm",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 31,
+  "candidates_admitted": 31,
+  "unique_machine_code_groups": 13,
+  "nonidentity_representatives_measured": 12,
+  "aliases_to_identity": 19,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1024,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.997634970343033,
+      "paired_speedup_iqr": 0.024584133023627053,
+      "reference_batch_median_ns": 5405042.5,
+      "candidate_batch_median_ns": 5435602.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1024
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.998533259959321,
+      "paired_speedup_iqr": 0.016858906553265274,
+      "reference_batch_median_ns": 5509357.0,
+      "candidate_batch_median_ns": 5500592.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1024
+    }
+  ],
+  "formal_equivalence_proven": false
+}

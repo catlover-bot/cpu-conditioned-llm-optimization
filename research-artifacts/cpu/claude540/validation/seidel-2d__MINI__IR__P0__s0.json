@@ -1,0 +1,12 @@
+{
+  "condition": "P0",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "IR",
+  "id": "seidel-2d__MINI__IR__P0__s0",
+  "passed": false,
+  "size": "MINI",
+  "status": "generation_failed",
+  "task": "seidel-2d"
+}

@@ -1,0 +1,15 @@
+{
+  "condition": "P1",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "3mm__SMALL__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "1a68d1fcf73ce18db22b0cf5eb0e5b5875621504aa198071c52049efb0423323",
+  "reference_ir_sha256": "ef5c8a3eec7328732199dbd05a421d1ecb69c49cf706f8d6f815683319fb74f6",
+  "size": "SMALL",
+  "source_sha256": "6dffd2676178ee4c85f4629ca0f7c8e1bef16fb630454a8e65391dced546e82d",
+  "status": "rejected",
+  "task": "3mm"
+}

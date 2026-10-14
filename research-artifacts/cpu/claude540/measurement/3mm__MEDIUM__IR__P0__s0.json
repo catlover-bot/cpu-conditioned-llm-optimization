@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "a1db2e1373a45949856598c6783e7423468115d71dbec2430c9ca79c740ec4db",
+  "candidate_object_sha256": "701080d455ed06b2f1d06c9a40e96045dc91e0ac7950c1c89810de3484a1f1e9",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "3mm__MEDIUM__IR__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0069026949209066
+}

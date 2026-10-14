@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "57d860b31a288689458b289ee89e9f5762bec6f87c825ba06098bae0cc86055f",
+  "candidate_object_sha256": "892981836838fe88a4ab94f120989685f29091d65dc2d15839e810b08bb64433",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "mvt__MEDIUM__C__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0234641740210346
+}

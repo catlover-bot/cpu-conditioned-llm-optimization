@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "bicg__SMALL__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "340f65ffee7b7757a2f9cbd64cf4bdb641559edd087acc5c2933406a91a353d5",
+  "reference_ir_sha256": "c1c6f0efc1920657c752cc3d55b43be82fdb5a49576fb03891401ee89cec4f53",
+  "size": "SMALL",
+  "source_sha256": "a9007ef3be73641b570133dd6e24b6a74efc89b60def4acdabbbbf6f1e9f7e6e",
+  "status": "checked",
+  "task": "bicg"
+}

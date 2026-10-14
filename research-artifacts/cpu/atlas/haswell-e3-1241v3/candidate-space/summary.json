@@ -1,0 +1,21 @@
+{
+  "instances": 90,
+  "full_oracle_speedup_mean": 1.0341025399762385,
+  "full_oracle_speedup_median": 1.0093153575082048,
+  "unroll_only_oracle_mean": 1.0184095698888966,
+  "interleave_only_oracle_mean": 1.0145108951544415,
+  "vectorize_only_oracle_mean": 1.0116079688523878,
+  "unroll_only_regret_mean": 0.013177670522319317,
+  "interleave_only_regret_mean": 0.017450370829717624,
+  "vectorize_only_regret_mean": 0.020227995001935038,
+  "remove_unroll_regret_mean": 0.014137550797116713,
+  "remove_interleave_regret_mean": 0.005643853472689698,
+  "remove_vectorize_regret_mean": 0.003121879178464255,
+  "instances_unroll_required_for_exact_oracle": 65,
+  "instances_interleave_required_for_exact_oracle": 17,
+  "instances_vectorize_required_for_exact_oracle": 5,
+  "candidate_uniform_mean_speedup": 0.9818277186637936,
+  "machine_code_uniform_mean_speedup": 0.9685843904333634,
+  "valid_candidate_count_mean": 50.43333333333333,
+  "unique_machine_code_count_mean": 24.677777777777777
+}

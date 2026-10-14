@@ -1,0 +1,79 @@
+[
+  {
+    "function_bytes_sha256": "0006ee5b3bff5e7c7eab05ff32c7d5a5694ff9655df8dca2e9550a6c1b750477",
+    "candidate_ids": [
+      "loop_01_unroll_count_4"
+    ],
+    "representative": "loop_01_unroll_count_4",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "38e455b91f618845ffb692b0c9bdb6db04dd8298c0233c2331c4579b6b8efbd8",
+    "candidate_ids": [
+      "loop_00_unroll_count_16"
+    ],
+    "representative": "loop_00_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "4602f2e9892f5ddb6ef4187280d6a8c05ae15151aa1793de6e5d84bf0b651a81",
+    "candidate_ids": [
+      "loop_00_unroll_count_8"
+    ],
+    "representative": "loop_00_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "5274bca34d3c87cc0df20c34f4fe499d9ba497cea780b86bf89b50a0e5d0a3e8",
+    "candidate_ids": [
+      "loop_01_unroll_count_16"
+    ],
+    "representative": "loop_01_unroll_count_16",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "6c84671522aa5b7ec6c7343b6915c051014d80e0f390cd41e8b86ac703f56d6e",
+    "candidate_ids": [
+      "loop_00_unroll_count_2"
+    ],
+    "representative": "loop_00_unroll_count_2",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "9418c432d2ff2937a9ce74c5306ac754f91dde468f2707b559eca8b42a36ac80",
+    "candidate_ids": [
+      "loop_01_unroll_count_8"
+    ],
+    "representative": "loop_01_unroll_count_8",
+    "same_as_identity": false
+  },
+  {
+    "function_bytes_sha256": "9fcd7e41abad8aa661582e59da6a23da70e69ff4684e955ec021a2dc95c4d934",
+    "candidate_ids": [
+      "identity",
+      "loop_00_interleave_count_2",
+      "loop_00_interleave_count_4",
+      "loop_00_interleave_count_8",
+      "loop_00_vectorize_width_2",
+      "loop_00_vectorize_width_4",
+      "loop_00_vectorize_width_8",
+      "loop_01_interleave_count_2",
+      "loop_01_interleave_count_4",
+      "loop_01_interleave_count_8",
+      "loop_01_unroll_count_2",
+      "loop_01_vectorize_width_2",
+      "loop_01_vectorize_width_4",
+      "loop_01_vectorize_width_8"
+    ],
+    "representative": "identity",
+    "same_as_identity": true
+  },
+  {
+    "function_bytes_sha256": "fd255e5816212b5147b9a9f07c617e8ea33888e03729207b2c3c5e0fd2be86b6",
+    "candidate_ids": [
+      "loop_00_unroll_count_4"
+    ],
+    "representative": "loop_00_unroll_count_4",
+    "same_as_identity": false
+  }
+]

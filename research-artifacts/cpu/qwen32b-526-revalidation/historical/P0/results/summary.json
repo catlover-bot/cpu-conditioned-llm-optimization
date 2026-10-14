@@ -1,0 +1,117 @@
+{
+  "active_orchestration": {
+    "generation_window_seconds": null,
+    "original_plan_time_settings_superseded_for_orchestration_only": true,
+    "revision": "completion-driven-v1",
+    "session_limit_seconds": null
+  },
+  "additional_multiinput_not_implemented": 90,
+  "additional_multiinput_passed": 25,
+  "all_30_multinput_validation_complete": false,
+  "automatic_model_retries": 0,
+  "completion": "DATASET_BATCH_COMPLETE",
+  "completion_means_all_requested_attempts_processed_not_all_correct": true,
+  "cpu_information_effect_measured": false,
+  "current_session": {
+    "aggregate_time_limit_seconds": null,
+    "compiler": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "elapsed_seconds": 159873.91549658202,
+    "errors": [],
+    "finished_utc": "2026-09-15T00:55:19.736390+00:00",
+    "generation_hours": null,
+    "max_hours": null,
+    "model_blobs": {
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "verified_blobs": {
+        "sha256:1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320": {
+          "bytes": 1615,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320"
+        },
+        "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e": {
+          "bytes": 68,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e"
+        },
+        "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e": {
+          "bytes": 11343,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+        },
+        "sha256:ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9": {
+          "bytes": 19851336384,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9"
+        },
+        "sha256:f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee": {
+          "bytes": 488,
+          "path": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/blobs/sha256-f0676bd3c336a0f995e270c5e2c80ce09aa5cfcab0c59ff574088eca52da32ee"
+        }
+      }
+    },
+    "model_freeze": {
+      "manifest_file": "/var/lib/cpucond-infer/.local/share/cpucond-ollama/models/manifests/registry.ollama.ai/library/qwen2.5-coder/32b-instruct-q4_K_M",
+      "manifest_sha256": "b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "model": "qwen2.5-coder:32b-instruct-q4_K_M",
+      "official_tag_prefix_checked": "b92d6a0bd47e",
+      "phase": "after_download_before_generation",
+      "recorded_utc": "2026-09-12T05:02:37.998914+00:00"
+    },
+    "orchestration_revision": "completion-driven-v1",
+    "phase": "completed",
+    "plan_sha256": "6abe9c69297a494c0f5df736da1c76d2d789f326567359dc32e3c7c293be848d",
+    "started_utc": "2026-09-13T04:30:45.820975+00:00",
+    "termination_condition": "all_planned_attempts_validations_and_eligible_measurements_terminal"
+  },
+  "final_research_conclusions_ready": false,
+  "formal_equivalence_proven": false,
+  "generated_texts": 166,
+  "generation_non_success": 0,
+  "generation_terminal": 166,
+  "measurement_eligible_provisional": 115,
+  "measurement_pending": 0,
+  "measurement_quality_passed": 113,
+  "measurement_terminal": 115,
+  "model_downloads": 0,
+  "official_gate_passed": 115,
+  "paid_api_calls": 0,
+  "planned_requests": 166,
+  "prompt_language": "en",
+  "prompt_revision": "direct-codegen-en-v2",
+  "requests_pending": 0,
+  "resource_amendment": {
+    "all_30_multiinput_validator_complete": false,
+    "consecutive_transport_failure_stop": 2,
+    "context_length_unchanged": true,
+    "generation_hours": 3.5,
+    "id": "polybench-direct-codegen-resource-amendment-v1",
+    "idle_timeout_seconds": 1800,
+    "new_first_transmissions": 166,
+    "no_old_attempts_retried": true,
+    "old_attempted_requests_retained": 14,
+    "old_failures_reclassified": false,
+    "old_results_merged_as_same_budget": false,
+    "original_unique_requests": 180,
+    "output_caps_new": {
+      "C": 4096,
+      "IR": 16384
+    },
+    "output_caps_old": {
+      "C": 4096,
+      "IR": 8192
+    },
+    "parent_job": "/srv/research/cpucond-batch-en-20260912T074659-7093",
+    "parent_plan_sha256": "1606a944f79e5e445f3511414f39d8eeee60617b575b596b932374d65f56eac6",
+    "prompt_and_source_bytes_unchanged": true,
+    "request_timeout_seconds": {
+      "C": 1800,
+      "IR": 7200
+    },
+    "session_seconds": 14400,
+    "stream": true,
+    "supplement_job": "/srv/research/cpucond-batch-en-20260912T074659-7093-context6-v1",
+    "supplement_plan_sha256": "97de40c0a9d4346d576525e30f1965ee09faeae2a58f10ef3bd38bc57c32db77",
+    "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  "revision": "polybench-direct-codegen-resource-amendment-v1",
+  "run_directory": "/srv/research/cpucond-batch-en-20260912T074659-7093-resource-v2-unsent/results",
+  "scope": "previously never-attempted requests only; corrected resource budget; provisional, not a homogeneous 180-sample cohort",
+  "updated_utc": "2026-09-15T00:55:19.735818+00:00",
+  "validation_terminal": 166
+}

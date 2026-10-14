@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "334defc1419035589fafa5cdb7ee18f325b7207d62a1a903026f543ef52c0b85",
+  "candidate_object_sha256": "32f4b9c37f3faefd103a720aac29250318b1f1fc6ed20c65e8c8d26a3cd4743f",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "floyd-warshall__SMALL__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.004564539090232
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "527f909c2d1e1c88174772cb638b5111f36dd5dca7048ddd12d049c9954c122d",
+  "candidate_object_sha256": "8f70838510b054bfc7ca36cdd37264d71ea524357e45baac77d6b6e4fe6b551e",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "correlation__SMALL__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.1726124219455627
+}

@@ -1,0 +1,15 @@
+{
+  "condition": "P0",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "atax__SMALL__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "5b1d3fa854366f5011e4837fa45378bf1dc9547d428ab2ea727b2b97f7ec3282",
+  "reference_ir_sha256": "4bdc54687b51ab28916bbd5808edc4cedb538f42e81d8455e50713520ca10061",
+  "size": "SMALL",
+  "source_sha256": "22337adc808a7ebb193f3c608bafe076e873370df63e06dd2cf2591af5875f1f",
+  "status": "rejected",
+  "task": "atax"
+}

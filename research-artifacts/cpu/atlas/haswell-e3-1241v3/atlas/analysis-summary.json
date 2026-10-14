@@ -1,0 +1,11 @@
+{
+  "instances": 90,
+  "instances_valid": 90,
+  "candidate_instance_total": 4740,
+  "candidate_instance_admitted": 4564,
+  "candidate_instance_correctness_rejected": 176,
+  "aliases_to_identity_total": 2400,
+  "unique_machine_code_groups_total": 2246,
+  "instances_escalated": 0,
+  "invalid_representatives_no_rerun": 25
+}

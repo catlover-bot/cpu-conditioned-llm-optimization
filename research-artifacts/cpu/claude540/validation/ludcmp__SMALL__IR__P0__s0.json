@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "ludcmp__SMALL__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "71784ee7f2a750519de0f5da37ec0a6939e72649c1e1091986807c6ac56d2243",
+  "reference_ir_sha256": "ccbadf72496d5ed5b7b619d557a04bf8f226c32f45cbc25d357fb0a6d1105995",
+  "size": "SMALL",
+  "source_sha256": "ab5cccef1571b1df3f1249f9fbb459fbd3a1d853a55dab44ad9c90dbc8988f63",
+  "status": "checked",
+  "task": "ludcmp"
+}

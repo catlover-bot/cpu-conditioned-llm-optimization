@@ -1,0 +1,69 @@
+{
+  "analysis_id": "cpu-conditioned-final-analysis-v1",
+  "status": "FROZEN_BEFORE_INSPECTING_FINAL_CANDIDATE_SPEEDUPS",
+  "source_protocol": "cpu-conditioned-final-v1.3",
+
+  "performance_estimator": {
+    "pair_speedup": "reference_batch_ns / candidate_batch_ns",
+    "within_session": "median_of_8_paired_speedups",
+    "across_sessions": "geometric_mean_of_session_medians",
+    "sessions": 2,
+    "pairs_per_session": 8,
+
+    "identity_candidate_speedup": 1.0,
+    "identity_machine_code_alias_speedup": 1.0,
+
+    "identity_measurement_role": "quality_control_only_not_candidate_performance_estimate",
+
+    "machine_code_alias_rule": "all_candidate_ids_with_equal_function_bytes_inherit_their_measured_representative_speedup"
+  },
+
+  "validity": {
+    "correctness_rejected_candidate": "invalid_and_not_oracle_eligible",
+    "measurement_invalid_representative": "representative_and_all_its_aliases_are_not_oracle_eligible",
+    "instance_identity_failure": "instance_invalid_according_to_frozen_measurement_protocol",
+    "formal_equivalence_claim": false
+  },
+
+  "oracle": {
+    "eligible_candidate": "correctness_admitted_and_measurement_valid",
+    "oracle_speedup": "maximum_eligible_candidate_speedup",
+    "oracle_candidate_set": "all_candidate_ids_with_score_equal_to_the_oracle_score",
+    "canonical_oracle_candidate": "lexicographically_smallest_candidate_id_in_oracle_candidate_set"
+  },
+
+  "llm_scoring": {
+    "oracle_regret": "1 - selected_speedup / oracle_speedup",
+    "invalid_selection_oracle_regret": 1.0,
+
+    "near_oracle_definition": "selected_candidate_is_valid_and_selected_speedup >= oracle_speedup / 1.01",
+    "near_oracle_tolerance": "within_1_percent_multiplicative_of_oracle",
+
+    "faster_than_reference": "selected_candidate_is_valid_and_selected_speedup > 1.0",
+
+    "machine_code_noop_selection": "selected_candidate_id != identity_and_machine_code_representative == identity",
+
+    "correctness_valid_selection_rate": true,
+    "measurement_valid_selection_rate": true
+  },
+
+  "cpu_specific_oracle_separability": {
+    "requires_two_physical_hosts": true,
+
+    "near_oracle_set_distance": "Jaccard_distance_between_host_near_oracle_candidate_sets_for_the_same_kernel_and_size",
+
+    "symmetric_oracle_transfer_regret": {
+      "A_to_B": "1 - best_speedup_on_B_among_A_oracle_candidate_set / B_oracle_speedup",
+      "B_to_A": "1 - best_speedup_on_A_among_B_oracle_candidate_set / A_oracle_speedup",
+      "candidate_invalid_on_destination": "not_transfer_eligible",
+      "no_transfer_eligible_candidate": "regret_1.0",
+      "symmetric_score": "mean_of_A_to_B_and_B_to_A"
+    }
+  },
+
+  "anti_peeking": {
+    "contract_frozen_before_hidden_oracle_extraction": true,
+    "contract_frozen_before_LLM_scoring": true,
+    "candidate_speedups_used_to_choose_analysis_rule": false
+  }
+}

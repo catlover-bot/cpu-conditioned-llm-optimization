@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "4e2272a7ac8655481b1b2c8bb04fc5bdb85c3c6918e9913a608f2ba15e3e75d9",
+  "candidate_object_sha256": "070b93754889c8991785951a12c5eda394dfbd74fa4c385f0670cbd462db473e",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "doitgen__SMALL__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.5009404555044272
+}

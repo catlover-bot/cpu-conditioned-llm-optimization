@@ -1,0 +1,25 @@
+カーネル: trisolv
+サイズ条件: MEDIUM
+数値寸法: {"N": 400}
+
+static
+void kernel_trisolv(int n,
+		    DATA_TYPE POLYBENCH_2D(L,N,N,n,n),
+		    DATA_TYPE POLYBENCH_1D(x,N,n),
+		    DATA_TYPE POLYBENCH_1D(b,N,n))
+{
+  int i, j;
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (i = 0; i < _PB_N; i++)
+    {
+      x[i] = b[i];
+      /* CPUCOND_LOOP_01 */
+for (j = 0; j <i; j++)
+        x[i] -= L[i][j] * x[j];
+      x[i] = x[i] / L[i][i];
+    }
+#pragma endscop
+
+}

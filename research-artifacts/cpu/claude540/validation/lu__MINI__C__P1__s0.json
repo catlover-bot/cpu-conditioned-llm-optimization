@@ -1,0 +1,12 @@
+{
+  "condition": "P1",
+  "errors": [
+    "invalid_response_format"
+  ],
+  "form": "C",
+  "id": "lu__MINI__C__P1__s0",
+  "passed": false,
+  "size": "MINI",
+  "status": "generation_failed",
+  "task": "lu"
+}

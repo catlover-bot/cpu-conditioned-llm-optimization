@@ -1,0 +1,1 @@
+{"condition":"H1","errors":[],"form":"C","id":"syrk__SMALL__C__H1__s0","measurement_valid":false,"quality_reasons":[],"report_label":"H1","size":"SMALL","source_sha256":"da839007ee0df6bec835965b97bffae2baff711d8dcabe159e4bcdd3bd42e2e1","speedup":null,"stage":"excluded_by_stage16c","stage16c_correctness_pass":false,"task":"syrk"}

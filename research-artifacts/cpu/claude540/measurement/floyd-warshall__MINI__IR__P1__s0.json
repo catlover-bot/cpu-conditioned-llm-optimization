@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "334defc1419035589fafa5cdb7ee18f325b7207d62a1a903026f543ef52c0b85",
+  "candidate_object_sha256": "e8198c3077f7748d5a4846b52b6e197e4404e19835d6355f43976f4ae60f32d5",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "floyd-warshall__MINI__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0225699452086212
+}

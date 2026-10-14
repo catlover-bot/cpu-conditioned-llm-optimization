@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "b16d110973991aa905d4db9b6238f12a258f00ad2f8f01179fea48e464431fce",
+  "candidate_object_sha256": "657453d1974149cc6bb5c4f6d8555bdc78e7c530727cca0d2fa211f06c861d6c",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "2mm__MINI__C__P2__s0",
+  "measurement_valid": false,
+  "provisional": true,
+  "speedup": 2.146374363551007
+}

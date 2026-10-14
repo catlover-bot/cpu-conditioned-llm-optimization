@@ -1,0 +1,43 @@
+{
+  "kernel_id": "covariance",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 65,
+  "unique_machine_code_groups": 33,
+  "nonidentity_representatives_measured": 32,
+  "aliases_to_identity": 33,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9985357979877831,
+      "paired_speedup_iqr": 0.006715783886763416,
+      "reference_batch_median_ns": 9781453.0,
+      "candidate_batch_median_ns": 9785603.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9960878951350443,
+      "paired_speedup_iqr": 0.00991386576536879,
+      "reference_batch_median_ns": 9756688.5,
+      "candidate_batch_median_ns": 9783124.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1
+    }
+  ],
+  "formal_equivalence_proven": false
+}

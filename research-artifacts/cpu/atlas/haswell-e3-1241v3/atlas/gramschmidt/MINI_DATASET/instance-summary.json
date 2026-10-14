@@ -1,0 +1,48 @@
+{
+  "kernel_id": "gramschmidt",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 61,
+  "candidates_admitted": 61,
+  "unique_machine_code_groups": 30,
+  "nonidentity_representatives_measured": 29,
+  "aliases_to_identity": 32,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1024,
+  "candidate_representatives_invalid_no_rerun": [
+    "loop_02_unroll_count_4",
+    "loop_01_unroll_count_16",
+    "loop_02_unroll_count_2",
+    "loop_05_unroll_count_2"
+  ],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0021781621544719,
+      "paired_speedup_iqr": 0.010499367863003317,
+      "reference_batch_median_ns": 8208419.0,
+      "candidate_batch_median_ns": 8163461.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1024
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0043826790969463,
+      "paired_speedup_iqr": 0.014029261561645856,
+      "reference_batch_median_ns": 8201528.5,
+      "candidate_batch_median_ns": 8191152.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1024
+    }
+  ],
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,43 @@
+{
+  "kernel_id": "durbin",
+  "size": "MINI_DATASET",
+  "size_label": "MINI",
+  "candidate_ids_requested": 41,
+  "candidates_admitted": 38,
+  "unique_machine_code_groups": 18,
+  "nonidentity_representatives_measured": 17,
+  "aliases_to_identity": 21,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 4096,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9999718308152531,
+      "paired_speedup_iqr": 0.005285252686784592,
+      "reference_batch_median_ns": 5576763.0,
+      "candidate_batch_median_ns": 5582884.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 4096
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0012442756396345,
+      "paired_speedup_iqr": 0.00735911058138472,
+      "reference_batch_median_ns": 5585691.0,
+      "candidate_batch_median_ns": 5580708.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 4096
+    }
+  ],
+  "formal_equivalence_proven": false
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "1b65f9443e9f8db103a5e3fa84a2a34bbfd71b762b4ed11acab25cd2963bd43e",
+  "candidate_object_sha256": "7dc00e239a453d0174d58bfbc897f553df73861d2280517e4f0b79d2760949c8",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "deriche__MEDIUM__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.995882525927694
+}

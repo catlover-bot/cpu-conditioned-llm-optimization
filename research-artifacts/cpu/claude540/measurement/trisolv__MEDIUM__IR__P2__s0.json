@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "9b7e80dec0814310ea984276d6f5dcb1c4fda4897c23ee8d7053df1441b0e741",
+  "candidate_object_sha256": "090ab7e6a36a6f294af5e76827dac641e64f89139495cac3187324900a8d13b1",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "trisolv__MEDIUM__IR__P2__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0011716648045457
+}

@@ -1,0 +1,22 @@
+{
+  "instances": 90,
+  "candidate_ids_matched_per_host": 4740,
+  "canonical_best_equal_instances": 21,
+  "exact_sets_equal_instances": 21,
+  "exact_sets_overlap_instances": 21,
+  "near_sets_equal_instances": 14,
+  "near_sets_overlap_instances": 78,
+  "no_shared_near_oracle_instances": 12,
+  "near_set_jaccard_distance_mean": 0.5652383386249582,
+  "haswell_to_zen2_regret_mean": 0.036543559805048344,
+  "zen2_to_haswell_regret_mean": 0.02796344714006606,
+  "symmetric_transfer_regret_mean": 0.0322535034725572,
+  "symmetric_transfer_regret_median": 0.008085437244965077,
+  "symmetric_transfer_regret_max": 0.5317858427597566,
+  "haswell_to_zen2_no_valid_destination_instances": 0,
+  "zen2_to_haswell_no_valid_destination_instances": 1,
+  "correctness_disagreement_candidates": 0,
+  "performance_validity_disagreement_candidates": 32,
+  "statistical_significance_tested": false,
+  "inference_scope": "測定した2ホスト・固定候補集合に対する記述統計。CPU世代全体への一般化ではない。"
+}

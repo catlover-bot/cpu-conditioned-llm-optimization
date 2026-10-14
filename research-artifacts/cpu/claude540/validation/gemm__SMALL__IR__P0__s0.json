@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "gemm__SMALL__IR__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "51c844fbfaaa74ad513b667654633deab410c8900733398935179adbead8af5f",
+  "reference_ir_sha256": "c4580beb3589118dedf10edd2a52481c101ca2ea16aec51be03dcdfca02de3d2",
+  "size": "SMALL",
+  "source_sha256": "15a47a6f11ff626d367895ca79b6da8c5ac14bc1681d10574a599f829ef4e734",
+  "status": "checked",
+  "task": "gemm"
+}

@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "8ea9ca987b1db4c3cbb05dc23b9cf74df891055e683ec160dedfb901576510a7",
+  "candidate_object_sha256": "252b760031ee38e6af7a494c65b6f1768f6e3944c1d5b839fb3f98df78e66e28",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "trmm__MEDIUM__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.0019463064902352
+}

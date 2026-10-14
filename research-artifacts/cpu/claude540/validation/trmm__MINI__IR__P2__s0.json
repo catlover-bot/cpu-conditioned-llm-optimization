@@ -1,0 +1,15 @@
+{
+  "condition": "P2",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "trmm__MINI__IR__P2__s0",
+  "passed": false,
+  "reference_c_sha256": "5d2021e0468bd67b62250423dcde6cb4cb875b1a651b15c430a987897c03b766",
+  "reference_ir_sha256": "b439428a29be4115128be47697ad38173c9c1c68d6fb5823c5cf17ba27681c1b",
+  "size": "MINI",
+  "source_sha256": "70fb0165baf6bb01a8af1aaa07b0200e53339f736c14bf74cf61eacaf2cb3cef",
+  "status": "rejected",
+  "task": "trmm"
+}

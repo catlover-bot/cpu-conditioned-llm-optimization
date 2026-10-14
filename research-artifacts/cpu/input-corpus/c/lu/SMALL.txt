@@ -1,0 +1,31 @@
+カーネル: lu
+サイズ条件: SMALL
+数値寸法: {"N": 120}
+
+static
+void kernel_lu(int n,
+	       DATA_TYPE POLYBENCH_2D(A,N,N,n,n))
+{
+  int i, j, k;
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (i = 0; i < _PB_N; i++) {
+    /* CPUCOND_LOOP_01 */
+for (j = 0; j <i; j++) {
+       /* CPUCOND_LOOP_02 */
+for (k = 0; k < j; k++) {
+          A[i][j] -= A[i][k] * A[k][j];
+       }
+        A[i][j] /= A[j][j];
+    }
+   /* CPUCOND_LOOP_03 */
+for (j = i; j < _PB_N; j++) {
+       /* CPUCOND_LOOP_04 */
+for (k = 0; k < i; k++) {
+          A[i][j] -= A[i][k] * A[k][j];
+       }
+    }
+  }
+#pragma endscop
+}

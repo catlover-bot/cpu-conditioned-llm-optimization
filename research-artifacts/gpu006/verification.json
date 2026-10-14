@@ -1,0 +1,66 @@
+{
+  "API_calls": 0,
+  "compilations": 0,
+  "limits": [
+    "Four controller tests require omitted private deployment bindings and are explicitly skipped.",
+    "Public pilot format-failure test preserves controller API acceptance and terminal/no-repeat assertions; private worker handoff portion omitted.",
+    "Original private live CLI and worker suites excluded because operational runner/worker are not published.",
+    "Historical private test counts are not claimed as current public results.",
+    "Numerical GPU/compiler functions are preserved source-only; no compiler or GPU was used."
+  ],
+  "new_measurements": 0,
+  "reanalyze": {
+    "all_l4_quality_valid_candidates": 253,
+    "baseline_geomeans_recomputed": 6,
+    "command": "python3 -B tools/research_protocols/gpu006/reanalyze.py --check",
+    "invalid_generation": 15,
+    "measurement_cells": 1020,
+    "new_candidate_A40": "not_measured",
+    "paired_contrast_cells": 800,
+    "planned_ids": 270,
+    "saved_candidate_files": 255,
+    "status": "passed",
+    "valid_measurement_cells": 1018,
+    "within_model_contrast_summaries_recomputed": 24
+  },
+  "schema": "gpu006-public-offline-verification-v1",
+  "server_connections": 0,
+  "suites": [
+    {
+      "command": "python3 -B -m unittest discover -s tools/research_protocols/gpu006 -p test_public_data.py",
+      "discovered": 4,
+      "passed": 4,
+      "skipped": 0
+    },
+    {
+      "command": "python3 -B -m unittest discover -s runs/gpu006-backup-v1 -p test_verify_backup.py",
+      "discovered": 28,
+      "passed": 28,
+      "skipped": 0
+    },
+    {
+      "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_providers.py",
+      "discovered": 58,
+      "passed": 58,
+      "skipped": 0
+    },
+    {
+      "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_controller.py",
+      "discovered": 25,
+      "passed": 21,
+      "skipped": 4
+    },
+    {
+      "command": "python3 -B -m unittest discover -s runs/gpu006-cloud180-v1 -p test_pilot.py",
+      "discovered": 18,
+      "passed": 18,
+      "skipped": 0
+    }
+  ],
+  "totals": {
+    "discovered": 133,
+    "passed": 129,
+    "skipped": 4
+  },
+  "verified_date": "2026-10-14"
+}

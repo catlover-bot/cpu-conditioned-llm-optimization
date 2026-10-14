@@ -1,0 +1,43 @@
+{
+  "kernel_id": "correlation",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 91,
+  "candidates_admitted": 82,
+  "unique_machine_code_groups": 37,
+  "nonidentity_representatives_measured": 36,
+  "aliases_to_identity": 46,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9994932601415976,
+      "paired_speedup_iqr": 0.0033074261366778934,
+      "reference_batch_median_ns": 9814733.0,
+      "candidate_batch_median_ns": 9821073.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9998694723453916,
+      "paired_speedup_iqr": 0.0024595186755661524,
+      "reference_batch_median_ns": 9823653.5,
+      "candidate_batch_median_ns": 9830339.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1
+    }
+  ],
+  "formal_equivalence_proven": false
+}

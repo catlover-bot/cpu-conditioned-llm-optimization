@@ -1,0 +1,43 @@
+{
+  "kernel_id": "adi",
+  "size": "MEDIUM_DATASET",
+  "size_label": "MEDIUM",
+  "candidate_ids_requested": 71,
+  "candidates_admitted": 71,
+  "unique_machine_code_groups": 29,
+  "nonidentity_representatives_measured": 28,
+  "aliases_to_identity": 43,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 1,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0022400962447804,
+      "paired_speedup_iqr": 0.00648101752681729,
+      "reference_batch_median_ns": 84064600.5,
+      "candidate_batch_median_ns": 83753858.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 1
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9991339669631908,
+      "paired_speedup_iqr": 0.0066298138819429475,
+      "reference_batch_median_ns": 83684765.5,
+      "candidate_batch_median_ns": 83843755.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 1
+    }
+  ],
+  "formal_equivalence_proven": false
+}

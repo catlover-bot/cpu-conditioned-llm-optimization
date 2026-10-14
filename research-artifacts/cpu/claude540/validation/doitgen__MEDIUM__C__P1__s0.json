@@ -1,0 +1,13 @@
+{
+  "condition": "P1",
+  "errors": [],
+  "form": "C",
+  "id": "doitgen__MEDIUM__C__P1__s0",
+  "passed": true,
+  "reference_c_sha256": "1c632a765f496c10a4316a62b9cf4a32738b8f2abb5513623d8abe807290e1c7",
+  "reference_ir_sha256": "3b5b5fd2e6eac8680f496ad18cfedbc160d2158d9de3fa4ce4c115da2e2a0df4",
+  "size": "MEDIUM",
+  "source_sha256": "fc9f82cb2ef2d4a7466bc5fbd9e4db1c1a545e5427c7e4f29ce7fde9858c2a4b",
+  "status": "checked",
+  "task": "doitgen"
+}

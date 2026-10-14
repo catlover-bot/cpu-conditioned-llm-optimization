@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "jacobi-1d__MINI__IR__P2__s0",
+  "passed": false,
+  "reference_c_sha256": "7122139daf805688ca175ab1ac86bb52805b818b0bb4c5fdc1518fbdb24cb222",
+  "reference_ir_sha256": "8d2e45389330193ef97bc97f32bf50d980175c9c74242770a3195df74652150c",
+  "size": "MINI",
+  "source_sha256": "0780eee581fde1efabc34b70582a352c7b8709e6d8102eff1d9c8c4404c334b4",
+  "status": "checked",
+  "task": "jacobi-1d"
+}

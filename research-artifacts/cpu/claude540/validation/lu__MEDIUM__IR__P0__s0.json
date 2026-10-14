@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "lu__MEDIUM__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "bb05e67aff0cc521eff14f88dde3a5ea8d85a0cebae594b7b10413821922e345",
+  "reference_ir_sha256": "a3e41f8d5d2a8bf97aeb60b7ced4ef85be2f1c5b53ed483d234c18a953d688ad",
+  "size": "MEDIUM",
+  "source_sha256": "9d93dd7476f061c35f078e4d1f96afef1a07294f9204c593b9b3f3cfd3011af9",
+  "status": "checked",
+  "task": "lu"
+}

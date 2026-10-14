@@ -1,0 +1,1 @@
+{"condition":"P1","errors":[],"form":"C","id":"gemm__SMALL__C__P1__s0","measurement_valid":false,"quality_reasons":[],"report_label":"Z1","size":"SMALL","source_sha256":"235db9b978d662b37296ada55b21b8b059348b444f1440e3f3a2931c94434937","speedup":null,"stage":"excluded_by_stage16c","stage16c_correctness_pass":false,"task":"gemm"}

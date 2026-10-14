@@ -1,0 +1,15 @@
+{
+  "condition": "P2",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "deriche__SMALL__IR__P2__s0",
+  "passed": false,
+  "reference_c_sha256": "c64460ced73bda3881fa3138f63d4d8feda1ccf72f049fb3f86dda4e0dbbf734",
+  "reference_ir_sha256": "b2b52284b2379de2f779ad9dba52d34903b05f5a2db02786304c37b2e55d604f",
+  "size": "SMALL",
+  "source_sha256": "09b9a02858336180ef4374742cf08df21b1e76a4fa2669de75b14bc4dc9dedb5",
+  "status": "rejected",
+  "task": "deriche"
+}

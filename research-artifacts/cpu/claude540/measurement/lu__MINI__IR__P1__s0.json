@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "aef7d9b5f0d1d4c32f4868fc35d4913cc6aec2a2dc206014b3143dc26afca55f",
+  "candidate_object_sha256": "1f385e65d7a9fae50148e08d9b02cdcc1830eca00412cbec451ead2f9faa93d9",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "lu__MINI__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 0.7903617628314203
+}

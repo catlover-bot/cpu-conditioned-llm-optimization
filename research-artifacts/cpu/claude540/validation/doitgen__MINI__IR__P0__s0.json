@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "doitgen__MINI__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "1c632a765f496c10a4316a62b9cf4a32738b8f2abb5513623d8abe807290e1c7",
+  "reference_ir_sha256": "3b5b5fd2e6eac8680f496ad18cfedbc160d2158d9de3fa4ce4c115da2e2a0df4",
+  "size": "MINI",
+  "source_sha256": "2cf9a8c385d43761ae55aa3f69ed2b5668c13fe45d48799e9fcbc8f0c8d6305a",
+  "status": "checked",
+  "task": "doitgen"
+}

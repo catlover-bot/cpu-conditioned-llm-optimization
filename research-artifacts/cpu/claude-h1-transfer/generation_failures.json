@@ -1,0 +1,18 @@
+[
+  {
+    "custom_id": "syr2k__MINI__C__H1__s0",
+    "errors": [
+      "invalid_response_format"
+    ],
+    "generation_status": "invalid_generation",
+    "stop_reason": "end_turn"
+  },
+  {
+    "custom_id": "syr2k__SMALL__C__H1__s0",
+    "errors": [
+      "invalid_response_format"
+    ],
+    "generation_status": "invalid_generation",
+    "stop_reason": "end_turn"
+  }
+]

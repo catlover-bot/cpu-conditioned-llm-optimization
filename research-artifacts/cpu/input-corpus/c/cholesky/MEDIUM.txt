@@ -1,0 +1,33 @@
+カーネル: cholesky
+サイズ条件: MEDIUM
+数値寸法: {"N": 400}
+
+static
+void kernel_cholesky(int n,
+		     DATA_TYPE POLYBENCH_2D(A,N,N,n,n))
+{
+  int i, j, k;
+
+
+#pragma scop
+  /* CPUCOND_LOOP_00 */
+for (i = 0; i < _PB_N; i++) {
+     //j<i
+     /* CPUCOND_LOOP_01 */
+for (j = 0; j < i; j++) {
+        /* CPUCOND_LOOP_02 */
+for (k = 0; k < j; k++) {
+           A[i][j] -= A[i][k] * A[j][k];
+        }
+        A[i][j] /= A[j][j];
+     }
+     // i==j case
+     /* CPUCOND_LOOP_03 */
+for (k = 0; k < i; k++) {
+        A[i][i] -= A[i][k] * A[i][k];
+     }
+     A[i][i] = SQRT_FUN(A[i][i]);
+  }
+#pragma endscop
+
+}

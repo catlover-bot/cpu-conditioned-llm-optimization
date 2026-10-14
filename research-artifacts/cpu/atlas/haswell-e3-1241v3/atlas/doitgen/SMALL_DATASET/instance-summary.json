@@ -1,0 +1,43 @@
+{
+  "kernel_id": "doitgen",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 51,
+  "candidates_admitted": 48,
+  "unique_machine_code_groups": 24,
+  "nonidentity_representatives_measured": 23,
+  "aliases_to_identity": 25,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 32,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9990880867272791,
+      "paired_speedup_iqr": 0.0010623098483838467,
+      "reference_batch_median_ns": 9636454.5,
+      "candidate_batch_median_ns": 9649346.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 32
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9980402952545195,
+      "paired_speedup_iqr": 0.002594564054576143,
+      "reference_batch_median_ns": 9632274.0,
+      "candidate_batch_median_ns": 9648764.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 32
+    }
+  ],
+  "formal_equivalence_proven": false
+}

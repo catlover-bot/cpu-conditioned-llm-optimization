@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "1b65f9443e9f8db103a5e3fa84a2a34bbfd71b762b4ed11acab25cd2963bd43e",
+  "candidate_object_sha256": "1b65f9443e9f8db103a5e3fa84a2a34bbfd71b762b4ed11acab25cd2963bd43e",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "deriche__MEDIUM__C__P0__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.001602209794171
+}

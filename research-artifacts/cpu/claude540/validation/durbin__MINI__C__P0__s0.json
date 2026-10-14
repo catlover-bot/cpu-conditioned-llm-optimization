@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "C",
+  "id": "durbin__MINI__C__P0__s0",
+  "passed": true,
+  "reference_c_sha256": "a30d28c398e302d33f2b1a886c8e0b7fd6bd34f91626725e4c8f530282d7183a",
+  "reference_ir_sha256": "4900326e0980be4a9aa606d78ec9bdf7b743fce2f44ce914318c36be5d9ec453",
+  "size": "MINI",
+  "source_sha256": "7fb63796e00c5f6916b93268a82f4de822921e254c5b0fa8ba1f95edd7cc39c9",
+  "status": "checked",
+  "task": "durbin"
+}

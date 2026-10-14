@@ -1,0 +1,11 @@
+{
+  "baseline_object_sha256": "a71fe34c435d685afedeb5718d9274c34fd063e187f0ed25315ee1314d6efaa2",
+  "candidate_object_sha256": "5e3ab7f90a3304825e682e45f1f0425e3add6150ff91c31a9ff9379a22f1965d",
+  "correctness_scope": "passed",
+  "errors": [],
+  "formal_equivalence_proven": false,
+  "id": "ludcmp__MINI__IR__P1__s0",
+  "measurement_valid": true,
+  "provisional": true,
+  "speedup": 1.001331042189406
+}

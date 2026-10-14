@@ -1,0 +1,320 @@
+{
+  "protocol_id": "cpu-conditioned-final-v1.3",
+  "status": "FROZEN_BEFORE_RESTARTED_FINAL_CANDIDATE_TIMING_AFTER_HASWELL_HOST_REPLACEMENT",
+  "research_question": "Under a fixed correctness contract and a target-aware compiler, does additional static CPU information help an LLM select a better legal loop optimization for the specified physical CPU?",
+  "physical_hosts": {
+    "required": 2,
+    "hosts": [
+      "Intel Haswell-class: Xeon E3-1241 v3 (family 6 model 60 stepping 3)",
+      "AMD Zen2-class: exact rented CPU recorded at acceptance"
+    ],
+    "optional_third_host": "Intel Ice Lake/AVX-512-class",
+    "comparison_rule": "within-host performance only"
+  },
+  "dataset": {
+    "suite": "PolyBench/C 4.2.1-beta",
+    "kernels": "all_30",
+    "performance_sizes": [
+      "MINI",
+      "SMALL",
+      "MEDIUM"
+    ],
+    "performance_initializer": "official_PolyBench_initializer",
+    "pilot_six_kernel_results": "development_only_not_main_statistics",
+    "main_instance_count": 90,
+    "main_candidate_instance_count": 4740,
+    "resource_excluded_from_exhaustive_main": [
+      "LARGE",
+      "EXTRALARGE"
+    ],
+    "resource_exclusion_reason": "Reference-only preflight exceeded the preregistered resource rule before any candidate timing."
+  },
+  "compiler_contract": {
+    "compiler_family": "Clang/LLVM 18",
+    "require_same_version_across_hosts": true,
+    "flags": [
+      "-O3",
+      "-march=native",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fno-lto"
+    ],
+    "compiler_knows_target_in_all_P0_P1_P2_conditions": true
+  },
+  "candidate_space": {
+    "policy": "single compiler hint on exactly one syntactic loop",
+    "identity": true,
+    "hints": {
+      "unroll_count": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "interleave_count": [
+        2,
+        4,
+        8
+      ],
+      "vectorize_width": [
+        2,
+        4,
+        8
+      ]
+    },
+    "candidate_ids_fixed_before_any_final_timing": true,
+    "same_candidate_ids_across_hosts": true,
+    "no_arbitrary_C_rewrite": true,
+    "no_arithmetic_reassociation_request": true,
+    "machine_code_hash_each_candidate": true,
+    "deduplicate_equal_function_bytes_for_measurement": true,
+    "retain_original_candidate_id_for_LLM_scoring": true
+  },
+  "correctness_gate": {
+    "main_30x3_exhaustive_atlas": {
+      "scope": {
+        "kernels": 30,
+        "sizes": [
+          "MINI",
+          "SMALL",
+          "MEDIUM"
+        ],
+        "instances": 90
+      },
+      "initializer": "official_PolyBench_initializer",
+      "oracle": {
+        "profile": "O0_strict_FP",
+        "role": "reference_live_out_oracle"
+      },
+      "candidate_profiles": [
+        "generic_O3",
+        "native_O3_march_native",
+        "ASan_UBSan"
+      ],
+      "observables": "all_official_PolyBench_live_out_arrays",
+      "encoding": "lossless_raw_DATA_TYPE_element_bytes_from_instrumented_PolyBench_print_array",
+      "comparison": "exact_byte_equality",
+      "readonly_inputs_checked": false,
+      "special_FP_stress_inputs": false,
+      "negative_control": "per_instance_validator_corruption_control_must_be_rejected",
+      "failed_candidate_timed": false
+    },
+    "six_kernel_stress_supplement": {
+      "kernels": [
+        "gemm",
+        "atax",
+        "jacobi-2d",
+        "trisolv",
+        "nussinov",
+        "correlation"
+      ],
+      "role": "stronger_correctness_evidence_not_main_performance_dataset",
+      "full_state_exact_byte_comparison": true,
+      "readonly_inputs_checked": true,
+      "profiles": [
+        "generic_O3",
+        "native_O3_march_native",
+        "ASan_UBSan"
+      ],
+      "special_FP_inputs": [
+        "full_mantissa_finite_values",
+        "cancellation",
+        "signed_zero",
+        "subnormals"
+      ],
+      "existing_pilot_evidence_may_be_reused": true
+    },
+    "formal_equivalence_claim": false,
+    "claim_boundary": "The 30-kernel main gate checks every official PolyBench live-out value exactly under the official initializer. The six-kernel supplement additionally checks full state, readonly inputs, and adversarial FP inputs. Neither constitutes universal formal equivalence."
+  },
+  "measurement": {
+    "primary_metric": "paired_batch_throughput",
+    "initial_target_batch_ms": 5,
+    "sessions": 2,
+    "pairs_per_candidate_per_session": 8,
+    "quality_thresholds": {
+      "relative_iqr": 0.1,
+      "identity_log_effect_limit": "log(1.02)",
+      "between_session_log_change_limit": "log(1.03)"
+    },
+    "pre_registered_escalation": {
+      "trigger": "identity_control_has_any_quality_warning_for_instance",
+      "action": "rerun_entire_instance_all_candidates_once",
+      "new_target_batch_ms": 20,
+      "second_failure": "invalidate_entire_instance",
+      "candidate_specific_failure_with_clean_identity": "mark_candidate_invalid_no_selective_rerun",
+      "implementation": {
+        "trigger_source": "identity_control_only",
+        "second_target_ms": 20,
+        "rerun_scope": "entire_instance_all_machine_code_representatives",
+        "second_identity_failure": "invalidate_entire_instance"
+      }
+    },
+    "environment": {
+      "performance_governor": true,
+      "turbo_or_boost": "disabled_and_recorded",
+      "SMT": "disabled_for_final_measurement_if_supported",
+      "background_package_updates": "stopped_during_measurement",
+      "LLM_inference_on_target_host": false
+    },
+    "implementation_contract": {
+      "timer": "CLOCK_MONOTONIC_RAW",
+      "batch_definition": "sum_of_kernel_only_durations_over_K_independent_reinitializations_in_one_process",
+      "state_reset": "call_original_PolyBench_init_array_before_each_kernel_repetition_outside_timed_region",
+      "initial_calibration": {
+        "uses": "reference_only",
+        "target_ms": 5,
+        "repetitions_per_K": 3,
+        "K_sequence": "powers_of_two",
+        "max_K": 16384
+      },
+      "warmup": "one_untimed_initialized_kernel_call_per_measurement_process_before_measured_batch",
+      "paired_order": "balanced_reference_candidate",
+      "schedule_seed": 51054,
+      "candidate_observation_timeout_seconds": 60,
+      "timeout_policy": "mark_candidate_measurement_invalid_no_selective_rerun",
+      "function_boundary": {
+        "kernel": "noinline",
+        "machine_code_hash": true,
+        "deduplicate_equal_function_bytes_per_host_and_instance": true
+      }
+    }
+  },
+  "hardware_information_conditions": {
+    "P0": {
+      "target_specific_CPU_information": "none"
+    },
+    "P1": {
+      "fields": [
+        "CPU_model_name",
+        "microarchitecture_name"
+      ]
+    },
+    "P2": {
+      "fields": [
+        "CPU_model_name",
+        "microarchitecture_name",
+        "L1D_size",
+        "L1I_size",
+        "L2_size",
+        "L3_size",
+        "cache_line_size",
+        "supported_relevant_ISA",
+        "physical_core_count",
+        "hardware_thread_count",
+        "SMT_capability",
+        "NUMA_topology"
+      ],
+      "exclude": [
+        "measured_candidate_speedups",
+        "atlas_rankings",
+        "performance_counters",
+        "previous_LLM_answers"
+      ]
+    }
+  },
+  "llm_evaluation": {
+    "models": [
+      {
+        "family": "Qwen",
+        "role": "local_open_baseline",
+        "current_model": "qwen2.5-coder:7b-instruct-q4_K_M"
+      },
+      {
+        "family": "GPT",
+        "role": "proprietary_strong_model",
+        "exact_model_id": "freeze_at_LLM_run_time"
+      },
+      {
+        "family": "Claude",
+        "role": "proprietary_strong_model",
+        "exact_model_id": "freeze_at_LLM_run_time"
+      },
+      {
+        "family": "Gemini",
+        "role": "proprietary_strong_model",
+        "exact_model_id": "freeze_at_LLM_run_time"
+      }
+    ],
+    "conditions": [
+      "P0",
+      "P1",
+      "P2"
+    ],
+    "independent_samples_per_condition": 3,
+    "output": "candidate_id_only_structured_JSON",
+    "no_performance_feedback_in_main_experiment": true,
+    "main_analysis": "within_model_P0_vs_P1_vs_P2"
+  },
+  "primary_outcomes": [
+    "oracle_regret",
+    "near_oracle_hit_rate",
+    "speedup_over_reference",
+    "probability_of_selecting_faster_than_reference",
+    "machine_code_noop_selection_rate",
+    "CPU_specific_oracle_separability"
+  ],
+  "secondary_experiment": {
+    "name": "feedback_masks_hardware_context",
+    "conditions": [
+      "P0",
+      "P2"
+    ],
+    "execution": "offline_using_frozen_atlas",
+    "requires_new_CPU_measurement": false
+  },
+  "anti_leakage": {
+    "LLM_never_sees_atlas_speedups": true,
+    "LLM_never_sees_oracle_rank": true,
+    "candidate_space_frozen_before_final_atlas": true,
+    "measurement_rules_frozen_before_final_atlas": true
+  },
+  "supersedes": "cpu-conditioned-final-v1.2",
+  "resource_preflight": {
+    "physical_host": "Intel Xeon E3-1240 v3 / Haswell",
+    "instances_planned": 150,
+    "instances_ok": 120,
+    "instances_timeout": 30,
+    "instances_failed": 0,
+    "five_size_floor_hours": 177.12239531555548,
+    "selected_three_size_floor_hours": 0.39919362666666675,
+    "selected_candidate_instances": 4740,
+    "summary_sha256": "bb95a8ac932ed0a07e28e789361ed47549d71dde1be53cc1ce9058290463532c",
+    "decision_file": "configs/final-resource-decision-v1.1.json"
+  },
+  "host_replacement_amendment": {
+    "reason": "Original Xeon E3-1240 v3 host was lost after provider balance-expiry termination before the final atlas completed.",
+    "old_host": "Intel Xeon E3-1240 v3",
+    "old_final_run_status": "invalid_incomplete_run; at least 59/90 instances completed; not used in final statistics",
+    "replacement_host": "Intel Xeon E3-1241 v3",
+    "replacement_identity": {
+      "microarchitecture": "Haswell",
+      "cpu_family": 6,
+      "cpu_model": 60,
+      "stepping": 3,
+      "physical_cores": 4,
+      "hardware_threads_before_SMT_disable": 8,
+      "base_frequency_ghz": 3.5,
+      "L1D_per_core": "32 KiB",
+      "L1I_per_core": "32 KiB",
+      "L2_per_core": "256 KiB",
+      "L3_shared": "8 MiB",
+      "cache_line_bytes": 64,
+      "relevant_ISA": [
+        "AVX",
+        "AVX2",
+        "FMA"
+      ]
+    },
+    "candidate_performance_on_replacement_seen_before_amendment": false,
+    "llm_outputs_seen_before_amendment": false,
+    "unchanged": [
+      "dataset",
+      "candidate_space",
+      "correctness_gate",
+      "measurement_rules",
+      "hardware_information_conditions",
+      "llm_evaluation"
+    ]
+  }
+}

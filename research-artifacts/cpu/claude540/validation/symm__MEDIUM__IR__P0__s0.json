@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "symm__MEDIUM__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "977afc7932f04c3f01038c49044b4725a8e22d3ce6bf06b699cca1ef6647ff46",
+  "reference_ir_sha256": "250db04f1b8df72f8e5f09075aefdb2251603d50e6db23a75dda9e92918900cb",
+  "size": "MEDIUM",
+  "source_sha256": "61b04e34e82a11f0a3e0ef06251dc9e2bd4b5af6eed97479ef676464b39b5a52",
+  "status": "checked",
+  "task": "symm"
+}

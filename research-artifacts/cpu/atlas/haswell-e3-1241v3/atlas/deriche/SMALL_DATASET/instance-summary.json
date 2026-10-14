@@ -1,0 +1,43 @@
+{
+  "kernel_id": "deriche",
+  "size": "SMALL_DATASET",
+  "size_label": "SMALL",
+  "candidate_ids_requested": 121,
+  "candidates_admitted": 121,
+  "unique_machine_code_groups": 54,
+  "nonidentity_representatives_measured": 53,
+  "aliases_to_identity": 68,
+  "initial_identity_triggered_escalation": false,
+  "escalated": false,
+  "instance_valid": true,
+  "final_target_ns": 5000000,
+  "final_k": 16,
+  "candidate_representatives_invalid_no_rerun": [],
+  "identity_summaries": [
+    {
+      "pairs": 8,
+      "median_paired_speedup": 1.0029739474929618,
+      "paired_speedup_iqr": 0.0218345974982167,
+      "reference_batch_median_ns": 5078928.5,
+      "candidate_batch_median_ns": 5049518.5,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 0,
+      "batch_count": 16
+    },
+    {
+      "pairs": 8,
+      "median_paired_speedup": 0.9956901297690652,
+      "paired_speedup_iqr": 0.021492011040121994,
+      "reference_batch_median_ns": 5055183.5,
+      "candidate_batch_median_ns": 5087060.0,
+      "quality_warnings": [],
+      "measurement_valid": true,
+      "candidate_id": "identity",
+      "session": 1,
+      "batch_count": 16
+    }
+  ],
+  "formal_equivalence_proven": false
+}

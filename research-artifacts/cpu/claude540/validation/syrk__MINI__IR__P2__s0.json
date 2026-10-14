@@ -1,0 +1,13 @@
+{
+  "condition": "P2",
+  "errors": [],
+  "form": "IR",
+  "id": "syrk__MINI__IR__P2__s0",
+  "passed": true,
+  "reference_c_sha256": "bb17095de2fe8aaf08113cc70b4f46f7de436f57d53868d3f324de81c4833cc5",
+  "reference_ir_sha256": "3bf4aaceb1895739a3bd11cbdd1c28b5a4f4209dc3186bca47a1885542e057c2",
+  "size": "MINI",
+  "source_sha256": "173d14345b7020f70df0026eb2158881f1742ad270ad1d68fcc714af10801176",
+  "status": "checked",
+  "task": "syrk"
+}

@@ -1,0 +1,13 @@
+{
+  "condition": "P0",
+  "errors": [],
+  "form": "IR",
+  "id": "floyd-warshall__MINI__IR__P0__s0",
+  "passed": false,
+  "reference_c_sha256": "f566fc668295223b0a56e556a654f337ce6e6092829d44469b1fa8c0ebb711de",
+  "reference_ir_sha256": "7657f4d32a7d6a13405cfd4d0bc576f1129ce8340a60c4feb9b6597c6e480c45",
+  "size": "MINI",
+  "source_sha256": "bb05923877fe415a9fff99c7444548c3a10717048c5898f88e76d3366fae2481",
+  "status": "checked",
+  "task": "floyd-warshall"
+}

@@ -1,0 +1,15 @@
+{
+  "condition": "P1",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "gemver__MINI__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "32cdf8a99dd135d74763d45d55b8ead9cfe96965bb8911b489d7d10ef89a9866",
+  "reference_ir_sha256": "cb47eaecfed513b13a67e5727accb1d5ca7a54cece41a73cdbef8aa135ddb180",
+  "size": "MINI",
+  "source_sha256": "6ba9715c546bd463bf6c28f993de0735ba8d6f172fea350e28b3bef6a9b2aa1d",
+  "status": "rejected",
+  "task": "gemver"
+}

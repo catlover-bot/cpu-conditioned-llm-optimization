@@ -1,0 +1,15 @@
+{
+  "condition": "P1",
+  "errors": [
+    "policy_forbidden_side_effect_or_intrinsic"
+  ],
+  "form": "IR",
+  "id": "adi__MEDIUM__IR__P1__s0",
+  "passed": false,
+  "reference_c_sha256": "1cfcbabcee14ebf7584004232d00b910652335d383e33154724907f1ce15d906",
+  "reference_ir_sha256": "b62551cd90d79dc7639f6efa8f92324c1d550173f0dfb2e77c7362d4450360b1",
+  "size": "MEDIUM",
+  "source_sha256": "37db8d947a12b662ae4d9074746a119c6185d0fd0760ec10868950362f17509c",
+  "status": "rejected",
+  "task": "adi"
+}
